@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{78EABF65-436B-4596-A242-E33FBD107168}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Data</RootNamespace>
+    <AssemblyName>Data</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ProjectSources.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="key.snk" />
+    <None Include="ProjectSources\cmake\AMXX\cmake\Definitions.cmake" />
+    <None Include="ProjectSources\cmake\AMXX\cmake\GCC.cmake" />
+    <None Include="ProjectSources\cmake\AMXX\cmake\Intel.cmake" />
+    <None Include="ProjectSources\cmake\AMXX\cmake\Tools.cmake" />
+    <None Include="ProjectSources\cmake\Metamod\cmake\Definitions.cmake" />
+    <None Include="ProjectSources\cmake\Metamod\cmake\GCC.cmake" />
+    <None Include="ProjectSources\cmake\Metamod\cmake\Intel.cmake" />
+    <None Include="ProjectSources\cmake\Metamod\cmake\Tools.cmake" />
+    <None Include="ProjectSources\msvc\PropertySheets\UserMacros.props" />
+    <None Include="ProjectSources\third_party\update_amxx.sh" />
+    <None Include="ProjectSources\third_party\update_cssdk.sh" />
+    <None Include="ProjectSources\third_party\update_metamod.sh" />
+    <None Include="ProjectTemplates\AMXX\Template\Project.vcxproj" />
+    <None Include="ProjectTemplates\Metamod\Template\Project.vcxproj" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="Resources\ProjectSources.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Config\Config.csproj">
+      <Project>{3ad01ea1-37dd-438f-92f0-3da01880a628}</Project>
+      <Name>Config</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProjectTemplates\Metamod\Template\resource.h" />
+    <None Include="ProjectTemplates\Metamod\Template\resources.rc" />
+    <None Include="ProjectTemplates\Metamod\Template\Template.vstemplate" />
+    <None Include="ProjectTemplates\Metamod\Wizard.vstemplate" />
+    <None Include="ProjectTemplates\Metamod\__PreviewImage.ico" />
+    <None Include="ProjectTemplates\Metamod\__TemplateIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProjectSources\.gitattributes" />
+    <None Include="ProjectSources\.gitignore" />
+    <None Include="ProjectSources\main\Metamod\main.cpp" />
+    <None Include="ProjectSources\main\Metamod\main_regamedll.cpp" />
+    <None Include="ProjectSources\main\Metamod\main_rehlds.cpp" />
+    <None Include="ProjectSources\main\Metamod\main_rehlds_regamedll.cpp" />
+    <None Include="ProjectSources\msvc\module_definition.def" />
+    <None Include="ProjectSources\sdk\amxx\include\amxx\amxx_config.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProjectTemplates\Metamod\Template\Project.vcxproj.filters" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProjectSources\regamedll\AMXX\regamedll_api.cpp" />
+    <None Include="ProjectSources\regamedll\AMXX\regamedll_api.h" />
+    <None Include="ProjectSources\regamedll\Metamod\regamedll_api.cpp" />
+    <None Include="ProjectSources\regamedll\Metamod\regamedll_api.h" />
+    <None Include="ProjectSources\rehlds\AMXX\rehlds_api.cpp" />
+    <None Include="ProjectSources\rehlds\AMXX\rehlds_api.h" />
+    <None Include="ProjectSources\rehlds\Metamod\rehlds_api.cpp" />
+    <None Include="ProjectSources\rehlds\Metamod\rehlds_api.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProjectSources\main\AMXX\main.cpp" />
+    <None Include="ProjectSources\main\AMXX\main_regamedll.cpp" />
+    <None Include="ProjectSources\main\AMXX\main_rehlds.cpp" />
+    <None Include="ProjectSources\main\AMXX\main_rehlds_regamedll.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProjectTemplates\AMXX\Template\Project.vcxproj.filters" />
+    <None Include="ProjectTemplates\AMXX\Template\resource.h" />
+    <None Include="ProjectTemplates\AMXX\Template\resources.rc" />
+    <None Include="ProjectTemplates\AMXX\Template\Template.vstemplate" />
+    <None Include="ProjectTemplates\AMXX\Wizard.vstemplate" />
+    <None Include="ProjectTemplates\AMXX\__PreviewImage.ico" />
+    <None Include="ProjectTemplates\AMXX\__TemplateIcon.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="ProjectSources\cmake\AMXX\CMakeLists.txt" />
+    <None Include="ProjectSources\cmake\AMXX\CMakeLists_rehlds_regamedll.txt" />
+    <None Include="ProjectSources\cmake\Metamod\CMakeLists.txt" />
+    <None Include="ProjectSources\cmake\Metamod\CMakeLists_rehlds_regamedll.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProjectSources\sdk\metamod\include\metamod\metamod_config.h" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>powershell.exe -nologo -noprofile -command Compress-Archive -Path '$(ProjectDir)ProjectSources\*' -DestinationPath '$(ProjectDir)Resources\ProjectSources.zip' -Force</PreBuildEvent>
+  </PropertyGroup>
+</Project>

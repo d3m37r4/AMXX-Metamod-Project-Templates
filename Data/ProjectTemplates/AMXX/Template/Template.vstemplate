@@ -1,0 +1,26 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>AMXX Module</Name>
+    <Description>A project for creating an AMXX module.</Description>
+    <ProjectType>VC</ProjectType>
+    <LanguageTag>C++</LanguageTag>
+    <PlatformTag>Windows</PlatformTag>
+    <PlatformTag>Linux</PlatformTag>
+    <ProjectTypeTag>Library</ProjectTypeTag>
+    <ProjectTypeTag>GoldSrc</ProjectTypeTag>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Amxx Module</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Hidden>true</Hidden>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Project.vcxproj" File="Project.vcxproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="$projectname$.vcxproj.filters">Project.vcxproj.filters</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="resource.h">resource.h</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="resources.rc">resources.rc</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

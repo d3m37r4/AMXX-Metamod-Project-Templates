@@ -1,0 +1,29 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+  <TemplateData>
+    <Name>AMXX Module</Name>
+    <Description>A project for creating an AMXX module.</Description>
+    <ProjectType>VC</ProjectType>
+    <LanguageTag>C++</LanguageTag>
+    <PlatformTag>Windows</PlatformTag>
+    <PlatformTag>Linux</PlatformTag>
+    <ProjectTypeTag>Library</ProjectTypeTag>
+    <ProjectTypeTag>GoldSrc</ProjectTypeTag>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Amxx Module</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+    <PreviewImage>__PreviewImage.ico</PreviewImage>
+  </TemplateData>
+  <TemplateContent>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>Wizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=6021610dc068b2bb</Assembly>
+    <FullClassName>Wizard.WizardImplementation</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    Amxx
+  </WizardData>
+</VSTemplate>
