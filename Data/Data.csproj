@@ -148,6 +148,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>powershell.exe -nologo -noprofile -command Compress-Archive -Path '$(ProjectDir)ProjectSources\*' -DestinationPath '$(ProjectDir)Resources\ProjectSources.zip' -Force</PreBuildEvent>
+    <PreBuildEvent>if not exist "$(ProjectDir)Resources" mkdir "$(ProjectDir)Resources"
+powershell.exe -nologo -noprofile -command Compress-Archive -Path '$(ProjectDir)ProjectSources\*' -DestinationPath '$(ProjectDir)Resources\ProjectSources.zip' -Force
+</PreBuildEvent>
   </PropertyGroup>
 </Project>

@@ -447,3 +447,11 @@ dkms.conf
 *.exe
 *.out
 *.app
+
+#################
+# Miscellaneous	#
+#################
+
+Data/Resources/ProjectSources.zip
+Wizard/ProjectTemplates/AmxxModule.zip
+Wizard/ProjectTemplates/MetamodPlugin.zip
