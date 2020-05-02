@@ -18,7 +18,7 @@ constexpr auto REGAMEDLL_API_VERSION_MAJOR = 5;
 
 /// <summary>
 /// </summary>
-constexpr auto REGAMEDLL_API_VERSION_MINOR = 15;
+constexpr auto REGAMEDLL_API_VERSION_MINOR = 16;
 
 /// <summary>
 /// </summary>
@@ -449,8 +449,8 @@ using ReHookPlayerDropIdlePlayer = HookChainClass<void, PlayerBase, const char*>
 using ReHookRegistryPlayerDropIdlePlayer = HookChainClassRegistry<void, PlayerBase, const char*>;
 
 // CreateWeaponBox hook
-using ReHookCreateWeaponBox = HookChain<WeaponBox*, PlayerItemBase*, PlayerBase*, const char*, const Vector&, const Vector&, const Vector&, float, bool>;
-using ReHookRegistryCreateWeaponBox = HookChainRegistry<WeaponBox*, PlayerItemBase*, PlayerBase*, const char*, const Vector&, const Vector&, const Vector&, float, bool>;
+using ReHookCreateWeaponBox = HookChain<WeaponBox*, PlayerItemBase*, PlayerBase*, const char*, Vector&, Vector&, Vector&, float, bool>;
+using ReHookRegistryCreateWeaponBox = HookChainRegistry<WeaponBox*, PlayerItemBase*, PlayerBase*, const char*, Vector&, Vector&, Vector&, float, bool>;
 
 /// <summary>
 /// Class RegamedllHookChains.

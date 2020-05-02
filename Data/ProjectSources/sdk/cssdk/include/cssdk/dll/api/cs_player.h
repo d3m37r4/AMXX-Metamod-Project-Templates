@@ -257,6 +257,10 @@ public:
 
 	/// <summary>
 	/// </summary>
+	bool can_shoot_override{};
+
+	/// <summary>
+	/// </summary>
 	[[nodiscard]] PlayerBase* player_base() const
 	{
 		return reinterpret_cast<PlayerBase*>(this->containing_entity);
