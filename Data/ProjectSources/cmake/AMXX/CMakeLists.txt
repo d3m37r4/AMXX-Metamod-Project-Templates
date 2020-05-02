@@ -91,6 +91,9 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
 
 target_compile_features(${CMAKE_PROJECT_NAME} PUBLIC cxx_std_17)
 
+include(CheckIPOSupported)
+check_ipo_supported() # Fatal error if IPO is not supported.
+
 set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES
     POSITION_INDEPENDENT_CODE ON
     VISIBILITY_INLINES_HIDDEN ON
