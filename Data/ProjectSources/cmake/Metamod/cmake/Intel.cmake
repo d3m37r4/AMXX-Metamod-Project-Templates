@@ -69,7 +69,7 @@ target_link_options(${CMAKE_PROJECT_NAME} PRIVATE
 
     # Build type Release, MinSizeRel
     $<$<OR:$<CONFIG:Release>,$<CONFIG:MinSizeRel>>:
-    -Wl,--strip-all>
+    -Wl,-O3 -Wl,--strip-all>
 )
 
 # Libraries linking
