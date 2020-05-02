@@ -3,7 +3,7 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011"
                  xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="357c3043-4c14-4640-b168-8a183a85d204" Version="1.0.0" Language="en-US" Publisher="the_hunter" />
+        <Identity Id="357c3043-4c14-4640-b168-8a183a85d204" Version="1.0.1" Language="en-US" Publisher="the_hunter" />
         <DisplayName>AMXX &amp; Metamod Project Templates</DisplayName>
         <Description xml:space="preserve">AMXX Mod X module and Metamod plugin project templates.</Description>
         <License>Resources\License.txt</License>
