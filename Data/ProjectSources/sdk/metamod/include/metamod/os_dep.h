@@ -15,6 +15,10 @@
 #define WINAPI
 #endif
 
+#undef DLLEXPORT
+#undef NOINLINE
+#undef FASTCALL
+
 #if defined _WIN32
 #define DLLEXPORT __declspec(dllexport)  // NOLINT(cppcoreguidelines-macro-usage)
 #else

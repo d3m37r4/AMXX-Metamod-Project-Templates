@@ -589,7 +589,7 @@ public:
 	///		Sound pitch. Must be a value in the range 0 - 255.<br/>
 	/// </param>
 	static void emit_sound(Edict* entity, const SoundChannel channel, const char* sample, const float volume,
-	                       const float attenuation, const int flags, const int pitch)
+		const float attenuation, const int flags, const int pitch)
 	{
 		engine_funcs_->emit_sound(entity, channel, sample, volume, attenuation, flags, pitch);
 	}
@@ -620,7 +620,7 @@ public:
 	///		Sound pitch. Must be a value in the range 0 - 255.<br/>
 	/// </param>
 	static void emit_ambient_sound(Edict* entity, Vector& origin, const char* sample, const float volume,
-	                               const float attenuation, const int flags, const int pitch)
+		const float attenuation, const int flags, const int pitch)
 	{
 		engine_funcs_->emit_ambient_sound(entity, origin, sample, volume, attenuation, flags, pitch);
 	}
@@ -645,7 +645,7 @@ public:
 	///		Trace result instance.<br/>
 	/// </param>
 	static void trace_line(const Vector& start_pos, const Vector& end_pos, const int trace_ignore_flags,
-	                       Edict* entity_to_ignore, TraceResult* result)
+		Edict* entity_to_ignore, TraceResult* result)
 	{
 		engine_funcs_->trace_line(start_pos, end_pos, trace_ignore_flags, entity_to_ignore, result);
 	}
@@ -704,7 +704,7 @@ public:
 	///		This can be any entity, not just monsters.
 	/// </remarks>
 	static qboolean trace_monster_hull(Edict* entity, const Vector& start_pos, const Vector& end_pos, const int trace_ignore_flags,
-	                                   Edict* entity_to_ignore, TraceResult* result)
+		Edict* entity_to_ignore, TraceResult* result)
 	{
 		return engine_funcs_->trace_monster_hull(entity, start_pos, end_pos, trace_ignore_flags, entity_to_ignore, result);
 	}
@@ -732,7 +732,7 @@ public:
 	///		Trace result instance.<br/>
 	/// </param>
 	static void trace_hull(const Vector& start_pos, const Vector& end_pos, const int trace_ignore_flags,
-	                       const int hull_number, Edict* entity_to_ignore, TraceResult* result)
+		const int hull_number, Edict* entity_to_ignore, TraceResult* result)
 	{
 		engine_funcs_->trace_hull(start_pos, end_pos, trace_ignore_flags, hull_number, entity_to_ignore, result);
 	}
@@ -801,7 +801,7 @@ public:
 	/// <para>Not implemented. Triggers a sys error.<br/></para>
 	/// </summary>
 	static void trace_sphere(const Vector& start_pos, const Vector& end_pos, const int trace_ignore_flags,
-	                         const float radius, Edict* entity_to_ignore, TraceResult* result)
+		const float radius, Edict* entity_to_ignore, TraceResult* result)
 	{
 		engine_funcs_->trace_sphere(start_pos, end_pos, trace_ignore_flags, radius, entity_to_ignore, result);
 	}
@@ -1909,7 +1909,7 @@ public:
 	///		How long it takes to fade in, in seconds.<br/>
 	/// </param>
 	static void fade_client_volume(const Edict* client, const int fade_percent, const int fade_out_seconds,
-	                               const int hold_time, const int fade_in_seconds)
+		const int hold_time, const int fade_in_seconds)
 	{
 		engine_funcs_->fade_client_volume(client, fade_percent, fade_out_seconds, hold_time, fade_in_seconds);
 	}
@@ -1978,7 +1978,7 @@ public:
 	///		Time between now and previous <c>run_player_move</c> call.<br/>
 	/// </param>
 	static void run_player_move(Edict* fake_client, const Vector& view_angles, const float forward_move, const float side_move, const float up_move,
-	                            const unsigned short buttons, const byte impulse, const byte msec)
+		const unsigned short buttons, const byte impulse, const byte msec)
 	{
 		engine_funcs_->run_player_move(fake_client, view_angles, forward_move, side_move, up_move, buttons, impulse, msec);
 	}
@@ -2198,7 +2198,7 @@ public:
 	///		Client to send the message to for message types that target one client.<br/>
 	/// </param>
 	static void build_sound_msg(Edict* entity, const int channel, const char* sample, const float volume, const float attenuation, const int flags,
-	                            const int pitch, const MessageType msg_type, const int msg_id, const Vector& origin, Edict* client)
+		const int pitch, const MessageType msg_type, const int msg_id, const Vector& origin, Edict* client)
 	{
 		engine_funcs_->build_sound_msg(entity, channel, sample, volume, attenuation, flags, pitch, msg_type, msg_id, origin, client);
 	}
@@ -2375,8 +2375,8 @@ public:
 	/// <param name="b_param2">
 	///		Boolean parameter 2.<br/>
 	/// </param>
-	static void playback_event(const int flags, const Edict* invoker, const unsigned short event_index, const float delay, Vector& origin, Vector& angles,
-	                           const float f_param1, const float f_param2, const int i_param1, const int i_param2, const qboolean b_param1, const qboolean b_param2)
+	static void playback_event(const int flags, const Edict* invoker, const unsigned short event_index, const float delay, Vector& origin,
+		Vector& angles, const float f_param1, const float f_param2, const int i_param1, const int i_param2, const qboolean b_param1, const qboolean b_param2)
 	{
 		engine_funcs_->playback_event(flags, invoker, event_index, delay, origin, angles, f_param1, f_param2, i_param1, i_param2, b_param1, b_param2);
 	}

@@ -136,7 +136,8 @@ public:
 	/// <summary>
 	/// <para>Called by the engine to restore the given entity's state from the given save data block.</para>
 	/// </summary>
-	static void restore(const std::add_pointer_t<int(Edict* entity, SaveRestoreData* save_data, qboolean global_entity)> callback, const bool post = false)
+	static void restore(const std::add_pointer_t<int(Edict* entity, SaveRestoreData* save_data, qboolean global_entity)> callback,
+		const bool post = false)
 	{
 		set_hook(&DllFuncPointers::restore, callback, post);
 	}
@@ -197,8 +198,9 @@ public:
 	/// <para>Called by the engine when a client connects.<br/>
 	/// Returning false rejects the client's connection. Setting <c>reject_reason</c> presents that to the client.</para>
 	/// </summary>
-	static void client_connect(const std::add_pointer_t<qboolean(Edict* client, const char* name, const char* address, char reject_reason[128])> callback,
-	                           const bool post = false)
+	static void client_connect(
+		const std::add_pointer_t<qboolean(Edict* client, const char* name, const char* address, char reject_reason[128])> callback,
+		const bool post = false)
 	{
 		set_hook(&DllFuncPointers::client_connect, callback, post);
 	}
@@ -381,7 +383,7 @@ public:
 	/// <para>Set up visibility for the given client.</para>
 	/// </summary>
 	static void setup_visibility(const std::add_pointer_t<void(Edict* view_entity, Edict* client, unsigned char** pvs, unsigned char** pas)> callback,
-	                             const bool post = false)
+		const bool post = false)
 	{
 		set_hook(&DllFuncPointers::setup_visibility, callback, post);
 	}
@@ -390,7 +392,8 @@ public:
 	/// <para>Updates the given client's data.<br/>
 	/// This function can be used to implement first person observer views.</para>
 	/// </summary>
-	static void update_client_data(const std::add_pointer_t<void(const Edict* client, qboolean send_weapons, ClientData* data)> callback, const bool post = false)
+	static void update_client_data(const std::add_pointer_t<void(const Edict* client, qboolean send_weapons, ClientData* data)> callback,
+		const bool post = false)
 	{
 		set_hook(&DllFuncPointers::update_client_data, callback, post);
 	}
@@ -408,8 +411,8 @@ public:
 	/// <summary>
 	/// <para>Called by the engine to create a baseline for the given entity.</para>
 	/// </summary>
-	static void create_baseline(const std::add_pointer_t<void(qboolean client, int entity_index, EntityState* baseline, Edict* entity, int player_model_index,
-	                                                          Vector player_min_size, Vector player_max_size)> callback, const bool post = false)
+	static void create_baseline(const std::add_pointer_t<void(qboolean client, int entity_index, EntityState* baseline, Edict* entity,
+		int player_model_index, Vector player_min_size, Vector player_max_size)> callback, const bool post = false)
 	{
 		set_hook(&DllFuncPointers::create_baseline, callback, post);
 	}
@@ -433,7 +436,8 @@ public:
 	/// <summary>
 	/// <para>Called by the engine when a user command has been received and is about to begin processing.</para>
 	/// </summary>
-	static void cmd_start(const std::add_pointer_t<void(const Edict* client, const UserCmd* cmd, unsigned int random_seed)> callback, const bool post = false)
+	static void cmd_start(const std::add_pointer_t<void(const Edict* client, const UserCmd* cmd, unsigned int random_seed)> callback,
+		const bool post = false)
 	{
 		set_hook(&DllFuncPointers::cmd_start, callback, post);
 	}
@@ -460,7 +464,8 @@ public:
 	/// <summary>
 	/// <para>Enumerates player hulls. Returns 0 if the hull number doesn't exist, 1 otherwise.</para>
 	/// </summary>
-	static void get_hull_bounds(const std::add_pointer_t<qboolean(int hull_number, Vector& min_size, Vector& max_size)> callback, const bool post = false)
+	static void get_hull_bounds(const std::add_pointer_t<qboolean(int hull_number, Vector& min_size, Vector& max_size)> callback,
+		const bool post = false)
 	{
 		set_hook(&DllFuncPointers::get_hull_bounds, callback, post);
 	}
@@ -478,7 +483,7 @@ public:
 	/// Return 0 to allow the client to continue, 1 to force immediate disconnection (with an optional disconnect message of up to 256 characters).</para>
 	/// </summary>
 	static void inconsistent_file(const std::add_pointer_t<qboolean(const Edict* client, const char* file_name, char* disconnect_message)> callback,
-	                              const bool post = false)
+		const bool post = false)
 	{
 		set_hook(&DllFuncPointers::inconsistent_file, callback, post);
 	}
@@ -576,7 +581,7 @@ public:
 	/// <para>Called when the engine has received a cvar value from the client in response to a <c>engine_func_pointers::query_client_cvar_value2</c> call.</para>
 	/// </summary>
 	static void cvar_value2(const std::add_pointer_t<void(const Edict* client, int request_id, const char* cvar_name, const char* value)> callback,
-	                        const bool post = false)
+		const bool post = false)
 	{
 		set_hook(&DllNewFuncPointers::cvar_value2, callback, post);
 	}

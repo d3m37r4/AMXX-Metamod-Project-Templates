@@ -21,6 +21,16 @@
 MetaGlobals* g_meta_globals = nullptr;
 
 /// <summary>
+/// <para>DLL functions table.</para>
+/// </summary>
+DllFuncPointers* g_dll_funcs = nullptr;
+
+/// <summary>
+/// <para>New DLL functions table.</para>
+/// </summary>
+DllNewFuncPointers* g_dll_new_funcs = nullptr;
+
+/// <summary>
 /// <para>Table of get api functions, retrieved from each plugin.</para>
 /// </summary>
 struct MetaHookExportFuncs {
@@ -99,7 +109,7 @@ extern "C" void DLLEXPORT Meta_Init()
 
 	GameDllNewHooks::dll_new_hooks_ = new DllNewFuncPointers;
 	GameDllNewHooks::dll_new_post_hooks_ = new DllNewFuncPointers;
-	
+
 #ifdef META_INIT
 	META_INIT();
 #endif
@@ -140,7 +150,7 @@ extern "C" MetamodStatus DLLEXPORT Meta_Query(const char* interface_version, Met
 /// <summary>
 /// </summary>
 extern "C" MetamodStatus DLLEXPORT Meta_Attach(MetaPluginLoadTime /*load_time*/, MetaHookExportFuncs* export_funcs_table,
-                                               MetaGlobals* globals, MetaDllFuncsTables* dll_funcs_tables)
+	MetaGlobals* globals, MetaDllFuncsTables* dll_funcs_tables)
 {
 	MetaHookExportFuncs hook_export_funcs =
 	{
@@ -155,8 +165,8 @@ extern "C" MetamodStatus DLLEXPORT Meta_Attach(MetaPluginLoadTime /*load_time*/,
 	};
 
 	g_meta_globals = globals;
-	GameDll::dll_funcs_ = dll_funcs_tables->dll_functions_table;
-	GameDllNew::dll_new_funcs_ = dll_funcs_tables->dllnew_functions_table;
+	g_dll_funcs = dll_funcs_tables->dll_functions_table;
+	g_dll_new_funcs = dll_funcs_tables->dllnew_functions_table;
 	std::memcpy(export_funcs_table, &hook_export_funcs, sizeof(MetaHookExportFuncs));
 
 #ifdef META_ATTACH
@@ -176,7 +186,7 @@ extern "C" MetamodStatus DLLEXPORT Meta_Detach(MetaPluginLoadTime /*now*/, const
 #ifdef META_DETACH
 	META_DETACH();
 #endif
-	
+
 	clear_all_hooks();
 
 	return MetamodStatus::Ok;
