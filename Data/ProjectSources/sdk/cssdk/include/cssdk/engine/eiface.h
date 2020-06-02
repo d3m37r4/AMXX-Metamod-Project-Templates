@@ -2,7 +2,7 @@
 // Created          : 04-01-2020
 //
 // Last Modified By : the_hunter
-// Last Modified On : 04-01-2020
+// Last Modified On : 06-02-2020
 // ***********************************************************************
 //     Copyright (c) 1996-2002, Valve LLC. All rights reserved.
 // ***********************************************************************
@@ -394,12 +394,14 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Performs a trace between a starting and ending position, using the given entity's min size and max size.</para>
 	/// </summary>
-	qboolean (*trace_monster_hull)(Edict* entity, const Vector& start_pos, const Vector& end_pos, int trace_ignore_flags, Edict* entity_to_ignore, TraceResult* result){};
+	qboolean (*trace_monster_hull)(Edict* entity, const Vector& start_pos, const Vector& end_pos, int trace_ignore_flags, Edict* entity_to_ignore,
+	                               TraceResult* result){};
 
 	/// <summary>
 	/// <para>Performs a trace between a starting and ending position, using the specified hull.</para>
 	/// </summary>
-	void (*trace_hull)(const Vector& start_pos, const Vector& end_pos, int trace_ignore_flags, int hull_number, Edict* entity_to_ignore, TraceResult* result){};
+	void (*trace_hull)(const Vector& start_pos, const Vector& end_pos, int trace_ignore_flags, int hull_number, Edict* entity_to_ignore,
+	                   TraceResult* result){};
 
 	/// <summary>
 	/// <para>Performs a trace between a starting and ending position.<br/>
@@ -417,7 +419,8 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Not implemented. Triggers a sys error.</para>
 	/// </summary>
-	void (*trace_sphere)(const Vector& start_pos, const Vector& end_pos, int trace_ignore_flags, float radius, Edict* entity_to_ignore, TraceResult* result){};
+	void (*trace_sphere)(const Vector& start_pos, const Vector& end_pos, int trace_ignore_flags, float radius, Edict* entity_to_ignore,
+	                     TraceResult* result){};
 
 	/// <summary>
 	/// <para>Get the aim vector for the given entity.<br/>
@@ -877,7 +880,8 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Adds a delta encoder.</para>
 	/// </summary>
-	void (*delta_add_encoder)(const char* name, void (*conditional_encode)(struct delta* fields, const unsigned char* from, const unsigned char* to)){};
+	void (*delta_add_encoder)(const char* name,
+	                          void (*conditional_encode)(struct delta* fields, const unsigned char* from, const unsigned char* to)){};
 
 	/// <summary>
 	/// </summary>
@@ -1315,3 +1319,35 @@ struct DllNewFuncPointers {
 	/// </summary>
 	void (*cvar_value2)(const Edict* client, int request_id, const char* cvar_name, const char* value){};
 };
+
+#ifdef CSSDK_STANDALONE
+/// <summary>
+/// <para>Dummy (just for compile without dependencies).</para>
+/// </summary>
+inline EngineFuncPointers g_engine_funcs{};
+
+/// <summary>
+/// <para>Dummy (just for compile without dependencies).</para>
+/// </summary>
+inline DllFuncPointers* g_dll_funcs{};
+
+/// <summary>
+/// <para>Dummy (just for compile without dependencies).</para>
+/// </summary>
+inline DllNewFuncPointers* g_dll_new_funcs{};
+#else
+/// <summary>
+/// <para>Must be provided by user of this code (usually in Metamod SDK).</para>
+/// </summary>
+extern EngineFuncPointers g_engine_funcs;
+
+/// <summary>
+/// <para>Must be provided by user of this code (usually in Metamod SDK).</para>
+/// </summary>
+extern DllFuncPointers* g_dll_funcs;
+
+/// <summary>
+/// <para>Must be provided by user of this code (usually in Metamod SDK).</para>
+/// </summary>
+extern DllNewFuncPointers* g_dll_new_funcs;
+#endif

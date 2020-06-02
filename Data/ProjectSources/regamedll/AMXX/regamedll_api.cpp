@@ -3,7 +3,7 @@
 // Created          : 04-01-2020
 //
 // Last Modified By : the_hunter
-// Last Modified On : 04-01-2020
+// Last Modified On : 06-02-2020
 // ***********************************************************************
 
 #include <$pluginprojectdirname$/regamedll_api.h>
@@ -44,11 +44,11 @@ bool RegamedllApi::init()
 	//
 
 #ifdef _WIN32
-	const auto game_module_path = AmxxApi::build_path_name("dlls/mp.dll");
+	auto* const game_module_path = AmxxApi::build_path_name("dlls/mp.dll");
 #else
-	const auto game_module_path = AmxxApi::build_path_name("dlls/cs.so");
+	auto* const game_module_path = AmxxApi::build_path_name("dlls/cs.so");
 #endif
-	const auto game_module = sys_load_module(game_module_path);
+	auto* const game_module = sys_load_module(game_module_path);
 
 	if (game_module == nullptr) {
 		AmxxApi::print_srv_console("[%s] Failed to locate game module.\n\n", AMXX_MODULE_LOG_TAG);
@@ -71,7 +71,7 @@ bool RegamedllApi::init()
 	//
 
 	auto ret_code = CreateInterfaceStatus::Failed;
-	const auto interface_base = interface_factory(VREGAMEDLL_API_VERSION, &ret_code);
+	auto* const interface_base = interface_factory(VREGAMEDLL_API_VERSION, &ret_code);
 
 	if (ret_code != CreateInterfaceStatus::Ok || interface_base == nullptr) {
 		const auto ret_code_num = static_cast<int>(ret_code);

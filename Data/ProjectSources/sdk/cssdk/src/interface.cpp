@@ -36,7 +36,7 @@ SysModule* sys_load_module(const char* module_name)
 		return nullptr;
 
 #if defined (_WIN32)
-	const auto module_handle = LoadLibrary(module_name);
+	auto* const module_handle = LoadLibrary(module_name);
 #else
 	void* module_handle = nullptr;
 
@@ -87,7 +87,7 @@ bool sys_unload_module(SysModule*& module_handle)
 /// </summary>
 EXPORT_FUNCTION SysInterfaceBase* create_interface(const char* name, CreateInterfaceStatus* return_code)
 {
-	for (auto cur = SysInterfaceReg::interface_regs; cur; cur = cur->next) {
+	for (auto* cur = SysInterfaceReg::interface_regs; cur; cur = cur->next) {
 		if (std::strcmp(cur->name, name) == 0) {
 			if (return_code)
 				*return_code = CreateInterfaceStatus::Ok;

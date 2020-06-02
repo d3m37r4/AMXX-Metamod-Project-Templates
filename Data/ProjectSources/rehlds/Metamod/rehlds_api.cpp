@@ -3,7 +3,7 @@
 // Created          : 04-01-2020
 //
 // Last Modified By : the_hunter
-// Last Modified On : 04-01-2020
+// Last Modified On : 06-02-2020
 // ***********************************************************************
 
 #include <$pluginprojectdirname$/rehlds_api.h>
@@ -48,9 +48,9 @@ bool RehldsApi::init()
 	//
 
 #if defined(_WIN32)
-	const auto engine_module = sys_load_module("swds.dll");
+	auto* const engine_module = sys_load_module("swds.dll");
 #else
-	const auto engine_module = sys_load_module("engine_i486.so");
+	auto* const engine_module = sys_load_module("engine_i486.so");
 #endif
 
 	if (engine_module == nullptr) {
@@ -74,7 +74,7 @@ bool RehldsApi::init()
 	//
 
 	auto ret_code = CreateInterfaceStatus::Failed;
-	const auto interface_base = interface_factory(VREHLDS_HLDS_API_VERSION, &ret_code);
+	auto* const interface_base = interface_factory(VREHLDS_HLDS_API_VERSION, &ret_code);
 
 	if (ret_code != CreateInterfaceStatus::Ok || interface_base == nullptr) {
 		MetaUtils::log_console("[%s] Failed to retrieve \"%s\" interface from engine module; return code is %d.\n",
@@ -82,7 +82,7 @@ bool RehldsApi::init()
 		return false;
 	}
 
-	const auto api = reinterpret_cast<RehldsApiInterface*>(interface_base);
+	auto* const api = reinterpret_cast<RehldsApiInterface*>(interface_base);
 
 	//
 	// Check the ReHLDS version.

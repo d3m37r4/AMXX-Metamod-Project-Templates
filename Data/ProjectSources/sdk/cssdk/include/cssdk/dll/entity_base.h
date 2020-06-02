@@ -2,7 +2,7 @@
 // Created          : 04-01-2020
 //
 // Last Modified By : the_hunter
-// Last Modified On : 04-01-2020
+// Last Modified On : 05-25-2020
 // ***********************************************************************
 //     Copyright (c) 1996-2002, Valve LLC. All rights reserved.
 // ***********************************************************************
@@ -17,11 +17,6 @@
 #include <cssdk/public/utils.h>
 #include <cassert>
 #include <cstddef>
-
-/// <summary>
-/// <para>Must be provided by user of this code.</para>
-/// </summary>
-extern EngineFuncPointers g_engine_funcs;
 
 /// <summary>
 /// <para>Maximum number of targets a single multi source entity may be assigned.</para>
@@ -574,9 +569,7 @@ class EntityHandle {
 public:
 	/// <summary>
 	/// </summary>
-	EntityHandle() : edict_(nullptr), serial_number_(0)
-	{
-	}
+	EntityHandle() : edict_(nullptr), serial_number_(0) {}
 
 	/// <summary>
 	/// </summary>

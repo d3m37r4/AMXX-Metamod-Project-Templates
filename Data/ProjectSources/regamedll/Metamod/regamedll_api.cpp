@@ -3,7 +3,7 @@
 // Created          : 04-01-2020
 //
 // Last Modified By : the_hunter
-// Last Modified On : 04-01-2020
+// Last Modified On : 06-02-2020
 // ***********************************************************************
 
 #include <$pluginprojectdirname$/regamedll_api.h>
@@ -44,8 +44,8 @@ bool RegamedllApi::init()
 	// Load game module.
 	//
 
-	const auto game_module_path = MetaUtils::get_game_info(MetaGameInfo::DllFullPath);
-	const auto game_module = sys_load_module(game_module_path);
+	const auto* const game_module_path = MetaUtils::get_game_info(MetaGameInfo::DllFullPath);
+	auto* const game_module = sys_load_module(game_module_path);
 
 	if (game_module == nullptr) {
 		MetaUtils::log_console("[%s] Failed to locate game module.\n", META_PLUGIN_LOG_TAG);
@@ -68,7 +68,7 @@ bool RegamedllApi::init()
 	//
 
 	auto ret_code = CreateInterfaceStatus::Failed;
-	const auto interface_base = interface_factory(VREGAMEDLL_API_VERSION, &ret_code);
+	auto* const interface_base = interface_factory(VREGAMEDLL_API_VERSION, &ret_code);
 
 	if (ret_code != CreateInterfaceStatus::Ok || interface_base == nullptr) {
 		const auto ret_code_num = static_cast<int>(ret_code);

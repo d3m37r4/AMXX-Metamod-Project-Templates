@@ -95,9 +95,7 @@ using CVarCallback = void (*)(const char* new_value);
 struct CVarListener {
 	/// <summary>
 	/// </summary>
-	CVarListener(const char* var_name, const CVarCallback handler) : func(handler), name(var_name)
-	{
-	}
+	CVarListener(const char* var_name, const CVarCallback handler) : func(handler), name(var_name) {}
 
 	/// <summary>
 	/// </summary>

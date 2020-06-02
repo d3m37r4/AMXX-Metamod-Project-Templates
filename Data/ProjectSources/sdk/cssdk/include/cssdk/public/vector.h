@@ -19,27 +19,19 @@ class Vector2D {
 public:
 	/// <summary>
 	/// </summary>
-	Vector2D() : x(0.0f), y(0.0f)
-	{
-	}
+	Vector2D() : x(0.0f), y(0.0f) {}
 
 	/// <summary>
 	/// </summary>
-	Vector2D(const vec_t x_axis, const vec_t y_axis) : x(x_axis), y(y_axis)
-	{
-	}
+	Vector2D(const vec_t x_axis, const vec_t y_axis) : x(x_axis), y(y_axis) {}
 
 	/// <summary>
 	/// </summary>
-	explicit Vector2D(const vec_t scalar) : x(scalar), y(scalar)
-	{
-	}
+	explicit Vector2D(const vec_t scalar) : x(scalar), y(scalar) {}
 
 	/// <summary>
 	/// </summary>
-	explicit Vector2D(const vec_t vec_2d[2]) : x(vec_2d[0]), y(vec_2d[1])
-	{
-	}
+	explicit Vector2D(const vec_t vec_2d[2]) : x(vec_2d[0]), y(vec_2d[1]) {}
 
 	/// <summary>
 	/// </summary>
@@ -272,27 +264,19 @@ class Vector {
 public:
 	/// <summary>
 	/// </summary>
-	Vector() : x(0.0f), y(0.0f), z(0.0f)
-	{
-	}
+	Vector() : x(0.0f), y(0.0f), z(0.0f) {}
 
 	/// <summary>
 	/// </summary>
-	Vector(const vec_t x_axis, const vec_t y_axis, const vec_t z_axis) : x(x_axis), y(y_axis), z(z_axis)
-	{
-	}
+	Vector(const vec_t x_axis, const vec_t y_axis, const vec_t z_axis) : x(x_axis), y(y_axis), z(z_axis) {}
 
 	/// <summary>
 	/// </summary>
-	explicit Vector(const vec_t scalar) : x(scalar), y(scalar), z(scalar)
-	{
-	}
+	explicit Vector(const vec_t scalar) : x(scalar), y(scalar), z(scalar) {}
 
 	/// <summary>
 	/// </summary>
-	explicit Vector(const vec_t vec_3d[3]) : x(vec_3d[0]), y(vec_3d[1]), z(vec_3d[2])
-	{
-	}
+	explicit Vector(const vec_t vec_3d[3]) : x(vec_3d[0]), y(vec_3d[1]), z(vec_3d[2]) {}
 
 	/// <summary>
 	/// </summary>

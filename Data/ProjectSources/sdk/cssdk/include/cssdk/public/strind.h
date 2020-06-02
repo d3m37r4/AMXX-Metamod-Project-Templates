@@ -2,7 +2,7 @@
 // Created          : 04-01-2020
 //
 // Last Modified By : the_hunter
-// Last Modified On : 04-01-2020
+// Last Modified On : 05-25-2020
 // ***********************************************************************
 //     Copyright (c) 1996-2002, Valve LLC. All rights reserved.
 // ***********************************************************************
@@ -11,11 +11,6 @@
 
 #include <cssdk/engine/global_vars.h>
 #include <cstring>
-
-/// <summary>
-/// <para>Must be provided by user of this code.</para>
-/// </summary>
-extern GlobalVars* g_global_vars;
 
 /// <summary>
 /// <para>String index.</para>
@@ -96,9 +91,7 @@ private:
 	unsigned int string_index_ = 0;
 };
 
-inline Strind::Strind(const unsigned int index) : string_index_(index)
-{
-}
+inline Strind::Strind(const unsigned int index) : string_index_(index) {}
 
 inline const char* Strind::c_str() const
 {

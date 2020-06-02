@@ -595,7 +595,7 @@ struct PlayerMove {
 	/// <summary>
 	/// </summary>
 	void (*pm_playback_event_full)(int flags, int client_index, unsigned short event_index, float delay, Vector& origin, Vector& angles,
-	                               float f_param1, float f_param2, int i_param1, int i_param2, qboolean b_param1, qboolean b_param2){};
+		float f_param1, float f_param2, int i_param1, int i_param2, qboolean b_param1, qboolean b_param2){};
 
 	/// <summary>
 	/// </summary>
