@@ -23,7 +23,6 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/MahApps.Metro;component/Styles/Controls.xaml" />
                 <ResourceDictionary Source="/MahApps.Metro;component/Styles/Fonts.xaml" />
-                <!--<ResourceDictionary Source="/MahApps.Metro;component/Styles/Themes/Dark.Blue.xaml" />-->
                 <ResourceDictionary Source="MahApps/Controls.Buttons.xaml" />
                 <ResourceDictionary Source="MahApps/Dark.Blue.xaml" />
             </ResourceDictionary.MergedDictionaries>
