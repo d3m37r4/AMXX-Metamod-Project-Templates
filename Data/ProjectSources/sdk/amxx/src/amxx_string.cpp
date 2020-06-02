@@ -15,7 +15,7 @@ namespace amx
 	/// </summary>
 	static char* init(const cell* const address, const ucell max_length)
 	{
-		const auto string = new char[max_length + 1];
+		auto* const string = new char[max_length + 1];
 		ucell i;
 
 		for (i = 0; i < max_length && address[i]; ++i)

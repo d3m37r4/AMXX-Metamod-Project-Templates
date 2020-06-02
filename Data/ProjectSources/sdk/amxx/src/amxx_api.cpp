@@ -78,7 +78,7 @@ extern "C" AmxxStatus DLLEXPORT AMXX_Attach(const std::add_pointer_t<void*(const
 	if (!request_function)
 		return AmxxStatus::InvalidParameter;
 
-	const auto func = &AmxxApi::amxx_api_funcs_;
+	auto* const func = &AmxxApi::amxx_api_funcs_;
 
 	REQUEST_FUNCTION(func->amx_allot, "amx_Allot");
 	REQUEST_FUNCTION(func->amx_exec, "amx_Exec");
@@ -218,7 +218,7 @@ const char* filename_from_path(const char* const path)
 {
 	if (!path)
 		return path;
-	
+
 	std::size_t index = 0;
 
 #ifdef _WIN32
