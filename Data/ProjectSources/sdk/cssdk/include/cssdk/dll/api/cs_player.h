@@ -245,7 +245,7 @@ public:
 
 	/// <summary>
 	/// </summary>
-	Vector old_viewing_angle;
+	Vector old_viewing_angle{};
 
 	/// <summary>
 	/// </summary>
@@ -275,12 +275,14 @@ public:
 	[[nodiscard]] ProtectionState protection_state() const
 	{
 		// No protection set.
-		if (spawn_protection_end_time <= 0.0f)
+		if (spawn_protection_end_time <= 0.0f) {
 			return ProtectionState::NoSet;
+		}
 
 		// Check if end time of protection isn't expired yet.
-		if (spawn_protection_end_time >= g_global_vars->time)
+		if (spawn_protection_end_time >= g_global_vars->time) {
 			return ProtectionState::Active;
+		}
 
 		// Has expired.
 		return ProtectionState::Expired;

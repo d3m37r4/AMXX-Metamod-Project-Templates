@@ -209,7 +209,7 @@ struct Resource {
 #else
 	/// <summary>
 	/// </summary>
-	unsigned char* data;
+	unsigned char* data{};
 #endif // !defined(HLTV)
 };
 
@@ -225,7 +225,7 @@ struct Customization {
 	/// <summary>
 	/// <para>The resource for this customization.</para>
 	/// </summary>
-	Resource resource;
+	Resource resource{};
 
 	/// <summary>
 	/// <para>Has the raw data been translated into a useable format?<br/>

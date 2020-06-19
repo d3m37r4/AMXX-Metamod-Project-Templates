@@ -175,7 +175,7 @@ struct TraceResult {
 	/// <summary>
 	/// <para>Final position.</para>
 	/// </summary>
-	Vector end_position;
+	Vector end_position{};
 
 	/// <summary>
 	/// <para>Distance from origin that the plane is positioned at.<br/>
@@ -186,7 +186,7 @@ struct TraceResult {
 	/// <summary>
 	/// <para>Surface normal at impact.</para>
 	/// </summary>
-	Vector plane_normal;
+	Vector plane_normal{};
 
 	/// <summary>
 	/// <para>Entity the surface is on.</para>
@@ -565,12 +565,12 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Gets the string assigned to the index.</para>
 	/// </summary>
-	const char* (*sz_from_index)(Strind string){};
+	const char* (*sz_from_index)(unsigned int string){};
 
 	/// <summary>
 	/// <para>Allocates a string in the string pool.</para>
 	/// </summary>
-	Strind (*alloc_string)(const char* value){};
+	unsigned int (*alloc_string)(const char* value){};
 
 	/// <summary>
 	/// <para>Gets the <c>EntityVars</c> instance assigned to the given entity instance.</para>

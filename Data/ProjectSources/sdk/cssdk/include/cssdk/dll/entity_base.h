@@ -338,15 +338,15 @@ public:
 
 	/// <summary>
 	/// </summary>
-	EntityVars* vars;
+	EntityVars* vars{};
 
 	/// <summary>
 	/// </summary>
-	EntityBase* goal_ent;
+	EntityBase* goal_ent{};
 
 	/// <summary>
 	/// </summary>
-	EntityBase* link;
+	EntityBase* link{};
 
 	/// <summary>
 	/// </summary>
@@ -367,112 +367,112 @@ public:
 #ifdef REGAMEDLL_API
 	/// <summary>
 	/// </summary>
-	CsEntity* entity;
+	CsEntity* entity{};
 #else
 	/// <summary>
 	/// </summary>
-	int* current_ammo;
+	int* current_ammo{};
 #endif
 
 	/// <summary>
 	/// </summary>
-	float cur_ent_ammo;
+	float cur_ent_ammo{};
 
 	/// <summary>
 	/// </summary>
-	int max_ammo_buckshot;
+	int max_ammo_buckshot{};
 
 	/// <summary>
 	/// </summary>
-	int ammo_buckshot;
+	int ammo_buckshot{};
 
 	/// <summary>
 	/// </summary>
-	int max_ammo_9mm;
+	int max_ammo_9mm{};
 
 	/// <summary>
 	/// </summary>
-	int ammo_9mm;
+	int ammo_9mm{};
 
 	/// <summary>
 	/// </summary>
-	int max_ammo_556nato;
+	int max_ammo_556nato{};
 
 	/// <summary>
 	/// </summary>
-	int ammo_556nato;
+	int ammo_556nato{};
 
 	/// <summary>
 	/// </summary>
-	int max_ammo_556natobox;
+	int max_ammo_556natobox{};
 
 	/// <summary>
 	/// </summary>
-	int ammo_556natobox;
+	int ammo_556natobox{};
 
 	/// <summary>
 	/// </summary>
-	int max_ammo_762nato;
+	int max_ammo_762nato{};
 
 	/// <summary>
 	/// </summary>
-	int ammo_762nato;
+	int ammo_762nato{};
 
 	/// <summary>
 	/// </summary>
-	int max_ammo_45acp;
+	int max_ammo_45acp{};
 
 	/// <summary>
 	/// </summary>
-	int ammo_45acp;
+	int ammo_45acp{};
 
 	/// <summary>
 	/// </summary>
-	int max_ammo_50ae;
+	int max_ammo_50ae{};
 
 	/// <summary>
 	/// </summary>
-	int ammo_50ae;
+	int ammo_50ae{};
 
 	/// <summary>
 	/// </summary>
-	int max_ammo_338mag;
+	int max_ammo_338mag{};
 
 	/// <summary>
 	/// </summary>
-	int ammo_338mag;
+	int ammo_338mag{};
 
 	/// <summary>
 	/// </summary>
-	int max_ammo_57mm;
+	int max_ammo_57mm{};
 
 	/// <summary>
 	/// </summary>
-	int ammo_57mm;
+	int ammo_57mm{};
 
 	/// <summary>
 	/// </summary>
-	int max_ammo_357sig;
+	int max_ammo_357sig{};
 
 	/// <summary>
 	/// </summary>
-	int ammo_357sig;
+	int ammo_357sig{};
 
 	/// <summary>
 	/// </summary>
-	float start_throw;
+	float start_throw{};
 
 	/// <summary>
 	/// </summary>
-	float release_throw;
+	float release_throw{};
 
 	/// <summary>
 	/// </summary>
-	int swing;
+	int swing{};
 
 	/// <summary>
 	/// </summary>
-	bool has_disconnected;
+	bool has_disconnected{};
 
 	using UseCallbackFn = decltype(use_callback);
 	using ThinkCallbackFn = decltype(think_callback);
@@ -585,16 +585,18 @@ public:
 	/// </summary>
 	explicit EntityHandle(const Edict* entity) : EntityHandle()
 	{
-		if (entity)
+		if (entity) {
 			set(const_cast<Edict*>(entity));
+		}
 	}
 
 	/// <summary>
 	/// </summary>
 	explicit EntityHandle(const T* entity) : EntityHandle()
 	{
-		if (entity && entity->vars && entity->vars->containing_entity)
+		if (entity && entity->vars && entity->vars->containing_entity) {
 			set(entity->vars->containing_entity);
+		}
 	}
 
 	/// <summary>
@@ -645,7 +647,7 @@ public:
 
 	/// <summary>
 	/// </summary>
-	EntityHandle& operator=(EntityHandle&&) = default;
+	EntityHandle& operator=(EntityHandle&&) noexcept = default;
 
 	/// <summary>
 	/// </summary>
@@ -714,11 +716,11 @@ public:
 
 	/// <summary>
 	/// </summary>
-	float delay;
+	float delay{};
 
 	/// <summary>
 	/// </summary>
-	Strind kill_target;
+	Strind kill_target{};
 };
 
 /// <summary>
@@ -745,27 +747,27 @@ public:
 	/// <summary>
 	/// <para>Computed FPS for current sequence.</para>
 	/// </summary>
-	float frame_rate;
+	float frame_rate{};
 
 	/// <summary>
 	/// <para>Computed linear movement rate for current sequence.</para>
 	/// </summary>
-	float ground_speed;
+	float ground_speed{};
 
 	/// <summary>
 	/// <para>Last time the event list was checked.</para>
 	/// </summary>
-	float last_event_check;
+	float last_event_check{};
 
 	/// <summary>
 	/// <para>Flag set when StudioAdvanceFrame moves across a frame boundry.</para>
 	/// </summary>
-	qboolean sequence_finished;
+	qboolean sequence_finished{};
 
 	/// <summary>
 	/// <para>True if the sequence loops.</para>
 	/// </summary>
-	qboolean sequence_loops;
+	qboolean sequence_loops{};
 };
 
 /// <summary>
@@ -795,64 +797,64 @@ public:
 
 	/// <summary>
 	/// </summary>
-	ToggleState state;
+	ToggleState state{};
 
 	/// <summary>
 	/// <para>Like attack_finished, but for doors.</para>
 	/// </summary>
-	float activate_finished;
+	float activate_finished{};
 
 	/// <summary>
 	/// <para>How far a door should slide or rotate.</para>
 	/// </summary>
-	float move_distance;
+	float move_distance{};
 
 	/// <summary>
 	/// </summary>
-	float wait;
+	float wait{};
 
 	/// <summary>
 	/// </summary>
-	float lip;
-
-	/// <summary>
-	/// <para>For plats.</para>
-	/// </summary>
-	float width;
+	float lip{};
 
 	/// <summary>
 	/// <para>For plats.</para>
 	/// </summary>
-	float length;
+	float width{};
+
+	/// <summary>
+	/// <para>For plats.</para>
+	/// </summary>
+	float length{};
 
 	/// <summary>
 	/// </summary>
-	Vector position1;
+	Vector position1{};
 
 	/// <summary>
 	/// </summary>
-	Vector position2;
+	Vector position2{};
 
 	/// <summary>
 	/// </summary>
-	Vector angle1;
+	Vector angle1{};
 
 	/// <summary>
 	/// </summary>
-	Vector angle2;
+	Vector angle2{};
 
 	/// <summary>
 	/// <para>trigger_counter only, # of activations remaining.</para>
 	/// </summary>
-	int triggers_left;
+	int triggers_left{};
 
 	/// <summary>
 	/// </summary>
-	float height;
+	float height{};
 
 	/// <summary>
 	/// </summary>
-	EntityHandle<> activator;
+	EntityHandle<> activator{};
 
 	/// <summary>
 	/// </summary>
@@ -860,16 +862,16 @@ public:
 
 	/// <summary>
 	/// </summary>
-	Vector final_dest;
+	Vector final_dest{};
 
 	/// <summary>
 	/// </summary>
-	Vector final_angle;
+	Vector final_angle{};
 
 	/// <summary>
 	/// <para>DMG_ damage type that the door or trigger does.</para>
 	/// </summary>
-	int damage_inflict;
+	int damage_inflict{};
 
 	/// <summary>
 	/// <para>If this button has a master switch, this is the target name.<br/>
@@ -877,7 +879,7 @@ public:
 	/// If all of the switches in the multi source have been triggered,
 	/// then the button will be allowed to operate. Otherwise, it will be deactivated.</para>
 	/// </summary>
-	Strind master;
+	Strind master{};
 
 	using MoveDoneCallbackFn = decltype(move_done_callback);
 
@@ -940,45 +942,45 @@ public:
 	/// <summary>
 	/// <para>Button stays pushed in until touched again?</para>
 	/// </summary>
-	qboolean stay_pushed;
+	qboolean stay_pushed{};
 
 	/// <summary>
 	/// <para>A rotating button?<br/>
 	/// Default is a sliding button.</para>
 	/// </summary>
-	qboolean rotating;
+	qboolean rotating{};
 
 	/// <summary>
 	/// <para>If this field is not null, this is an index into the engine string array.<br/>
 	/// When this button is touched, it's target entity's TARGET field will be set to the button's ChangeTarget.
 	/// This allows you to make a func_train switch paths, etc.</para>
 	/// </summary>
-	Strind change_target;
+	Strind change_target{};
 
 	/// <summary>
 	/// <para>Door lock sounds.</para>
 	/// </summary>
-	LockSound lock_snd;
+	LockSound lock_snd{};
 
 	/// <summary>
 	/// </summary>
-	byte locked_sound;
+	byte locked_sound{};
 
 	/// <summary>
 	/// </summary>
-	byte locked_sentence;
+	byte locked_sentence{};
 
 	/// <summary>
 	/// </summary>
-	byte unlocked_sound;
+	byte unlocked_sound{};
 
 	/// <summary>
 	/// </summary>
-	byte unlocked_sentence;
+	byte unlocked_sentence{};
 
 	/// <summary>
 	/// </summary>
-	int sounds;
+	int sounds{};
 };
 
 /// <summary>
@@ -1022,17 +1024,17 @@ public:
 
 	/// <summary>
 	/// </summary>
-	EntityHandle<> entities[MAX_MS_TARGETS];
+	EntityHandle<> entities[MAX_MS_TARGETS]{};
 
 	/// <summary>
 	/// </summary>
-	int triggered[MAX_MS_TARGETS];
+	int triggered[MAX_MS_TARGETS]{};
 
 	/// <summary>
 	/// </summary>
-	int total;
+	int total{};
 
 	/// <summary>
 	/// </summary>
-	Strind global_state;
+	Strind global_state{};
 };

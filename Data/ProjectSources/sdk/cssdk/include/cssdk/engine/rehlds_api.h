@@ -559,7 +559,7 @@ struct RehldsFuncs {
 	/// <summary>
 	/// </summary>
 	bool (*sv_emit_sound2)(Edict* entity, GameClient* receiver, int channel, const char* sample, float volume,
-		float attenuation, int flags, int pitch, int emit_flags, const Vector& origin){};
+	                       float attenuation, int flags, int pitch, int emit_flags, const Vector& origin){};
 
 	/// <summary>
 	/// </summary>

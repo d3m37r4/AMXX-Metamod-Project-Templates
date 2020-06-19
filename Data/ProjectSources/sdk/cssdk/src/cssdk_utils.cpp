@@ -50,6 +50,19 @@ inline void message_end()
 
 /// <summary>
 /// </summary>
+bool cssdk_is_bot(Edict* client)
+{
+	if (client->vars.flags & FL_FAKE_CLIENT) {
+		return true;
+	}
+
+	const auto* auth_id = g_engine_funcs.get_player_auth_id(client);
+
+	return !auth_id || !std::strcmp(auth_id, "BOT");
+}
+
+/// <summary>
+/// </summary>
 short cssdk_fixed_signed16(const float value, const float scale)
 {
 	auto output = static_cast<int>(value * scale);
@@ -87,8 +100,9 @@ void cssdk_hud_message(EntityBase* const entity, const HudTextParams& hud_params
 	constexpr auto svc_temp_entity = static_cast<int>(SvcMessage::TempEntity);
 
 	if (entity) {
-		if (!entity->is_net_client())
+		if (!entity->is_net_client()) {
 			return;
+		}
 
 		message_begin(MessageType::OneUnreliable, svc_temp_entity, nullptr, client);
 	}
@@ -113,8 +127,9 @@ void cssdk_hud_message(EntityBase* const entity, const HudTextParams& hud_params
 	write_short(cssdk_fixed_unsigned16(hud_params.fade_out_time, 1 << 8));
 	write_short(cssdk_fixed_unsigned16(hud_params.hold_time, 1 << 8));
 
-	if (hud_params.effect == 2)
+	if (hud_params.effect == 2) {
 		write_short(cssdk_fixed_unsigned16(hud_params.fx_time, 1 << 8));
+	}
 
 	if (!message) {
 		write_string(" ");

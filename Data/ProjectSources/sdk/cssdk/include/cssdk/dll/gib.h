@@ -22,17 +22,17 @@ public:
 
 	/// <summary>
 	/// </summary>
-	int blood_color;
+	int blood_color{};
 
 	/// <summary>
 	/// </summary>
-	int blood_decals;
+	int blood_decals{};
 
 	/// <summary>
 	/// </summary>
-	int material;
+	int material{};
 
 	/// <summary>
 	/// </summary>
-	float life_time;
+	float life_time{};
 };

@@ -27,7 +27,7 @@ public:
 
 	/// <summary>
 	/// </summary>
-	ItemInfo item_info;
+	ItemInfo item_info{};
 
 	/// <summary>
 	/// </summary>

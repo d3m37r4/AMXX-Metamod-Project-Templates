@@ -228,6 +228,26 @@ constexpr auto SCENARIO_BLOCK_TEAM_EXTERMINATION = 1 << 5;
 constexpr auto SCENARIO_BLOCK_HOSTAGE_RESCUE = 1 << 6;
 
 /// <summary>
+/// <para>Flag "h".</para>
+/// </summary>
+constexpr auto SCENARIO_BLOCK_VIP_ESCAPE_TIME = 1 << 7;
+
+/// <summary>
+/// <para>Flag "i".</para>
+/// </summary>
+constexpr auto SCENARIO_BLOCK_PRISON_ESCAPE_TIME = 1 << 8;
+
+/// <summary>
+/// <para>Flag "j".</para>
+/// </summary>
+constexpr auto SCENARIO_BLOCK_BOMB_TIME = 1 << 9;
+
+/// <summary>
+/// <para>Flag "k".</para>
+/// </summary>
+constexpr auto SCENARIO_BLOCK_HOSTAGE_RESCUE_TIME = 1 << 10;
+
+/// <summary>
 /// Enum WinStatus
 /// </summary>
 enum class WinStatus {
@@ -931,18 +951,18 @@ public:
 	/// <summary>
 	/// <para>TRUE at beginning of round, set to FALSE when the period expires.</para>
 	/// </summary>
-	qboolean freeze_period;
+	qboolean freeze_period{};
 
 	/// <summary>
 	/// </summary>
-	qboolean bomb_dropped;
+	qboolean bomb_dropped{};
 
 	/// <summary>
 	/// </summary>
-	char* game_desc;
+	char* game_desc{};
 
 	/// <summary>
 	/// <para>Intermission or finale.</para>
 	/// </summary>
-	bool is_game_over;
+	bool is_game_over{};
 };

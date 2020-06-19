@@ -22,8 +22,12 @@
 #define DLLEXPORT __declspec(dllexport)  // NOLINT(cppcoreguidelines-macro-usage)
 #define NOINLINE __declspec(noinline)  // NOLINT(cppcoreguidelines-macro-usage)
 #else
-#undef WINAPI
+#ifdef __clang__
+#define DLLEXPORT __attribute__ ((visibility ("default")))
+#else
 #define DLLEXPORT __attribute__ ((visibility ("default"), externally_visible))
+#endif
+#undef WINAPI
 #define WINAPI
 #define NOINLINE __attribute__ ((noinline))
 #endif // _WIN32
@@ -94,19 +98,19 @@ enum class UseType {
 struct LockSound {
 	/// <summary>
 	/// </summary>
-	Strind locked_sound;
+	Strind locked_sound{};
 
 	/// <summary>
 	/// </summary>
-	Strind locked_sentence;
+	Strind locked_sentence{};
 
 	/// <summary>
 	/// </summary>
-	Strind unlocked_sound;
+	Strind unlocked_sound{};
 
 	/// <summary>
 	/// </summary>
-	Strind unlocked_sentence;
+	Strind unlocked_sentence{};
 
 	/// <summary>
 	/// </summary>
