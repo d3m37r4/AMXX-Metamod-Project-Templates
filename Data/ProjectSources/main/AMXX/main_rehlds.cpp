@@ -3,8 +3,9 @@
 
 AmxxStatus on_amxx_attach()
 {
-	if (!RehldsApi::init())
-		return AmxxStatus::FuncNotPresent;
+	if (!RehldsApi::init()) {
+		return AmxxStatus::Failed;
+	}
 
 	return AmxxStatus::Ok;
 }

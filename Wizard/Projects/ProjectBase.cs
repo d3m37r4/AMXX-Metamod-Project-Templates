@@ -269,7 +269,7 @@ namespace Wizard.Projects
         {
             VCFilter filter = null;
             var name = string.Empty;
-            var dirs = path.Split(new[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
+            var dirs = path.Split(new[] {Path.DirectorySeparatorChar}, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var dir in dirs)
             {
@@ -293,6 +293,8 @@ namespace Wizard.Projects
         protected virtual void SetProperties()
         {
             SetPropertyValue(@"ConfigurationGeneral", @"TargetName", UserPrefs.TargetName);
+            SetPropertyValue(@"Microsoft.CodeAnalysis.ClangTidy", @"ClangTidyChecks",
+                @"-checks=-*,boost-*,bugprone-*,clang-analyzer-*,cppcoreguidelines-*,misc-*,modernize-*,mpi-*,openmp-*,performance-*,portability-*,readability-*,-cppcoreguidelines-avoid-c-arrays*,-cppcoreguidelines-avoid-magic-numbers*,-cppcoreguidelines-pro-type-reinterpret-cast*,-cppcoreguidelines-pro-bounds-pointer-arithmetic*,-cppcoreguidelines-pro-type-vararg*,-cppcoreguidelines-pro-bounds-array-to-pointer-decay*,-cppcoreguidelines-pro-bounds-constant-array-index*,-cppcoreguidelines-owning-memory*,-modernize-avoid-c-arrays*,-modernize-use-trailing-return-type*,-readability-implicit-bool-conversion*,-readability-magic-numbers*,-readability-named-parameter*");
 
             const string pageRule = @"CL";
             const string propertyName = @"PreprocessorDefinitions";

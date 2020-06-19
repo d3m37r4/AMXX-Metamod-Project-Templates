@@ -4,8 +4,9 @@
 
 MetamodStatus on_meta_attach()
 {
-	if (!RehldsApi::init() || !RegamedllApi::init())
+	if (!RehldsApi::init() || !RegamedllApi::init()) {
 		return MetamodStatus::Failed;
+	}
 
 	return MetamodStatus::Ok;
 }

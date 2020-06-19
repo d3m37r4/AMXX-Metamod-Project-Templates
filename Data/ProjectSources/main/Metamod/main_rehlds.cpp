@@ -3,8 +3,9 @@
 
 MetamodStatus on_meta_attach()
 {
-	if (!RehldsApi::init())
+	if (!RehldsApi::init()) {
 		return MetamodStatus::Failed;
+	}
 
 	return MetamodStatus::Ok;
 }

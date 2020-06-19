@@ -4,8 +4,9 @@
 
 AmxxStatus on_amxx_attach()
 {
-	if (!RehldsApi::init() || !RegamedllApi::init())
-		return AmxxStatus::FuncNotPresent;
+	if (!RehldsApi::init() || !RegamedllApi::init()) {
+		return AmxxStatus::Failed;
+	}
 
 	return AmxxStatus::Ok;
 }
