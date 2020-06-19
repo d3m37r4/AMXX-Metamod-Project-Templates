@@ -208,15 +208,6 @@ namespace Wizard.Projects
                 foreach (var file in Directory.GetFiles(directory, @"*", SearchOption.TopDirectoryOnly))
                     filter.AddFile(file);
             }
-
-            if (!UserPrefs.ReHldsApi && !UserPrefs.ReGameDllApi)
-            {
-                var filter = AddFilter(@"sdk\cssdk\src");
-                var file = ((IVCCollection)filter.Files).Item(@"interface.cpp");
-
-                if (file != null)
-                    filter.RemoveFile(file);
-            }
         }
 
         /// <summary>

@@ -77,6 +77,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add source files.
 #-------------------------------------------------------------------------------------------
 
+find_source_files("$cmakepluginprojectdirname$sdk/cssdk/src" sources_list)
 find_source_files("$cmakepluginprojectdirname$sdk/metamod/src" sources_list)
 find_source_files("$cmakepluginprojectdirname$sdk/amxx/src" sources_list)
 find_source_files("$cmakepluginprojectdirname$$pluginprojectdirname$/src" sources_list)

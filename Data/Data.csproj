@@ -139,9 +139,7 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="ProjectSources\cmake\AMXX\CMakeLists.txt" />
-    <None Include="ProjectSources\cmake\AMXX\CMakeLists_rehlds_regamedll.txt" />
     <None Include="ProjectSources\cmake\Metamod\CMakeLists.txt" />
-    <None Include="ProjectSources\cmake\Metamod\CMakeLists_rehlds_regamedll.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ProjectSources\sdk\metamod\include\metamod\metamod_config.h" />

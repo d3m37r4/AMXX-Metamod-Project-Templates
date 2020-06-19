@@ -112,14 +112,10 @@ namespace Data
                 switch (_userPrefs.ProjectType)
                 {
                     case ProjectType.Amxx:
-                        return _userPrefs.ReHldsApi || _userPrefs.ReGameDllApi
-                            ? @"cmake\AMXX\CMakeLists_rehlds_regamedll.txt"
-                            : @"cmake\AMXX\CMakeLists.txt";
+                        return @"cmake\AMXX\CMakeLists.txt";
 
                     case ProjectType.Metamod:
-                        return _userPrefs.ReHldsApi || _userPrefs.ReGameDllApi
-                            ? @"cmake\Metamod\CMakeLists_rehlds_regamedll.txt"
-                            : @"cmake\Metamod\CMakeLists.txt";
+                        return @"cmake\Metamod\CMakeLists.txt";
 
                     default:
                         throw new ArgumentOutOfRangeException();
