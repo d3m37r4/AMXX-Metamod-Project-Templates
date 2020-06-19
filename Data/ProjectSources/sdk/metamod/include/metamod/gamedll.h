@@ -526,7 +526,7 @@ public:
 	///		The PVS provided by <c>setup_visibility</c>
 	/// </param>
 	static int add_to_full_pack(EntityState* state, const int entity_index, Edict* entity, Edict* host, const int host_flags, const qboolean player,
-		unsigned char* set)
+	                            unsigned char* set)
 	{
 		return g_dll_funcs->add_to_full_pack(state, entity_index, entity, host, host_flags, player, set);
 	}
@@ -557,7 +557,7 @@ public:
 	///		Array of the player maximum bounds for each hull.<br/>
 	/// </param>
 	static void create_baseline(const qboolean client, const int entity_index, EntityState* baseline, Edict* entity, const int player_model_index,
-		const Vector player_min_size, const Vector player_max_size)
+	                            const Vector player_min_size, const Vector player_max_size)
 	{
 		g_dll_funcs->create_baseline(client, entity_index, baseline, entity, player_model_index, player_min_size, player_max_size);
 	}

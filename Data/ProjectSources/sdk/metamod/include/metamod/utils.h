@@ -76,7 +76,7 @@ struct MetaUtilFuncPointers {
 	const char* (*is_querying_client_cvar)(MetaPluginInfo* plugin, const Edict* edict){};
 	int (*make_request_id)(MetaPluginInfo* plugin){};
 	void (*get_hook_tables)(MetaPluginInfo* plugin, EngineFuncPointers** engine_funcs, DllFuncPointers** dll_funcs,
-		DllNewFuncPointers** new_dll_funcs){};
+	                        DllNewFuncPointers** new_dll_funcs){};
 };
 
 /// <summary>
@@ -231,7 +231,7 @@ public:
 	/// <summary>
 	/// </summary>
 	static int unload_plugin_by_handle(MetaPluginInfo* plugin_id, void* plugin_handle, const MetaPluginLoadTime load_time,
-		const MetaPluginUnloadReason reason)
+	                                   const MetaPluginUnloadReason reason)
 	{
 		return util_funcs_->unload_plugin_by_handle(plugin_id, plugin_handle, load_time, reason);
 	}
@@ -253,7 +253,7 @@ public:
 	/// <summary>
 	/// </summary>
 	static void get_hook_tables(MetaPluginInfo* plugin_id, EngineFuncPointers** engine_funcs, DllFuncPointers** dll_funcs,
-		DllNewFuncPointers** new_dll_funcs)
+	                            DllNewFuncPointers** new_dll_funcs)
 	{
 		util_funcs_->get_hook_tables(plugin_id, engine_funcs, dll_funcs, new_dll_funcs);
 	}

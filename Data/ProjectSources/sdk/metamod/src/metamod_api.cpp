@@ -120,8 +120,9 @@ extern "C" void DLLEXPORT Meta_Init()
 /// </summary>
 extern "C" MetamodStatus DLLEXPORT Meta_Query(const char* interface_version, MetaPluginInfo** plugin_info, MetaUtilFuncPointers* util_funcs)
 {
-	if (std::strcmp(interface_version, META_INTERFACE_VERSION) != 0)
+	if (std::strcmp(interface_version, META_INTERFACE_VERSION) != 0) {
 		return MetamodStatus::Failed;
+	}
 
 	static MetaPluginInfo info =
 	{
@@ -150,7 +151,7 @@ extern "C" MetamodStatus DLLEXPORT Meta_Query(const char* interface_version, Met
 /// <summary>
 /// </summary>
 extern "C" MetamodStatus DLLEXPORT Meta_Attach(MetaPluginLoadTime /*load_time*/, MetaHookExportFuncs* export_funcs_table,
-	MetaGlobals* globals, MetaDllFuncsTables* dll_funcs_tables)
+                                               MetaGlobals* globals, MetaDllFuncsTables* dll_funcs_tables)
 {
 	MetaHookExportFuncs hook_export_funcs =
 	{
