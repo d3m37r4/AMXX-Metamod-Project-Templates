@@ -21,9 +21,9 @@ cmake_minimum_required(VERSION 3.13.5 FATAL_ERROR)
 project("$cmakeprojectname$")
 
 # Options
-option(OPT_DEBUG "Build with debugging information and runtime checks." ON)
-option(OPT_NO_RTTI "Disable RTTI support." ON)
-option(OPT_NO_EXCEPTIONS "Disable exception handling table generation." ON)
+option(OPT_DEBUG "Build with debugging information and runtime checks." OFF)
+option(OPT_NO_RTTI "Disable RTTI support." OFF)
+option(OPT_NO_EXCEPTIONS "Disable exception handling table generation." OFF)
 option(OPT_RUN_CLANG_TIDY "Run clang-tidy checks." OFF)
 
 # Linking options
