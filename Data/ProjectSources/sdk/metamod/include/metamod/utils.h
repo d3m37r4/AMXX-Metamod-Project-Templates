@@ -158,7 +158,7 @@ public:
 	/// <para>Print a center-message, with given text parameters.</para>
 	/// </summary>
 	template <typename ...Args>
-	static void center_say_params(const HudTextParams params, const char* format, Args&&... args)
+	static void center_say_params(const HudTextParams& params, const char* format, Args&&... args)
 	{
 		util_funcs_->center_say_params(plugin_info_, params, format, std::forward<Args>(args)...);
 	}
@@ -166,7 +166,7 @@ public:
 	/// <summary>
 	/// <para>Print a center-message, with text parameters and varargs.</para>
 	/// </summary>
-	static void center_say_varargs(const HudTextParams params, const char* format, std::va_list&& arg_list)
+	static void center_say_varargs(const HudTextParams& params, const char* format, std::va_list&& arg_list)
 	{
 		util_funcs_->center_say_varargs(plugin_info_, params, format, std::forward<va_list>(arg_list));
 	}
