@@ -11,11 +11,16 @@
 
 #include <cssdk/public/base_types.h>
 #include <cmath>
+#include <limits>
 
 /// <summary>
 /// <para>Used for many path finding and many other operations that are treated as planar rather than 3D.</para>
 /// </summary>
 class Vector2D {
+	/// <summary>
+	/// </summary>
+	static constexpr float epsilon_ = std::numeric_limits<float>::epsilon();
+
 public:
 	/// <summary>
 	/// </summary>
@@ -45,21 +50,21 @@ public:
 	/// </summary>
 	bool operator==(const vec_t rhs) const
 	{
-		return x == rhs && y == rhs;
+		return std::fabs(x - rhs) < epsilon_ && std::fabs(y - rhs) < epsilon_;
 	}
 
 	/// <summary>
 	/// </summary>
 	bool operator!=(const vec_t rhs) const
 	{
-		return !(*this == rhs);
+		return !operator==(rhs);
 	}
 
 	/// <summary>
 	/// </summary>
 	bool operator==(const Vector2D& rhs) const
 	{
-		return x == rhs.x && y == rhs.y;
+		return std::fabs(x - rhs.x) < epsilon_ && std::fabs(y - rhs.y) < epsilon_;
 	}
 
 	/// <summary>
@@ -218,7 +223,7 @@ public:
 	{
 		auto len = length();
 
-		if (!len) {
+		if (std::fabs(len) < epsilon_) {
 			return Vector2D(0.0f, 0.0f);
 		}
 
@@ -262,6 +267,10 @@ public:
 /// Class Vector
 /// </summary>
 class Vector {
+	/// <summary>
+	/// </summary>
+	static constexpr float epsilon_ = std::numeric_limits<float>::epsilon();
+
 public:
 	/// <summary>
 	/// </summary>
@@ -291,21 +300,21 @@ public:
 	/// </summary>
 	bool operator==(const vec_t rhs) const
 	{
-		return x == rhs && y == rhs && z == rhs;
+		return std::fabs(x - rhs) < epsilon_ && std::fabs(y - rhs) < epsilon_ && std::fabs(z - rhs) < epsilon_;
 	}
 
 	/// <summary>
 	/// </summary>
 	bool operator!=(const vec_t rhs) const
 	{
-		return !(*this == rhs);
+		return !operator==(rhs);
 	}
 
 	/// <summary>
 	/// </summary>
 	bool operator==(const Vector& rhs) const
 	{
-		return x == rhs.x && y == rhs.y && z == rhs.z;
+		return std::fabs(x - rhs.x) < epsilon_ && std::fabs(y - rhs.y) < epsilon_ && std::fabs(z - rhs.z) < epsilon_;
 	}
 
 	/// <summary>
@@ -506,7 +515,7 @@ public:
 	{
 		auto len = length();
 
-		if (!len) {
+		if (std::fabs(len) < epsilon_) {
 			return Vector(0.0f, 0.0f, 1.0f);
 		}
 
@@ -523,7 +532,7 @@ public:
 	{
 		const auto len = length();
 
-		if (!len) {
+		if (std::fabs(len) < epsilon_) {
 			x = y = 0.0f;
 			z = 1.0f;
 		}
@@ -547,7 +556,7 @@ public:
 
 	/// <summary>
 	/// </summary>
-	[[nodiscard]] bool is_zero(const vec_t tolerance = 0.01f) const
+	[[nodiscard]] bool is_zero(const vec_t tolerance = epsilon_) const
 	{
 		return x > -tolerance && x < tolerance && y > -tolerance && y < tolerance && z > -tolerance && z < tolerance;
 	}

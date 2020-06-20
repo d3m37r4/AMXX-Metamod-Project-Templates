@@ -24,7 +24,7 @@ FORCEINLINE bool cssdk_is_client(const int index)
 
 /// <summary>
 /// </summary>
-FORCEINLINE bool cssdk_is_client(Edict* entity)
+FORCEINLINE bool cssdk_is_client(const Edict* const entity)
 {
 	return cssdk_is_client(g_engine_funcs.index_of_edict(entity));
 }
