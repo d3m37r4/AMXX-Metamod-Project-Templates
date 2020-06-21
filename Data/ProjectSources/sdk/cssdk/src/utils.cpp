@@ -15,35 +15,35 @@
 
 /// <summary>
 /// </summary>
-inline void message_begin(const MessageType msg_type, const int msg_id, const vec_t* const origin = nullptr, Edict* const client = nullptr)
+FORCEINLINE_STATIC void message_begin(const MessageType msg_type, const int msg_id, const vec_t* const origin = nullptr, Edict* const client = nullptr)
 {
 	g_engine_funcs.message_begin(msg_type, msg_id, origin, client);
 }
 
 /// <summary>
 /// </summary>
-inline void write_short(const int value)
+FORCEINLINE_STATIC void write_short(const int value)
 {
 	g_engine_funcs.write_short(value);
 }
 
 /// <summary>
 /// </summary>
-inline void write_byte(const int value)
+FORCEINLINE_STATIC void write_byte(const int value)
 {
 	g_engine_funcs.write_byte(value);
 }
 
 /// <summary>
 /// </summary>
-inline void write_string(const char* value)
+FORCEINLINE_STATIC void write_string(const char* value)
 {
 	g_engine_funcs.write_string(value);
 }
 
 /// <summary>
 /// </summary>
-inline void message_end()
+FORCEINLINE_STATIC void message_end()
 {
 	g_engine_funcs.message_end();
 }
