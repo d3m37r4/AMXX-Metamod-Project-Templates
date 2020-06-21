@@ -284,6 +284,7 @@ namespace Wizard.Projects
         protected virtual void SetProperties()
         {
             SetPropertyValue(@"ConfigurationGeneral", @"TargetName", UserPrefs.TargetName);
+            SetPropertyValue(@"CL", @"ObjectFileName", @"$(IntDir)%(RelativeDir)");
             SetPropertyValue(@"Microsoft.CodeAnalysis.ClangTidy", @"ClangTidyChecks",
                 @"-checks=-*,boost-*,bugprone-*,clang-analyzer-*,cppcoreguidelines-*,misc-*,modernize-*,mpi-*,openmp-*,performance-*,portability-*,readability-*,-cppcoreguidelines-avoid-c-arrays*,-cppcoreguidelines-avoid-magic-numbers*,-cppcoreguidelines-pro-type-reinterpret-cast*,-cppcoreguidelines-pro-bounds-pointer-arithmetic*,-cppcoreguidelines-pro-type-vararg*,-cppcoreguidelines-pro-bounds-array-to-pointer-decay*,-cppcoreguidelines-pro-bounds-constant-array-index*,-cppcoreguidelines-owning-memory*,-modernize-avoid-c-arrays*,-modernize-use-trailing-return-type*,-readability-implicit-bool-conversion*,-readability-magic-numbers*,-readability-named-parameter*");
 
