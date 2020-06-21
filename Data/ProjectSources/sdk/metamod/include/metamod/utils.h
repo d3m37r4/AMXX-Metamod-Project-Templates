@@ -184,7 +184,7 @@ public:
 	/// <para>Find a user message, registered by the gamedll, with the corresponding message name,
 	/// and return remaining info about it (message id, size).</para>
 	/// </summary>
-	static int get_user_msg_id(const char* message_name, int* size)
+	static int get_user_msg_id(const char* message_name, int* size = nullptr)
 	{
 		return util_funcs_->get_user_msg_id(plugin_info_, message_name, size);
 	}
@@ -193,7 +193,7 @@ public:
 	/// <para>Find a user message, registered by the gamedll, with the corresponding message id,
 	/// and return remaining info about it (message name, size).</para>
 	/// </summary>
-	static const char* get_user_msg_name(const int message_id, int* size)
+	static const char* get_user_msg_name(const int message_id, int* size = nullptr)
 	{
 		return util_funcs_->get_user_msg_name(plugin_info_, message_id, size);
 	}
