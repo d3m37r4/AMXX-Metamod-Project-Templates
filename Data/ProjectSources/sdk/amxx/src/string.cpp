@@ -32,7 +32,7 @@ namespace amx
 	static int check_valid_char(const char* c) // Stolen from AMXX Mod X
 	{
 		auto count = 1;
-		auto byte_count = 1;
+		auto byte_count = 0;
 
 		for (; (*c & 0xC0) == 0x80; count++) {
 			c--;
@@ -43,13 +43,18 @@ namespace amx
 		case 0xD0:
 			byte_count = 2;
 			break;
+
 		case 0xE0:
 			byte_count = 3;
 			break;
+
 		case 0xF0:
 			byte_count = 4;
 			break;
-		default: byte_count = 1;
+
+		default:
+			byte_count = 1;
+			break;
 		}
 
 		if (byte_count != count) {
@@ -95,8 +100,8 @@ namespace amx
 	}
 
 #ifdef __INTEL_COMPILER
-	#pragma warning(push)
-	#pragma warning(disable: 2017)
+#pragma warning(push)
+#pragma warning(disable: 2017)
 #endif
 
 	/// <summary>
@@ -107,7 +112,7 @@ namespace amx
 	}
 
 #ifdef __INTEL_COMPILER
-	#pragma warning(pop)
+#pragma warning(pop)
 #endif
 
 	/// <summary>

@@ -127,7 +127,7 @@ extern "C" AmxxStatus DLLEXPORT AMXX_Attach(const std::add_pointer_t<void*(const
 	REQUEST_FUNCTION(func->is_player_alive, "IsPlayerAlive");
 	REQUEST_FUNCTION(func->is_player_authorized, "IsPlayerAuthorized");
 	REQUEST_FUNCTION(func->is_player_bot, "IsPlayerBot");
-	REQUEST_FUNCTION(func->is_player_connecting, "IsPlayerConnecting");
+	REQUEST_FUNCTION(func->is_player_connected, "IsPlayerConnecting");
 	REQUEST_FUNCTION(func->is_player_hltv, "IsPlayerHLTV");
 	REQUEST_FUNCTION(func->is_player_in_game, "IsPlayerInGame");
 	REQUEST_FUNCTION(func->is_player_valid, "IsPlayerValid");

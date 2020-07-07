@@ -393,7 +393,7 @@ struct AmxxApiFuncPointers {
 	int (*get_player_keys)(int id){};
 	int (*is_player_alive)(int id){};
 	int (*get_player_frags)(int id){};
-	int (*is_player_connecting)(int id){};
+	int (*is_player_connected)(int id){};
 	int (*is_player_hltv)(int id){};
 	int (*get_player_armor)(int id){};
 	int (*get_player_health)(int id){};
@@ -774,9 +774,9 @@ public:
 
 	/// <summary>
 	/// </summary>
-	static int is_player_connecting(const int id)
+	static int is_player_connected(const int id)
 	{
-		return amxx_api_funcs_.is_player_connecting(id);
+		return amxx_api_funcs_.is_player_connected(id);
 	}
 
 	/// <summary>
