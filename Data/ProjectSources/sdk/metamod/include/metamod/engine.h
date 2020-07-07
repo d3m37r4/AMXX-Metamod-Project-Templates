@@ -15,13 +15,13 @@
 /// <summary>
 /// <para>Receive engine function table from engine.</para>
 /// </summary>
-extern "C" void DLLEXPORT WINAPI GiveFnptrsToDll(EngineFuncPointers*, GlobalVars*);
+extern "C" void DLLEXPORT WINAPI GiveFnptrsToDll(const EngineFuncPointers*, GlobalVars*);
 
 /// <summary>
 /// Class Engine.
 /// </summary>
 class Engine {
-	friend void WINAPI GiveFnptrsToDll(EngineFuncPointers*, GlobalVars*);
+	friend void WINAPI GiveFnptrsToDll(const EngineFuncPointers*, GlobalVars*);
 
 	/// <summary>
 	/// <para>Engine functions table.</para>
