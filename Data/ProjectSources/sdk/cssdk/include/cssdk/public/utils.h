@@ -116,3 +116,27 @@ void cssdk_hud_message(Edict* client, const HudTextParams& hud_params, const cha
 /// <summary>
 /// </summary>
 void cssdk_hud_message(int client, const HudTextParams& hud_params, const char* message);
+
+/// <summary>
+/// </summary>
+EntityBase* cssdk_find_entity_in_sphere(Edict* start_entity, const Vector& center, float radius);
+
+/// <summary>
+/// </summary>
+EntityBase* cssdk_find_entity_by_string(Edict* start_entity, const char* field, const char* value);
+
+/// <summary>
+/// </summary>
+EntityBase* find_entity_by_class_name(Edict* start_entity, const char* class_name);
+
+/// <summary>
+/// </summary>
+EntityBase* find_entity_by_target_name(Edict* start_entity, const char* target_name);
+
+/// <summary>
+/// </summary>
+EntityBase* find_client_in_pvs(Edict* entity);
+
+/// <summary>
+/// </summary>
+EntityBase* find_entity_by_vars(EntityVars* vars);

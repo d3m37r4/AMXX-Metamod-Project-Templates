@@ -1451,3 +1451,36 @@ enum class DeathState {
 	/// </summary>
 	DiscardBody
 };
+
+/// <summary>
+/// Enum ObserverMode
+/// </summary>
+enum class ObserverMode {
+	/// <summary>
+	/// </summary>
+	None = 0,
+
+	/// <summary>
+	/// </summary>
+	ChaseLocked,
+
+	/// <summary>
+	/// </summary>
+	ChaseFree,
+
+	/// <summary>
+	/// </summary>
+	Roaming,
+
+	/// <summary>
+	/// </summary>
+	InEye,
+
+	/// <summary>
+	/// </summary>
+	MapFree,
+
+	/// <summary>
+	/// </summary>
+	MapChase
+};

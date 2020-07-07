@@ -16,7 +16,6 @@
 #include <cssdk/dll/unified_signals.h>
 #include <cssdk/dll/weapons.h>
 #include <cssdk/pm_shared/pm_materials.h>
-#include <cssdk/pm_shared/pm_shared.h>
 
 #ifdef REGAMEDLL_API
 /// <summary>

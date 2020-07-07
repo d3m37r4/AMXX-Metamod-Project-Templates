@@ -172,3 +172,49 @@ void cssdk_hud_message(const int client, const HudTextParams& hud_params, const 
 		cssdk_hud_message(nullptr, hud_params, message, nullptr);
 	}
 }
+
+/// <summary>
+/// </summary>
+EntityBase* cssdk_find_entity_in_sphere(Edict* start_entity, const Vector& center, const float radius)
+{
+	const auto* entity = g_engine_funcs.find_entity_in_sphere(start_entity, center, radius);
+	return cssdk_is_valid_entity(entity) ? EntityBase::instance(entity) : nullptr;
+}
+
+/// <summary>
+/// </summary>
+EntityBase* cssdk_find_entity_by_string(Edict* start_entity, const char* field, const char* value)
+{
+	const auto* entity = g_engine_funcs.find_entity_by_string(start_entity, field, value);
+	return cssdk_is_valid_entity(entity) ? EntityBase::instance(entity) : nullptr;
+}
+
+/// <summary>
+/// </summary>
+EntityBase* find_entity_by_class_name(Edict* start_entity, const char* class_name)
+{
+	return cssdk_find_entity_by_string(start_entity, "classname", class_name);
+}
+
+/// <summary>
+/// </summary>
+EntityBase* find_entity_by_target_name(Edict* start_entity, const char* target_name)
+{
+	return cssdk_find_entity_by_string(start_entity, "targetname", target_name);
+}
+
+/// <summary>
+/// </summary>
+EntityBase* find_client_in_pvs(Edict* entity)
+{
+	entity = g_engine_funcs.find_client_in_pvs(entity);
+	return cssdk_is_valid_entity(entity) ? EntityBase::instance(entity) : nullptr;
+}
+
+/// <summary>
+/// </summary>
+EntityBase* find_entity_by_vars(EntityVars* vars)
+{
+	const auto* entity = g_engine_funcs.find_entity_by_vars(vars);
+	return cssdk_is_valid_entity(entity) ? EntityBase::instance(entity) : nullptr;
+}

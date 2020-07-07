@@ -2607,31 +2607,31 @@ public:
 
 	/// <summary>
 	/// </summary>
-	//TraceResult trace_hit{};
+	TraceResult trace_hit{};
 
 	/// <summary>
 	/// </summary>
-	//unsigned short event_knife{};
+	unsigned short event_knife{};
 
 	/// <summary>
 	/// </summary>
-	//float stab_base_damage{};
+	float stab_base_damage{};
 
 	/// <summary>
 	/// </summary>
-	//float swing_base_damage{};
+	float swing_base_damage{};
 
 	/// <summary>
 	/// </summary>
-	//float swing_base_damage_fast{};
+	float swing_base_damage_fast{};
 
 	/// <summary>
 	/// </summary>
-	//float stab_distance{};
+	float stab_distance{};
 
 	/// <summary>
 	/// </summary>
-	//float swing_distance{};
+	float swing_distance{};
 };
 
 //

@@ -474,6 +474,17 @@ public:
 	/// </summary>
 	bool has_disconnected{};
 
+	/// <summary>
+	/// </summary>
+	static EntityBase* instance(const Edict* edict)
+	{
+		if (!edict) {
+			edict = g_engine_funcs.entity_of_ent_index(0);
+		}
+
+		return static_cast<EntityBase*>(edict->private_data);
+	}
+
 	using UseCallbackFn = decltype(use_callback);
 	using ThinkCallbackFn = decltype(think_callback);
 	using TouchCallbackFn = decltype(touch_callback);
@@ -543,21 +554,35 @@ public:
 	/// </summary>
 	[[nodiscard]] Edict* edict() const
 	{
-		return vars == nullptr ? nullptr : vars->containing_entity;
+		return vars->containing_entity;
 	}
 
 	/// <summary>
 	/// </summary>
 	[[nodiscard]] int edict_index() const
 	{
-		return vars == nullptr ? -1 : g_engine_funcs.index_of_edict(vars->containing_entity);
+		return g_engine_funcs.index_of_edict(vars->containing_entity);
 	}
 
 	/// <summary>
 	/// </summary>
 	[[nodiscard]] eoffset edict_offset() const
 	{
-		return vars == nullptr ? -1 : g_engine_funcs.ent_offset_of_entity(vars->containing_entity);
+		return g_engine_funcs.ent_offset_of_entity(vars->containing_entity);
+	}
+
+	/// <summary>
+	/// </summary>
+	[[nodiscard]] bool is_proxy() const
+	{
+		return (vars->flags & FL_PROXY) == FL_PROXY;
+	}
+
+	/// <summary>
+	/// </summary>
+	[[nodiscard]] bool is_dormant() const
+	{
+		return (vars->flags & FL_DORMANT) == FL_DORMANT;
 	}
 };
 
@@ -601,7 +626,7 @@ public:
 
 	/// <summary>
 	/// </summary>
-	EntityHandle(EntityHandle<T>&&) = delete;
+	EntityHandle(EntityHandle<T>&&) noexcept = default;
 
 	/// <summary>
 	/// </summary>
@@ -641,7 +666,7 @@ public:
 	/// </summary>
 	[[nodiscard]] bool is_valid() const
 	{
-		const auto edict = get();
+		const auto* edict = get();
 		return cssdk_is_valid_entity(edict);
 	}
 
@@ -651,7 +676,7 @@ public:
 
 	/// <summary>
 	/// </summary>
-	EntityHandle& operator=(const EntityHandle<T>& other) = default;
+	EntityHandle& operator=(const EntityHandle<T>&) = default;
 
 	/// <summary>
 	/// </summary>
@@ -671,6 +696,14 @@ public:
 	bool operator!=(T* entity) const
 	{
 		return !(*this == entity);
+	}
+
+	/// <summary>
+	/// </summary>
+	T* operator->()
+	{
+		const auto* edict = get();
+		return cssdk_entity_private_data<T*>(edict);
 	}
 
 private:

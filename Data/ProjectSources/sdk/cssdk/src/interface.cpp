@@ -28,16 +28,17 @@ SysInterfaceReg* SysInterfaceReg::interface_regs = nullptr;
 /// <summary>
 /// <para>Loads a DLL/component from disk and returns a handle to it.<br/></para>
 /// </summary>
-/// <param name="module_name">Filename of the component.<br/></param>
+/// <param name="module_name">Filename of the component.</param>
+/// <param name="load_flags">The action to be taken when loading the module.<br/></param>
 /// <returns>Opaque handle to the module (hides system dependency).</returns>
-SysModule* sys_load_module(const char* module_name)
+SysModule* sys_load_module(const char* module_name, [[maybe_unused]] const unsigned long load_flags)
 {
 	if (module_name == nullptr) {
 		return nullptr;
 	}
 
 #if defined (_WIN32)
-	auto* const module_handle = LoadLibrary(module_name);
+	auto* const module_handle = LoadLibraryEx(module_name, nullptr, load_flags);
 #else
 	void* module_handle = nullptr;
 
@@ -78,7 +79,7 @@ bool sys_unload_module(SysModule*& module_handle)
 	}
 
 #if defined(_WIN32)
-	if (FreeLibrary(HMODULE(module_handle))) {
+	if (FreeLibrary(reinterpret_cast<HMODULE>(module_handle))) {
 		module_handle = nullptr;
 	}
 #else
@@ -151,7 +152,7 @@ CreateInterfaceFn sys_get_factory(SysModule* module_handle)
 	}
 
 #if defined(_WIN32)
-	return reinterpret_cast<CreateInterfaceFn>(GetProcAddress(HMODULE(module_handle), CREATE_INTERFACE_PROC_NAME));
+	return reinterpret_cast<CreateInterfaceFn>(GetProcAddress(reinterpret_cast<HMODULE>(module_handle), CREATE_INTERFACE_PROC_NAME));
 #else
 	return reinterpret_cast<CreateInterfaceFn>(dlsym(module_handle, CREATE_INTERFACE_PROC_NAME));
 #endif

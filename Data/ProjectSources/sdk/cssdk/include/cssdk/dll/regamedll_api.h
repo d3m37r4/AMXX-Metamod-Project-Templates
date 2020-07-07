@@ -226,16 +226,16 @@ using ReHookHandleMenuChooseAppearance = IHookChain<void, PlayerBase*, int>;
 using ReHookRegistryHandleMenuChooseAppearance = IHookChainRegistry<void, PlayerBase*, int>;
 
 // HandleMenu_ChooseTeam hook
-using ReHookHandleMenuChooseTeam = IHookChain<qboolean, PlayerBase*, int>;
-using ReHookRegistryHandleMenuChooseTeam = IHookChainRegistry<qboolean, PlayerBase*, int>;
+using ReHookHandleMenuChooseTeam = IHookChain<qboolean, PlayerBase*, ChooseTeamMenuSlot>;
+using ReHookRegistryHandleMenuChooseTeam = IHookChainRegistry<qboolean, PlayerBase*, ChooseTeamMenuSlot>;
 
 // ShowMenu hook
 using ReHookShowMenu = IHookChain<void, PlayerBase*, int, int, qboolean, char*>;
 using ReHookRegistryShowMenu = IHookChainRegistry<void, PlayerBase*, int, int, qboolean, char*>;
 
 // ShowVGUIMenu hook
-using ReHookShowVguiMenu = IHookChain<void, PlayerBase*, int, int, char*>;
-using ReHookRegistryShowVguiMenu = IHookChainRegistry<void, PlayerBase*, int, int, char*>;
+using ReHookShowVguiMenu = IHookChain<void, PlayerBase*, VguiMenu, int, char*>;
+using ReHookRegistryShowVguiMenu = IHookChainRegistry<void, PlayerBase*, VguiMenu, int, char*>;
 
 // BuyGunAmmo hook
 using ReHookBuyGunAmmo = IHookChain<bool, PlayerBase*, PlayerItemBase*, bool>;
