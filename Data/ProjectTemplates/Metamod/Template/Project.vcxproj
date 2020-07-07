@@ -61,7 +61,7 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;$exportsdef$;_WINDOWS;_USRDLL;REHLDS_FIXES;REGAMEDLL_FIXES;REGAMEDLL_API;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;$exportsdef$;_WINDOWS;_USRDLL;REHLDS_FIXES;REGAMEDLL_FIXES;REGAMEDLL_API;REGAMEDLL_ADD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -90,7 +90,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;$exportsdef$;_WINDOWS;_USRDLL;REHLDS_FIXES;REGAMEDLL_FIXES;REGAMEDLL_API;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;$exportsdef$;_WINDOWS;_USRDLL;REHLDS_FIXES;REGAMEDLL_FIXES;REGAMEDLL_API;REGAMEDLL_ADD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
