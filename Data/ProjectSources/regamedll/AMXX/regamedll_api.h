@@ -24,10 +24,6 @@ class RegamedllApi {
 
 	/// <summary>
 	/// </summary>
-	static GameRules* game_rules_;
-
-	/// <summary>
-	/// </summary>
 	static const RegamedllFuncs* regamedll_funcs_;
 
 	/// <summary>
@@ -61,7 +57,7 @@ public:
 	/// </summary>
 	static GameRules* game_rules()
 	{
-		return game_rules_;
+		return regamedll_api_interface_->get_game_rules();
 	}
 
 	/// <summary>

@@ -22,10 +22,6 @@ int RegamedllApi::minor_version_ = 0;
 
 /// <summary>
 /// </summary>
-GameRules* RegamedllApi::game_rules_ = nullptr;
-
-/// <summary>
-/// </summary>
 const RegamedllFuncs* RegamedllApi::regamedll_funcs_ = nullptr;
 
 /// <summary>
@@ -138,7 +134,6 @@ bool RegamedllApi::init()
 	// ReGameDllApi assignment.
 	//
 
-	game_rules_ = regamedll_api_interface_->get_game_rules();
 	regamedll_funcs_ = regamedll_api_interface_->get_funcs();
 	regamedll_hook_chains_ = regamedll_api_interface_->get_hook_chains();
 
