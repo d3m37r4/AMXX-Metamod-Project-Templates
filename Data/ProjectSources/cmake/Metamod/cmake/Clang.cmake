@@ -3,14 +3,15 @@
 #-------------------------------------------------------------------------------------------
 
 # Diagnostic flags
-target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
+# TODO: Add diagnostic flags for COMPILE_LANGUAGE:C
+target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE $<$<COMPILE_LANGUAGE:CXX>:
     -Wall -Wextra -Wpedantic -Weffc++ -Wunused -Wold-style-cast
     -Wcast-align -Wnull-dereference -Wredundant-decls -Wdouble-promotion
     -Wno-non-virtual-dtor
 
     # Build type Release, MinSizeRel, RelWithDebInfo
     $<$<OR:$<CONFIG:Release>,$<CONFIG:MinSizeRel>,$<CONFIG:RelWithDebInfo>>:
-    -Werror -Wfatal-errors>
+    -Werror -Wfatal-errors>>
 )
 
 # Debug flags
@@ -37,11 +38,11 @@ target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
 
 # Optional flags
 if (${OPT_NO_RTTI})
-    target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -fno-rtti)
+    target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>)
 endif()
 
 if (${OPT_NO_EXCEPTIONS})
-    target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -fno-exceptions)
+    target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>)
 endif()
 
 

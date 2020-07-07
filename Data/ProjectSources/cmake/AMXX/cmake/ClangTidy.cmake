@@ -2,7 +2,7 @@
 # Enable Clang-Tidy checks.
 #-------------------------------------------------------------------------------------------
 
-set(CLANG_TIDY -checks=-*,
+set(CLANG_TIDY_CXX -checks=-*,
     boost-*,
     bugprone-*,
     clang-analyzer-*,
@@ -21,7 +21,7 @@ set(CLANG_TIDY -checks=-*,
 # Disable Clang-Tidy checks.
 #-------------------------------------------------------------------------------------------
 
-set(CLANG_TIDY_SUPPRESS
+set(CLANG_TIDY_SUPPRESS_CXX
     -cppcoreguidelines-avoid-c-arrays*,
     -cppcoreguidelines-avoid-magic-numbers*,
     -cppcoreguidelines-pro-type-reinterpret-cast*,
@@ -46,9 +46,9 @@ if (OPT_RUN_CLANG_TIDY)
     find_program(CLANG_TIDY_COMMAND NAMES clang-tidy)
 
     if (CLANG_TIDY_COMMAND)
-        string(REGEX REPLACE "\n$" "" TIDY_OPTIONS ${CLANG_TIDY}${CLANG_TIDY_SUPPRESS})
-        set(CMAKE_C_CLANG_TIDY clang-tidy ${TIDY_OPTIONS})
-        set(CMAKE_CXX_CLANG_TIDY clang-tidy ${TIDY_OPTIONS})
+        string(REGEX REPLACE "\n$" "" TIDY_OPTIONS_CXX ${CLANG_TIDY_CXX}${CLANG_TIDY_SUPPRESS_CXX})
+		#set(CMAKE_C_CLANG_TIDY clang-tidy ${TIDY_OPTIONS_C})
+        set(CMAKE_CXX_CLANG_TIDY clang-tidy ${TIDY_OPTIONS_CXX})
     else()
         message(STATUS "WARNING: OPT_RUN_CLANG_TIDY is ON but clang-tidy is not found!")
         set(CMAKE_C_CLANG_TIDY "" CACHE STRING "" FORCE)
