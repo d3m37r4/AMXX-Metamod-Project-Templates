@@ -28,7 +28,7 @@ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO ${CMAKE_C_FLAGS_RELWITHDEBINFO})
 
 # Compiler flags
 target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
-    -m32 -mtune=generic -march=x86-64 -msse -msse2 -msse3 -mssse3 -mmmx
+    -m32 -mtune=generic -march=x86-64 -msse -msse2 -msse3 -mssse3 -mmmx -mfpmath=sse
     -ffunction-sections -fdata-sections
 
     # Build type Release, MinSizeRel
