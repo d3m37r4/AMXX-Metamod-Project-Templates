@@ -17,7 +17,7 @@ option(ALL_DIAGNOSTIC_GROUPS "Enable all diagnostic groups." OFF)
 target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE $<$<COMPILE_LANGUAGE:CXX>:
     -w3 -Wall -Wremarks -Wcheck -Weffc++
     -Wuninitialized -Wdeprecated -Wpointer-arith
-    -diag-disable=383,1418,1419,1572,2012,2015
+    -diag-disable=383,1418,1419,1572,2012,2015,11074,11076
 
     # Build type Release, MinSizeRel, RelWithDebInfo
     $<$<OR:$<CONFIG:Release>,$<CONFIG:MinSizeRel>,$<CONFIG:RelWithDebInfo>>:
