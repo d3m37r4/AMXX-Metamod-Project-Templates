@@ -58,14 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
-    <None Include="ProjectSources\cmake\AMXX\cmake\Definitions.cmake" />
-    <None Include="ProjectSources\cmake\AMXX\cmake\GCC.cmake" />
-    <None Include="ProjectSources\cmake\AMXX\cmake\Intel.cmake" />
-    <None Include="ProjectSources\cmake\AMXX\cmake\Tools.cmake" />
-    <None Include="ProjectSources\cmake\Metamod\cmake\Definitions.cmake" />
-    <None Include="ProjectSources\cmake\Metamod\cmake\GCC.cmake" />
-    <None Include="ProjectSources\cmake\Metamod\cmake\Intel.cmake" />
-    <None Include="ProjectSources\cmake\Metamod\cmake\Tools.cmake" />
+    <None Include="ProjectSources\cmake\Modules\Clang.cmake" />
+    <None Include="ProjectSources\cmake\Modules\ClangTidy.cmake" />
+    <None Include="ProjectSources\cmake\Modules\Cppcheck.cmake" />
+    <None Include="ProjectSources\cmake\Modules\Definitions.cmake" />
+    <None Include="ProjectSources\cmake\Modules\GCC.cmake" />
+    <None Include="ProjectSources\cmake\Modules\Intel.cmake" />
+    <None Include="ProjectSources\cmake\Modules\Tools.cmake" />
     <None Include="ProjectSources\msvc\PropertySheets\UserMacros.props" />
     <None Include="ProjectSources\third_party\update_amxx.sh" />
     <None Include="ProjectSources\third_party\update_cssdk.sh" />
@@ -136,13 +135,16 @@
     <None Include="ProjectTemplates\AMXX\__PreviewImage.ico" />
     <None Include="ProjectTemplates\AMXX\__TemplateIcon.ico" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="ProjectSources\cmake\AMXX\CMakeLists.txt" />
-    <None Include="ProjectSources\cmake\Metamod\CMakeLists.txt" />
+    <None Include="ProjectSources\cmake\CMakeLists_AMXX.txt" />
+    <None Include="ProjectSources\cmake\CMakeLists_Metamod.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ProjectSources\sdk\metamod\include\metamod\metamod_config.h" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ProjectSources\cmake\Modules\CppcheckSuppressions.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

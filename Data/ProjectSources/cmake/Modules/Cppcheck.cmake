@@ -29,4 +29,5 @@ if (${OPT_RUN_CPPCHECK})
 		#"--inconclusive"
 		"--suppressions-list=${CMAKE_MODULE_PATH}/CppcheckSuppressions.txt"
 	)
+	set(CMAKE_C_CPPCHECK ${CMAKE_CXX_CPPCHECK})
 endif()

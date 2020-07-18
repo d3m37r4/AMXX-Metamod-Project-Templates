@@ -85,23 +85,8 @@ namespace Data
 
         /// <summary>
         /// </summary>
-        public string CMake
-        {
-            get
-            {
-                switch (_userPrefs.ProjectType)
-                {
-                    case ProjectType.Amxx:
-                        return @"cmake\AMXX\cmake";
-
-                    case ProjectType.Metamod:
-                        return @"cmake\Metamod\cmake";
-
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-        }
+        public string CMake =>
+            @"cmake\Modules";
 
         /// <summary>
         /// </summary>
@@ -112,10 +97,10 @@ namespace Data
                 switch (_userPrefs.ProjectType)
                 {
                     case ProjectType.Amxx:
-                        return @"cmake\AMXX\CMakeLists.txt";
+                        return @"cmake\CMakeLists_AMXX.txt";
 
                     case ProjectType.Metamod:
-                        return @"cmake\Metamod\CMakeLists.txt";
+                        return @"cmake\CMakeLists_Metamod.txt";
 
                     default:
                         throw new ArgumentOutOfRangeException();
