@@ -3,12 +3,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="UserMacros">
     <_PropertySheetDisplayName>User Macros</_PropertySheetDisplayName>
-    <SharedLibsRoot>$(SolutionDir)libs</SharedLibsRoot>
-    <SharedDepsRoot>$(SolutionDir)deps</SharedDepsRoot>
-    <SharedCssdkRoot>$(SolutionDir)sdk\cssdk</SharedCssdkRoot>
-    <SharedMetamodRoot>$(SolutionDir)sdk\metamod</SharedMetamodRoot>
-    <SharedAmxxRoot>$(SolutionDir)sdk\amxx</SharedAmxxRoot>
-    <SharedThirdPartyRoot>$(SolutionDir)third_party</SharedThirdPartyRoot>
     <LibsRoot>$(ProjectDir)..\libs</LibsRoot>
     <DepsRoot>$(ProjectDir)..\deps</DepsRoot>
     <CssdkRoot>$(ProjectDir)..\sdk\cssdk</CssdkRoot>
