@@ -162,10 +162,5 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     INTERPROCEDURAL_OPTIMIZATION_RELWITHDEBINFO OFF
 )
 
-if (${CMAKE_CXX_COMPILER_ID} MATCHES "GNU")
-    include(GCC)
-elseif(${CMAKE_CXX_COMPILER_ID} MATCHES "Intel")
-    include(Intel)
-elseif(${CMAKE_CXX_COMPILER_ID} MATCHES "Clang")
-    include(Clang)
-endif()
+# GNU, Intel, Clang
+include(${CMAKE_CXX_COMPILER_ID})

@@ -62,7 +62,7 @@
     <None Include="ProjectSources\cmake\Modules\ClangTidy.cmake" />
     <None Include="ProjectSources\cmake\Modules\Cppcheck.cmake" />
     <None Include="ProjectSources\cmake\Modules\Definitions.cmake" />
-    <None Include="ProjectSources\cmake\Modules\GCC.cmake" />
+    <None Include="ProjectSources\cmake\Modules\GNU.cmake" />
     <None Include="ProjectSources\cmake\Modules\Intel.cmake" />
     <None Include="ProjectSources\cmake\Modules\Tools.cmake" />
     <None Include="ProjectSources\msvc\PropertySheets\UserMacros.props" />
