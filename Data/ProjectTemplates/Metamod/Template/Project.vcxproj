@@ -105,6 +105,7 @@
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
       <ErrorReporting>None</ErrorReporting>
+      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
