@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using Config;
 using EnvDTE;
@@ -98,12 +99,26 @@ namespace Wizard
                 var project = _dte.Solution.AddFromTemplate(_template, userPrefs);
                 project.AddSources();
 
-                _dte.Solution.Save(userPrefs);
+                var slnFile = _dte.Solution.Save(userPrefs);
+                _dte.ExecuteCommand(@"File.SaveAll");
+
+                _dte.Solution.Close(true);
+                RenameSlnPlatform(slnFile);
+                _dte.Solution.Open(slnFile);
             }
             catch (Exception ex)
             {
                 ShowErrorMessage(ex);
             }
+        }
+
+        /// <summary>
+        /// </summary>
+        private static void RenameSlnPlatform(string slnFile)
+        {
+            var sln = File.ReadAllText(slnFile, Encoding.UTF8);
+            sln = sln.Replace(@"|x86", @"|Win32");
+            File.WriteAllText(slnFile, sln, Encoding.UTF8);
         }
 
         /// <summary>

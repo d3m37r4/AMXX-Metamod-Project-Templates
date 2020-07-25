@@ -48,7 +48,7 @@ namespace Wizard
 
         /// <summary>
         /// </summary>
-        public static void Save(this Solution solution, UserPreferences userPrefs)
+        public static string Save(this Solution solution, UserPreferences userPrefs)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
 
@@ -58,6 +58,8 @@ namespace Wizard
 
             solution.SaveAs(fileName);
             solution.Saved = true;
+
+            return fileName;
         }
     }
 }
