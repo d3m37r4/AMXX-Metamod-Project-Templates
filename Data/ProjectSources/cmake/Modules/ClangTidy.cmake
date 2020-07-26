@@ -42,10 +42,10 @@ set(CLANG_TIDY_SUPPRESS
 # Find and run clang-tidy.
 #-------------------------------------------------------------------------------------------
 
-if (OPT_RUN_CLANG_TIDY)
+if(OPT_RUN_CLANG_TIDY)
     find_program(CLANG_TIDY_COMMAND NAMES clang-tidy)
 
-    if (CLANG_TIDY_COMMAND)
+    if(CLANG_TIDY_COMMAND)
         string(REGEX REPLACE "\n$" "" TIDY_OPTIONS ${CLANG_TIDY}${CLANG_TIDY_SUPPRESS})
         set(CMAKE_C_CLANG_TIDY clang-tidy ${TIDY_OPTIONS})
         set(CMAKE_CXX_CLANG_TIDY clang-tidy ${TIDY_OPTIONS})

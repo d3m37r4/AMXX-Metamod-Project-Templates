@@ -5,12 +5,12 @@
 function(set_binary_output_directory dir)
     get_property(languages GLOBAL PROPERTY ENABLED_LANGUAGES)
 
-    if ("C" IN_LIST languages)
+    if("C" IN_LIST languages)
         set_target_properties(${PROJECT_NAME} PROPERTIES
             RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/${dir}/${CMAKE_C_COMPILER_ID}-${CMAKE_C_COMPILER_VERSION}/${CMAKE_BUILD_TYPE}"
             LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/${dir}/${CMAKE_C_COMPILER_ID}-${CMAKE_C_COMPILER_VERSION}/${CMAKE_BUILD_TYPE}"
             ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/${dir}/${CMAKE_C_COMPILER_ID}-${CMAKE_C_COMPILER_VERSION}/${CMAKE_BUILD_TYPE}")
-    elseif ("CXX" IN_LIST languages)
+    elseif("CXX" IN_LIST languages)
         set_target_properties(${PROJECT_NAME} PROPERTIES
             RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/${dir}/${CMAKE_CXX_COMPILER_ID}-${CMAKE_CXX_COMPILER_VERSION}/${CMAKE_BUILD_TYPE}"
             LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/${dir}/${CMAKE_CXX_COMPILER_ID}-${CMAKE_CXX_COMPILER_VERSION}/${CMAKE_BUILD_TYPE}"
@@ -24,8 +24,8 @@ endfunction()
 #-------------------------------------------------------------------------------------------
 
 function(set_build_type)
-    if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
-        if (OPT_DEBUG)
+    if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+        if(OPT_DEBUG)
             message(STATUS "Setting build type to Debug.")
             set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Choose the type of build." FORCE)
         else()
@@ -41,7 +41,7 @@ endfunction()
 #-------------------------------------------------------------------------------------------
 
 function(set_default_parallel_jobs)
-    if ("x${CMAKE_BUILD_PARALLEL_LEVEL}" STREQUAL "x")
+    if("x${CMAKE_BUILD_PARALLEL_LEVEL}" STREQUAL "x")
         include(ProcessorCount)
         ProcessorCount(NCORES)
         message(STATUS "Defaulting to ${NCORES} parallel jobs.")

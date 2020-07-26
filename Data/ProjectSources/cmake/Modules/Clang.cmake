@@ -36,11 +36,11 @@ target_compile_options(${PROJECT_NAME} PRIVATE
 )
 
 # Optional flags
-if (${OPT_NO_RTTI})
+if(${OPT_NO_RTTI})
     target_compile_options(${PROJECT_NAME} PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>)
 endif()
 
-if (${OPT_NO_EXCEPTIONS})
+if(${OPT_NO_EXCEPTIONS})
     target_compile_options(${PROJECT_NAME} PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>)
 endif()
 
@@ -59,22 +59,22 @@ target_link_options(${PROJECT_NAME} PRIVATE
 )
 
 # Libraries linking
-if (${OPT_LINK_LIBGCC})
+if(${OPT_LINK_LIBGCC})
     target_link_libraries(${PROJECT_NAME} PRIVATE -static-libgcc)
 endif()
 
-if (${OPT_LINK_LIBSTDC})
+if(${OPT_LINK_LIBSTDC})
     target_link_libraries(${PROJECT_NAME} PRIVATE -static-libstdc++)
 endif()
 
-if (${OPT_LINK_C})
+if(${OPT_LINK_C})
     target_link_libraries(${PROJECT_NAME} PRIVATE c)
 endif()
 
-if (${OPT_LINK_M})
+if(${OPT_LINK_M})
     target_link_libraries(${PROJECT_NAME} PRIVATE m)
 endif()
 
-if (${OPT_LINK_DL})
+if(${OPT_LINK_DL})
     target_link_libraries(${PROJECT_NAME} PRIVATE ${CMAKE_DL_LIBS})
 endif()

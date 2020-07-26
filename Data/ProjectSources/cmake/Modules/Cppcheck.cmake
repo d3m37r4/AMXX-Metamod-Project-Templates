@@ -2,14 +2,14 @@
 # Run Cppcheck.
 #-------------------------------------------------------------------------------------------
 
-if (${OPT_RUN_CPPCHECK})
+if(${OPT_RUN_CPPCHECK})
 	include(ProcessorCount)
 	find_program(CMAKE_CXX_CPPCHECK NAMES cppcheck)
 
 	ProcessorCount(NCORES)
 	set(PLATFORM_TYPE "unspecified")
 
-	if (WIN32)
+	if(WIN32)
 		set(PLATFORM_TYPE "win32A")
 	elseif(UNIX)
 		set(PLATFORM_TYPE "unix32")

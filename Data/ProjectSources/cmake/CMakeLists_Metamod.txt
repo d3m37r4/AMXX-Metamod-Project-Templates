@@ -15,7 +15,7 @@
 #-------------------------------------------------------------------------------------------
 
 # Require a minimum version of cmake
-cmake_minimum_required(VERSION 3.13.5 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
 
 # Options
 option(OPT_DEBUG "Build with debugging information and runtime checks." OFF)
@@ -56,7 +56,7 @@ add_library(${PROJECT_NAME} SHARED)
 # Set the PREFIX and the SUFFIX for output binary name
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
 
-if (UNIX AND NOT APPLE)
+if(UNIX AND NOT APPLE)
     set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX "_mm_i386.so")
 elseif(APPLE)
     set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX "_mm.dylib")
@@ -88,9 +88,9 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 # Add source files
 #-------------------------------------------------------------------------------------------
 
-find_source_files("$cmakepluginprojectdirname$sdk/cssdk/src" "c;cpp;cxx;c++" sources_list)
-find_source_files("$cmakepluginprojectdirname$sdk/metamod/src" "c;cpp;cxx;c++" sources_list)
-find_source_files("$cmakepluginprojectdirname$$pluginprojectdirname$/src" "c;cpp;cxx;c++" sources_list)
+find_source_files("$cmakepluginprojectdirname$sdk/cssdk/src" "c;cpp;cxx" sources_list)
+find_source_files("$cmakepluginprojectdirname$sdk/metamod/src" "c;cpp;cxx" sources_list)
+find_source_files("$cmakepluginprojectdirname$$pluginprojectdirname$/src" "c;cpp;cxx" sources_list)
 target_sources(${PROJECT_NAME} PRIVATE ${sources_list})
 
 
@@ -99,7 +99,7 @@ target_sources(${PROJECT_NAME} PRIVATE ${sources_list})
 #-------------------------------------------------------------------------------------------
 
 # Platform-specific definitions
-if (UNIX)
+if(UNIX)
     target_compile_definitions(${PROJECT_NAME} PRIVATE
         LINUX linux POSIX _LINUX
 
