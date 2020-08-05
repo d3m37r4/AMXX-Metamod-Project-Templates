@@ -9,6 +9,8 @@
 
 #pragma once
 
+//-V::122
+
 /// <summary>
 /// </summary>
 constexpr auto EVENT_SPECIFIC = 0;

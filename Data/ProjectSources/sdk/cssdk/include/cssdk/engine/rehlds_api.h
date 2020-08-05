@@ -22,6 +22,9 @@
 #include <cssdk/public/arch_types.h>
 #include <cstddef>
 
+//-V::122
+//-V:RehldsFuncs:730
+
 /// <summary>
 /// </summary>
 constexpr auto REHLDS_API_VERSION_MAJOR = 3;
@@ -378,35 +381,35 @@ public:
 struct RehldsFuncs {
 	/// <summary>
 	/// </summary>
-	void (*drop_client)(GameClient* client, bool crash, const char* format, ...){};
+	void (*drop_client)(GameClient* client, bool crash, const char* format, ...){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*reject_connection)(NetAddress* address, char* format, ...){};
+	void (*reject_connection)(NetAddress* address, char* format, ...){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	qboolean (*steam_notify_bot_connect)(GameClient* client){};
+	qboolean (*steam_notify_bot_connect)(GameClient* client){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	SizeBuf* (*get_net_message)(){};
+	SizeBuf* (*get_net_message)(){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	GameClient* (*get_host_client)(){};
+	GameClient* (*get_host_client)(){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	int* (*get_msg_read_count)(){};
+	int* (*get_msg_read_count)(){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	qboolean (*filter_user)(UserId* user_id){};
+	qboolean (*filter_user)(UserId* user_id){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*net_send_packet)(unsigned int length, void* data, const NetAddress& to){};
+	void (*net_send_packet)(unsigned int length, void* data, const NetAddress& to){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -414,7 +417,7 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	bool (*check_challenge)(const NetAddress& address, int challenge){};
+	bool (*check_challenge)(const NetAddress& address, int challenge){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -434,11 +437,11 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	char* (*get_client_fallback)(){};
+	char* (*get_client_fallback)(){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	int* (*get_allow_cheats)(){};
+	int* (*get_allow_cheats)(){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -454,23 +457,23 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	int* (*get_msg_bad_read)(){};
+	int* (*get_msg_bad_read)(){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	CmdSource* (*get_cmd_source)(){};
+	CmdSource* (*get_cmd_source)(){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*log)(const char* prefix, const char* message){};
+	void (*log)(const char* prefix, const char* message){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	DllFuncPointers* (*get_entity_interface)(){};
+	DllFuncPointers* (*get_entity_interface)(){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*ev_play_reliable_event)(GameClient* client, int entity_index, unsigned short event_index, float delay, EventArgs* args){};
+	void (*ev_play_reliable_event)(GameClient* client, int entity_index, unsigned short event_index, float delay, EventArgs* args){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -482,7 +485,7 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	void (*msg_write_bits)(uint32 data, int num_bits){};
+	void (*msg_write_bits)(uint32 data, int num_bits){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -494,11 +497,11 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	void* (*sz_get_space)(SizeBuf* buf, int length){};
+	void* (*sz_get_space)(SizeBuf* buf, int length){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	CVar* (*get_cvar_vars)(){};
+	CVar* (*get_cvar_vars)(){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -506,7 +509,7 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	void (*sv_add_resource)(ResourceType type, const char* name, int size, byte flags, int index){};
+	void (*sv_add_resource)(ResourceType type, const char* name, int size, byte flags, int index){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -514,39 +517,39 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	int (*msg_read_buf)(int size, void* buf){};
+	int (*msg_read_buf)(int size, void* buf){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*msg_write_buf)(SizeBuf* buf, int size, void* data){};
+	void (*msg_write_buf)(SizeBuf* buf, int size, void* data){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*msg_write_byte)(SizeBuf* buf, int c){};
+	void (*msg_write_byte)(SizeBuf* buf, int c){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*msg_write_short)(SizeBuf* buf, int c){};
+	void (*msg_write_short)(SizeBuf* buf, int c){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*msg_write_string)(SizeBuf* buf, const char* s){};
+	void (*msg_write_string)(SizeBuf* buf, const char* s){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void* (*get_plugin_api)(const char* name){};
+	void* (*get_plugin_api)(const char* name){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*register_plugin_api)(const char* name, void* impl){};
+	void (*register_plugin_api)(const char* name, void* impl){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	qboolean (*sv_file_in_consistency_list)(const char* file_name, Consistency** consist){};
+	qboolean (*sv_file_in_consistency_list)(const char* file_name, Consistency** consist){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	qboolean (*steam_notify_client_connect)(GameClient* client, const void* steam_auth_buf, unsigned int size){};
+	qboolean (*steam_notify_client_connect)(GameClient* client, const void* steam_auth_buf, unsigned int size){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -554,12 +557,12 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	void (*sv_start_sound)(int recipients, Edict* entity, int channel, const char* sample, int volume, float attenuation, int flags, int pitch){};
+	void (*sv_start_sound)(int recipients, Edict* entity, int channel, const char* sample, int volume, float attenuation, int flags, int pitch){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	bool (*sv_emit_sound2)(Edict* entity, GameClient* receiver, int channel, const char* sample, float volume,
-	                       float attenuation, int flags, int pitch, int emit_flags, const Vector& origin){};
+	bool (*sv_emit_sound2)(Edict* entity, GameClient* receiver, SoundChannel channel, const char* sample, float volume,
+	                       float attenuation, int flags, int pitch, int emit_flags, const vec_t* origin){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -575,7 +578,7 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	void (*get_command_matches)(const char* string, class object_list* match_list){};
+	void (*get_command_matches)(const char* string, class object_list* match_list){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -583,7 +586,7 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	void (*add_cvar_listener)(const char* cvar_name, CVarCallback func){};
+	void (*add_cvar_listener)(const char* cvar_name, CVarCallback func){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -591,11 +594,11 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	void (*remove_cvar_listener)(const char* cvar_name, CVarCallback func){};
+	void (*remove_cvar_listener)(const char* cvar_name, CVarCallback func){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	EntityInit (*get_entity_init)(char* class_name){};
+	EntityInit (*get_entity_init)(char* class_name){}; //-V591
 
 	//
 	// Read functions.
@@ -619,11 +622,11 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	char* (*msg_read_string)(){};
+	char* (*msg_read_string)(){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	char* (*msg_read_string_line)(){};
+	char* (*msg_read_string_line)(){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -635,7 +638,7 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	void (*msg_read_user_cmd)(UserCmd* to, UserCmd* from){};
+	void (*msg_read_user_cmd)(UserCmd* to, UserCmd* from){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -643,7 +646,7 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	void (*msg_read_vec3_coord)(SizeBuf* sb, Vector& vec){};
+	void (*msg_read_vec3_coord)(SizeBuf* sb, Vector& vec){}; //-V591
 
 	//
 	// Read bit functions.
@@ -663,7 +666,7 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	uint32 (*msg_peek_bits)(int num_bits){};
+	uint32 (*msg_peek_bits)(int num_bits){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -671,7 +674,7 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	uint32 (*msg_read_bits)(int num_bits){};
+	uint32 (*msg_read_bits)(int num_bits){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -691,11 +694,11 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	int (*msg_read_bit_data)(void* dest, int length){};
+	int (*msg_read_bit_data)(void* dest, int length){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	char* (*msg_read_bit_string)(){};
+	char* (*msg_read_bit_string)(){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -707,31 +710,31 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	void (*msg_write_long)(SizeBuf* sb, int c){};
+	void (*msg_write_long)(SizeBuf* sb, int c){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*msg_write_float)(SizeBuf* sb, float f){};
+	void (*msg_write_float)(SizeBuf* sb, float f){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*msg_write_angle)(SizeBuf* sb, float f){};
+	void (*msg_write_angle)(SizeBuf* sb, float f){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*msg_write_hires_angle)(SizeBuf* sb, float f){};
+	void (*msg_write_hires_angle)(SizeBuf* sb, float f){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*msg_write_user_cmd)(SizeBuf* sb, UserCmd* to, UserCmd* from){};
+	void (*msg_write_user_cmd)(SizeBuf* sb, UserCmd* to, UserCmd* from){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*msg_write_coord)(SizeBuf* sb, float f){};
+	void (*msg_write_coord)(SizeBuf* sb, float f){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*msg_write_vec3_coord)(SizeBuf* sb, Vector& vec){};
+	void (*msg_write_vec3_coord)(SizeBuf* sb, Vector& vec){}; //-V591
 
 	//
 	// Write bit functions.
@@ -747,7 +750,7 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	void (*msg_write_s_bits)(uint32 data, int num_bits){};
+	void (*msg_write_s_bits)(uint32 data, int num_bits){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -755,11 +758,11 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	void (*msg_write_bit_angle)(float angle, int num_bits){};
+	void (*msg_write_bit_angle)(float angle, int num_bits){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*msg_write_bit_data)(void* src, int length){};
+	void (*msg_write_bit_data)(void* src, int length){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -767,11 +770,11 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	void (*sz_write)(SizeBuf* buf, const void* data, int length){};
+	void (*sz_write)(SizeBuf* buf, const void* data, int length){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*sz_print)(SizeBuf* buf, const char* data){};
+	void (*sz_print)(SizeBuf* buf, const char* data){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -787,7 +790,7 @@ struct RehldsFuncs {
 
 	/// <summary>
 	/// </summary>
-	CmdFunction* (*get_first_cmd_function_handle)(){};
+	CmdFunction* (*get_first_cmd_function_handle)(){}; //-V591
 };
 
 /// <summary>

@@ -1207,6 +1207,11 @@ public:
 	qboolean allow_monsters() override = 0;
 };
 
+#ifdef __INTEL_COMPILER
+#pragma warning(push)
+#pragma warning(disable: 2021)
+#endif
+
 /// <summary>
 /// Class HalfLifeMultiplay.
 /// </summary>
@@ -1941,3 +1946,7 @@ public:
 	/// </summary>
 	bool team_balanced_;
 };
+
+#ifdef __INTEL_COMPILER
+#pragma warning(pop)
+#endif

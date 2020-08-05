@@ -31,7 +31,7 @@ SysInterfaceReg* SysInterfaceReg::interface_regs = nullptr;
 /// <param name="module_name">Filename of the component.</param>
 /// <param name="load_flags">The action to be taken when loading the module.<br/></param>
 /// <returns>Opaque handle to the module (hides system dependency).</returns>
-SysModule* sys_load_module(const char* module_name, [[maybe_unused]] const unsigned long load_flags)
+SysModule* sys_load_module(const char* module_name, [[maybe_unused]] const unsigned long load_flags) //-V126
 {
 	if (module_name == nullptr) {
 		return nullptr;
@@ -114,9 +114,9 @@ EXPORT_FUNCTION SysInterfaceBase* create_interface(const char* name, CreateInter
 
 /// <summary>
 /// </summary>
-void* initialize_interface(char const* interface_name, CreateInterfaceFn* factory_list, const int num_factories)
+void* initialize_interface(char const* interface_name, CreateInterfaceFn* factory_list, const std::size_t num_factories)
 {
-	for (auto i = 0; i < num_factories; i++) {
+	for (std::size_t i = 0; i < num_factories; i++) {
 		const auto factory = factory_list[i];
 
 		if (!factory) {

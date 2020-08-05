@@ -9,6 +9,8 @@
 
 #pragma once
 
+//-V::112
+
 /// <summary>
 /// Enum NetAddressType
 /// </summary>

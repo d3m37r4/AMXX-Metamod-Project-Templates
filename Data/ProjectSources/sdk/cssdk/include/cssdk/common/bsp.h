@@ -11,6 +11,8 @@
 
 #include <cssdk/public/base_types.h>
 
+//-V::112
+
 /// <summary>
 /// <para>Half-Life regular version.</para>
 /// </summary>

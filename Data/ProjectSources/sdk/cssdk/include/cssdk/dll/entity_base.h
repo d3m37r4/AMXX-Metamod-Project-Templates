@@ -18,6 +18,10 @@
 #include <cassert>
 #include <cstddef>
 
+//-V::122
+//-V:EntityBase:730
+//-V:ToggleBase:730
+
 /// <summary>
 /// <para>Maximum number of targets a single multi source entity may be assigned.</para>
 /// </summary>
@@ -584,17 +588,35 @@ public:
 	{
 		return (vars->flags & FL_DORMANT) == FL_DORMANT;
 	}
+
+	/// <summary>
+	/// </summary>
+	void FORCE_STACK_ALIGN DLLEXPORT sub_use(EntityBase* activator, EntityBase* caller, UseType use_type, float value);
+
+	/// <summary>
+	/// </summary>
+	void FORCE_STACK_ALIGN DLLEXPORT sub_think();
+
+	/// <summary>
+	/// </summary>
+	void FORCE_STACK_ALIGN DLLEXPORT sub_touch(EntityBase* other);
+
+	/// <summary>
+	/// </summary>
+	void FORCE_STACK_ALIGN DLLEXPORT sub_blocked(EntityBase* other);
 };
 
 /// <summary>
 /// <para>Safe way to point to CBaseEntities who may die between frames.</para>
 /// </summary>
 template <typename T = EntityBase>
-class EntityHandle {
+class EntityHandle { //-V690
 public:
 	/// <summary>
 	/// </summary>
-	EntityHandle() : edict_(nullptr), serial_number_(0) {}
+	EntityHandle() : edict_(nullptr), serial_number_(0)
+	{
+	}
 
 	/// <summary>
 	/// </summary>
@@ -703,7 +725,7 @@ public:
 	T* operator->()
 	{
 		const auto* edict = get();
-		return cssdk_entity_private_data<T*>(edict);
+		return cssdk_entity_private_data<T>(edict);
 	}
 
 private:
@@ -930,6 +952,10 @@ public:
 	{
 		move_done_callback = nullptr;
 	}
+
+	/// <summary>
+	/// </summary>
+	void FORCE_STACK_ALIGN DLLEXPORT sub_move_done();
 };
 
 /// <summary>

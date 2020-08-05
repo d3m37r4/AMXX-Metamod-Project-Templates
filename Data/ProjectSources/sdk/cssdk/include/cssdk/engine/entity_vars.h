@@ -13,6 +13,8 @@
 #include <cssdk/public/strind.h>
 #include <cssdk/public/vector.h>
 
+//-V::112,122
+
 /// <summary>
 /// </summary>
 struct Edict;

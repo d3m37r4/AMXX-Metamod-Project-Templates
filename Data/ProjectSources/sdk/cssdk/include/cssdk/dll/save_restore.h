@@ -13,6 +13,8 @@
 #include <cssdk/public/strind.h>
 #include <cssdk/public/vector.h>
 
+//-V::112,122
+
 /// <summary>
 /// <para>These are encoded in the lower 16 bits of <c>EntityTable::flags</c>.</para>
 /// </summary>

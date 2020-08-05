@@ -197,6 +197,7 @@ namespace Wizard.Projects
         /// </summary>
         protected virtual void AddCsSdk()
         {
+            const string cssdk = @"include\cssdk\cssdk.h";
             var sdkDir = Path.Combine(UserPrefs.DestinationDirectory, ProjectSources.CsSdk);
             ProjectSources.CopyDirectory(ProjectSources.CsSdk, sdkDir);
 
@@ -206,8 +207,15 @@ namespace Wizard.Projects
                 var filter = AddFilter(path.Remove(0, UserPrefs.DestinationDirectory.Length));
 
                 foreach (var file in Directory.GetFiles(directory, @"*", SearchOption.TopDirectoryOnly))
+                {
+                    if (file.EndsWith(cssdk, StringComparison.OrdinalIgnoreCase))
+                        continue;
+
                     filter.AddFile(file);
+                }
             }
+
+            AddFilter(@"sdk\cssdk").AddFile(Path.Combine(sdkDir, cssdk));
         }
 
         /// <summary>

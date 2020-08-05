@@ -9,6 +9,8 @@
 
 #pragma once
 
+//-V::122
+
 /// <summary>
 /// <para>Set to cause it to be saved to vars.rc.</para>
 /// </summary>

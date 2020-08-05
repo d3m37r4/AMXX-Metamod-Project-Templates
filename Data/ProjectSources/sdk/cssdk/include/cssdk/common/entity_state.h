@@ -14,6 +14,8 @@
 #include <cssdk/public/base_types.h>
 #include <cssdk/public/vector.h>
 
+//-V::112
+
 /// <summary>
 /// </summary>
 constexpr auto ENTITY_NORMAL = 1 << 0;

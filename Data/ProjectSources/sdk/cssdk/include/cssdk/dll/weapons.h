@@ -266,7 +266,7 @@ enum class ArmouryItemPack {
 struct ItemInfo {
 	/// <summary>
 	/// </summary>
-	InventorySlot slot{};
+	int slot{};
 
 	/// <summary>
 	/// </summary>
@@ -1215,6 +1215,17 @@ public:
 	/// <summary>
 	/// </summary>
 	int shell_model{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
+
+#ifdef REGAMEDLL_API
+	/// <summary>
+	/// </summary>
+	float base_damage_sil_{};
+#endif
 };
 
 //
@@ -1318,6 +1329,11 @@ public:
 	/// <summary>
 	/// </summary>
 	qboolean shell_on{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -1430,6 +1446,11 @@ public:
 	/// <summary>
 	/// </summary>
 	qboolean shell_on{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -1537,6 +1558,11 @@ public:
 	/// <summary>
 	/// </summary>
 	qboolean shell_on{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -1644,6 +1670,11 @@ public:
 	/// <summary>
 	/// </summary>
 	qboolean shell_on{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -1751,6 +1782,11 @@ public:
 	/// <summary>
 	/// </summary>
 	int shell_model{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -1860,6 +1896,11 @@ public:
 	/// <summary>
 	/// </summary>
 	float armed_time{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	bool has_shield_{};
 };
 
 //
@@ -1967,6 +2008,11 @@ public:
 	/// <summary>
 	/// </summary>
 	int shell_model{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -2165,6 +2211,11 @@ public:
 	/// <summary>
 	/// </summary>
 	int shell_model{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -2605,33 +2656,34 @@ public:
 	/// </summary>
 	void weapon_idle() override = 0;
 
+//private:
 	/// <summary>
 	/// </summary>
-	TraceResult trace_hit{};
+	TraceResult trace_hit_{};
 
 	/// <summary>
 	/// </summary>
-	unsigned short event_knife{};
+	unsigned short event_fire_{};
 
 	/// <summary>
 	/// </summary>
-	float stab_base_damage{};
+	float stab_base_damage_{};
 
 	/// <summary>
 	/// </summary>
-	float swing_base_damage{};
+	float swing_base_damage_{};
 
 	/// <summary>
 	/// </summary>
-	float swing_base_damage_fast{};
+	float swing_base_damage_fast_{};
 
 	/// <summary>
 	/// </summary>
-	float stab_distance{};
+	float stab_distance_{};
 
 	/// <summary>
 	/// </summary>
-	float swing_distance{};
+	float swing_distance_{};
 };
 
 //
@@ -2731,6 +2783,11 @@ public:
 	/// <summary>
 	/// </summary>
 	qboolean shell_on{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -2843,6 +2900,11 @@ public:
 	/// <summary>
 	/// </summary>
 	float pump_time{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -2990,6 +3052,17 @@ public:
 	/// <summary>
 	/// </summary>
 	qboolean shell_on{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
+
+#ifdef REGAMEDLL_API	
+	/// <summary>
+	/// </summary>
+	float base_damage_sil_{};
+#endif
 };
 
 //
@@ -3093,6 +3166,11 @@ public:
 	/// <summary>
 	/// </summary>
 	qboolean shell_on{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -3245,6 +3323,11 @@ public:
 	/// <summary>
 	/// </summary>
 	int shell_model{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -3348,6 +3431,11 @@ public:
 	/// <summary>
 	/// </summary>
 	qboolean shell_on{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -3451,6 +3539,11 @@ public:
 	/// <summary>
 	/// </summary>
 	int shell_model{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -3645,6 +3738,11 @@ public:
 	/// <summary>
 	/// </summary>
 	qboolean shell_on{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -3753,6 +3851,11 @@ public:
 	/// <summary>
 	/// </summary>
 	float pump_time{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -3896,6 +3999,15 @@ public:
 	/// <summary>
 	/// </summary>
 	int shell_model{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_left_{};
+
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_right_{};
 };
 
 //
@@ -4003,6 +4115,11 @@ public:
 	/// <summary>
 	/// </summary>
 	int shell_model{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -4106,6 +4223,11 @@ public:
 	/// <summary>
 	/// </summary>
 	qboolean shell_on{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -4209,6 +4331,11 @@ public:
 	/// <summary>
 	/// </summary>
 	int shell_model{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //
@@ -4316,6 +4443,11 @@ public:
 	/// <summary>
 	/// </summary>
 	qboolean shell_on{};
+
+//private:
+	/// <summary>
+	/// </summary>
+	unsigned short event_fire_{};
 };
 
 //

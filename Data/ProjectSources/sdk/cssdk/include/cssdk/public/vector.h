@@ -480,7 +480,7 @@ public:
 	/// <summary>
 	/// <para>Vectors will now automatically convert to vec_t* when needed.</para>
 	/// </summary>
-	explicit operator vec_t*()
+	operator vec_t*()
 	{
 		return &x;
 	}
@@ -488,7 +488,7 @@ public:
 	/// <summary>
 	/// <para>Vectors will now automatically convert to vec_t* when needed.</para>
 	/// </summary>
-	explicit operator const vec_t*() const
+	operator const vec_t*() const
 	{
 		return &x;
 	}
@@ -880,7 +880,7 @@ public:
 	/// <summary>
 	/// <para>Vectors will now automatically convert to vec_t* when needed.</para>
 	/// </summary>
-	explicit operator vec_t*()
+	operator vec_t*()
 	{
 		return &x;
 	}
@@ -888,7 +888,7 @@ public:
 	/// <summary>
 	/// <para>Vectors will now automatically convert to vec_t* when needed.</para>
 	/// </summary>
-	explicit operator const vec_t*() const
+	operator const vec_t*() const
 	{
 		return &x;
 	}

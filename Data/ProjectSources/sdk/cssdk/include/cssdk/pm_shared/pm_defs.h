@@ -19,6 +19,9 @@
 #include <cssdk/public/base_types.h>
 #include <cssdk/public/vector.h>
 
+//-V::112,122
+//-V:PlayerMove:730
+
 /// <summary>
 /// </summary>
 constexpr auto MAX_PHYS_ENTS = 600;
@@ -485,27 +488,27 @@ struct PlayerMove {
 
 	/// <summary>
 	/// </summary>
-	const char* (*pm_info_value_for_key)(const char* s, const char* key){};
+	const char* (*pm_info_value_for_key)(const char* s, const char* key){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*pm_particle)(Vector& origin, int color, float life, int z_pos, int z_velocity){};
+	void (*pm_particle)(Vector& origin, int color, float life, int z_pos, int z_velocity){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	int (*pm_test_player_position)(Vector& pos, PmTrace* trace){};
+	int (*pm_test_player_position)(Vector& pos, PmTrace* trace){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*con_notify_print)(int pos, const char* format, ...){};
+	void (*con_notify_print)(int pos, const char* format, ...){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*con_dev_print)(const char* format, ...){};
+	void (*con_dev_print)(const char* format, ...){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*con_print)(const char* format, ...){};
+	void (*con_print)(const char* format, ...){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -513,11 +516,11 @@ struct PlayerMove {
 
 	/// <summary>
 	/// </summary>
-	void (*pm_stuck_touch)(int hit_ent, PmTrace* trace_result){};
+	void (*pm_stuck_touch)(int hit_ent, PmTrace* trace_result){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	int (*pm_point_contents)(Vector& pos, int* true_contents){};
+	int (*pm_point_contents)(Vector& pos, int* true_contents){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -525,23 +528,23 @@ struct PlayerMove {
 
 	/// <summary>
 	/// </summary>
-	int (*pm_hull_point_contents)(Hull* hull, int num, Vector& pos){};
+	int (*pm_hull_point_contents)(Hull* hull, int num, Vector& pos){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	PmTrace (*pm_player_trace)(Vector& start, Vector& end, int trace_flags, int ignore_pe){};
+	PmTrace (*pm_player_trace)(Vector& start, Vector& end, int trace_flags, int ignore_pe){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	PmTrace* (*pm_trace_line)(Vector& start, Vector& end, int flags, int use_hull, int ignore_pe){};
+	PmTrace* (*pm_trace_line)(Vector& start, Vector& end, int flags, int use_hull, int ignore_pe){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	int32 (*random_long)(int32 low, int32 high){};
+	int32 (*random_long)(int32 low, int32 high){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	float (*random_float)(float low, float high){};
+	float (*random_float)(float low, float high){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -549,15 +552,15 @@ struct PlayerMove {
 
 	/// <summary>
 	/// </summary>
-	void (*pm_get_model_bounds)(Model* mdl, Vector& min_size, Vector& max_size){};
+	void (*pm_get_model_bounds)(Model* mdl, Vector& min_size, Vector& max_size){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*pm_hull_for_bsp)(PhysEntity* phys_ent, float* offset){};
+	void (*pm_hull_for_bsp)(PhysEntity* phys_ent, float* offset){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	float (*pm_trace_model)(PhysEntity* phys_ent, Vector& start, Vector& end, Trace* trace){};
+	float (*pm_trace_model)(PhysEntity* phys_ent, Vector& start, Vector& end, Trace* trace){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -565,7 +568,7 @@ struct PlayerMove {
 
 	/// <summary>
 	/// </summary>
-	byte* (*com_load_file)(const char* path, int use_hunk, int* length){};
+	byte* (*com_load_file)(const char* path, int use_hunk, int* length){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -573,7 +576,7 @@ struct PlayerMove {
 
 	/// <summary>
 	/// </summary>
-	char* (*mem_file_gets)(byte* mem_file, int file_size, int* file_pos, char* buffer, int buffer_size){};
+	char* (*mem_file_gets)(byte* mem_file, int file_size, int* file_pos, char* buffer, int buffer_size){}; //-V591
 
 	//
 	// Functions.
@@ -586,26 +589,26 @@ struct PlayerMove {
 
 	/// <summary>
 	/// </summary>
-	void (*pm_play_sound)(int channel, const char* sample, float volume, float attenuation, int flags, int pitch){};
+	void (*pm_play_sound)(int channel, const char* sample, float volume, float attenuation, int flags, int pitch){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	const char* (*pm_trace_texture)(int ground, Vector& start, Vector& end){};
+	const char* (*pm_trace_texture)(int ground, Vector& start, Vector& end){}; //-V591
 
 	/// <summary>
 	/// </summary>
 	void (*pm_playback_event_full)(int flags, int client_index, unsigned short event_index, float delay, Vector& origin, Vector& angles,
-	                               float f_param1, float f_param2, int i_param1, int i_param2, qboolean b_param1, qboolean b_param2){};
+	                               float f_param1, float f_param2, int i_param1, int i_param2, qboolean b_param1, qboolean b_param2){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	PmTrace (*pm_player_trace_ex)(Vector& start, Vector& end, int trace_flags, int (*ignore)(PhysEntity* phys_ent)){};
+	PmTrace (*pm_player_trace_ex)(Vector& start, Vector& end, int trace_flags, int (*ignore)(PhysEntity* phys_ent)){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	int (*pm_test_player_position_ex)(Vector& pos, PmTrace* trace, int (*ignore)(PhysEntity* phys_ent)){};
+	int (*pm_test_player_position_ex)(Vector& pos, PmTrace* trace, int (*ignore)(PhysEntity* phys_ent)){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	PmTrace* (*pm_trace_line_ex)(Vector& start, Vector& end, int flags, int use_hull, int (*ignore)(PhysEntity* phys_ent)){};
+	PmTrace* (*pm_trace_line_ex)(Vector& start, Vector& end, int flags, int use_hull, int (*ignore)(PhysEntity* phys_ent)){}; //-V591
 };

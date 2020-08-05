@@ -9,6 +9,8 @@
 
 #pragma once
 
+//-V::112
+
 /// <summary>
 /// <para>Max # of clients allowed in a server.</para>
 /// </summary>

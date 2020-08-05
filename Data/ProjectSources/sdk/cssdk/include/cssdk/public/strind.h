@@ -12,6 +12,8 @@
 #include <cssdk/engine/global_vars.h>
 #include <cstring>
 
+//-V::122
+
 /// <summary>
 /// <para>String index.</para>
 /// </summary>
@@ -35,7 +37,7 @@ public:
 
 	/// <summary>
 	/// </summary>
-	explicit Strind(unsigned int index);
+	explicit Strind(std::size_t index);
 
 	/// <summary>
 	/// </summary>
@@ -51,7 +53,7 @@ public:
 
 	/// <summary>
 	/// </summary>
-	char operator[](unsigned int index) const;
+	char operator[](std::size_t index) const;
 
 	/// <summary>
 	/// </summary>
@@ -79,19 +81,22 @@ public:
 
 	/// <summary>
 	/// </summary>
-	bool operator==(unsigned int index) const noexcept;
+	bool operator==(std::size_t index) const noexcept;
 
 	/// <summary>
 	/// </summary>
-	bool operator!=(unsigned int index) const noexcept;
+	bool operator!=(std::size_t index) const noexcept;
 
 private:
 	/// <summary>
 	/// </summary>
-	unsigned int string_index_ = 0;
+	std::size_t string_index_ = 0;
 };
 
-inline Strind::Strind(const unsigned int index) : string_index_(index) {}
+inline Strind::Strind(const std::size_t index)
+	: string_index_(index)
+{
+}
 
 inline const char* Strind::c_str() const
 {
@@ -108,7 +113,7 @@ inline bool Strind::is_null_or_empty() const
 	return !string_index_ || (&g_global_vars->string_base[string_index_])[0] == '\0';
 }
 
-inline char Strind::operator[](const unsigned int index) const
+inline char Strind::operator[](const std::size_t index) const
 {
 	return (&g_global_vars->string_base[string_index_])[index];
 }
@@ -133,12 +138,12 @@ inline bool Strind::operator!=(const char* string) const
 	return !operator==(string);
 }
 
-inline bool Strind::operator==(const unsigned int index) const noexcept
+inline bool Strind::operator==(const std::size_t index) const noexcept
 {
 	return string_index_ == index;
 }
 
-inline bool Strind::operator!=(const unsigned int index) const noexcept
+inline bool Strind::operator!=(const std::size_t index) const noexcept
 {
 	return string_index_ != index;
 }

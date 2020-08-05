@@ -13,6 +13,8 @@
 #include <cssdk/public/base_types.h>
 #include <cssdk/public/vector.h>
 
+//-V::112,122
+
 /// <summary>
 /// <para>Must be power of 2.</para>
 /// </summary>
@@ -82,7 +84,7 @@ struct Mouth {
 /// <summary>
 /// Struct LatchedVars
 /// </summary>
-struct LatchedVars {
+struct LatchedVars { //-V802
 	/// <summary>
 	/// </summary>
 	float prev_anim_time{};

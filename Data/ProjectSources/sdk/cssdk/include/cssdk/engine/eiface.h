@@ -26,6 +26,11 @@
 #include <cssdk/public/strind.h>
 #include <cssdk/public/vector.h>
 
+//-V::122
+//-V:EngineFuncPointers:730
+//-V:DllFuncPointers:730
+//-V:DllNewFuncPointers:730
+
 #ifdef HLDEMO_BUILD
 /// <summary>
 /// </summary>
@@ -241,7 +246,7 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Sets the model of the given entity. Also changes the entity bounds based on the model.</para>
 	/// </summary>
-	void (*set_model)(Edict* entity, const char* model){};
+	void (*set_model)(Edict* entity, const char* model){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the index of the given model.</para>
@@ -256,12 +261,12 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Sets the entity bounds. Also relinks the entity.</para>
 	/// </summary>
-	void (*set_size)(Edict* entity, const Vector& min, const Vector& max){};
+	void (*set_size)(Edict* entity, const Vector& min, const Vector& max){}; //-V591
 
 	/// <summary>
 	/// <para>Changes the level. This will append a change level command to the server command buffer.</para>
 	/// </summary>
-	void (*change_level)(const char* level_name, const char* landmark_name){};
+	void (*change_level)(const char* level_name, const char* landmark_name){}; //-V591
 
 	/// <summary>
 	/// <para>Does nothing useful. Will trigger a host error if the given entity is not a client.</para>
@@ -281,12 +286,12 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Converts a direction vector to angles.</para>
 	/// </summary>
-	void (*vec_to_angles)(const Vector& direction_in, Vector& angles_out){};
+	void (*vec_to_angles)(const Vector& direction_in, Vector& angles_out){}; //-V591
 
 	/// <summary>
 	/// <para>Moves the given entity to the given destination.</para>
 	/// </summary>
-	void (*move_to_origin)(Edict* entity, const Vector& goal, float distance, MoveTypeNpc move_type){};
+	void (*move_to_origin)(Edict* entity, const Vector& goal, float distance, MoveTypeNpc move_type){}; //-V591
 
 	/// <summary>
 	/// <para>Changes the entity's yaw angle to approach its ideal yaw.</para>
@@ -301,7 +306,7 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Finds an entity by comparing strings.</para>
 	/// </summary>
-	Edict* (*find_entity_by_string)(Edict* edict_start_search_after, const char* field, const char* value){};
+	Edict* (*find_entity_by_string)(Edict* edict_start_search_after, const char* field, const char* value){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -310,17 +315,17 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Finds an entity in a sphere.</para>
 	/// </summary>
-	Edict* (*find_entity_in_sphere)(Edict* edict_start_search_after, const Vector& origin, float radius){};
+	Edict* (*find_entity_in_sphere)(Edict* edict_start_search_after, const Vector& origin, float radius){}; //-V591
 
 	/// <summary>
 	/// <para>Finds a client in the potentially visible set.</para>
 	/// </summary>
-	Edict* (*find_client_in_pvs)(Edict* entity){};
+	Edict* (*find_client_in_pvs)(Edict* entity){}; //-V591
 
 	/// <summary>
 	/// <para>Find entities in potentially visible set.</para>
 	/// </summary>
-	Edict* (*entities_in_pvs)(Edict* entity){};
+	Edict* (*entities_in_pvs)(Edict* entity){}; //-V591
 
 	/// <summary>
 	/// <para>Make direction vectors from angles.</para>
@@ -330,12 +335,12 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Make direction vectors from angles.</para>
 	/// </summary>
-	void (*angle_vectors)(const Vector& angles, Vector& forward, Vector& right, Vector& up){};
+	void (*angle_vectors)(const Vector& angles, Vector& forward, Vector& right, Vector& up){}; //-V591
 
 	/// <summary>
 	/// <para>Allocates an entity dictionary for use with an entity.</para>
 	/// </summary>
-	Edict* (*create_entity)(){};
+	Edict* (*create_entity)(){}; //-V591
 
 	/// <summary>
 	/// <para>Immediately removes the given entity.</para>
@@ -345,7 +350,7 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Creates an entity of the class <c>class_name</c>.</para>
 	/// </summary>
-	Edict* (*create_named_entity)(Strind class_name){};
+	Edict* (*create_named_entity)(Strind class_name){}; //-V591
 
 	/// <summary>
 	/// <para>Makes an entity static. Static entities are copied to the client side and are removed on the server side.</para>
@@ -354,7 +359,7 @@ struct EngineFuncPointers {
 
 	/// <summary>
 	/// </summary>
-	qboolean (*ent_is_on_floor)(Edict* entity){};
+	qboolean (*ent_is_on_floor)(Edict* entity){}; //-V591
 
 	/// <summary>
 	/// <para>Drops the entity to the floor.</para>
@@ -364,44 +369,44 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Makes the entity walk.</para>
 	/// </summary>
-	qboolean (*walk_move)(Edict* entity, float yaw, float dist, WalkMoveMode mode){};
+	qboolean (*walk_move)(Edict* entity, float yaw, float dist, WalkMoveMode mode){}; //-V591
 
 	/// <summary>
 	/// <para>Sets the origin of the given entity.</para>
 	/// </summary>
-	void (*set_origin)(Edict* entity, const Vector& origin){};
+	void (*set_origin)(Edict* entity, const Vector& origin){}; //-V591
 
 	/// <summary>
 	/// <para>Emits a sounds from the given entity.</para>
 	/// </summary>
-	void (*emit_sound)(Edict* entity, SoundChannel channel, const char* sample, float volume, float attenuation, int flags, int pitch){};
+	void (*emit_sound)(Edict* entity, SoundChannel channel, const char* sample, float volume, float attenuation, int flags, int pitch){}; //-V591
 
 	/// <summary>
 	/// <para>Emits a sounds from the given entity.</para>
 	/// </summary>
-	void (*emit_ambient_sound)(Edict* entity, Vector& origin, const char* sample, float volume, float attenuation, int flags, int pitch){};
+	void (*emit_ambient_sound)(Edict* entity, Vector& origin, const char* sample, float volume, float attenuation, int flags, int pitch){}; //-V591
 
 	/// <summary>
 	/// <para>Performs a trace between a starting and ending position.</para>
 	/// </summary>
-	void (*trace_line)(const Vector& start_pos, const Vector& end_pos, int trace_ignore_flags, Edict* entity_to_ignore, TraceResult* result){};
+	void (*trace_line)(const Vector& start_pos, const Vector& end_pos, int trace_ignore_flags, Edict* entity_to_ignore, TraceResult* result){}; //-V591
 
 	/// <summary>
 	/// <para>Traces a toss.</para>
 	/// </summary>
-	void (*trace_toss)(Edict* entity, Edict* entity_to_ignore, TraceResult* result){};
+	void (*trace_toss)(Edict* entity, Edict* entity_to_ignore, TraceResult* result){}; //-V591
 
 	/// <summary>
 	/// <para>Performs a trace between a starting and ending position, using the given entity's min size and max size.</para>
 	/// </summary>
 	qboolean (*trace_monster_hull)(Edict* entity, const Vector& start_pos, const Vector& end_pos, int trace_ignore_flags, Edict* entity_to_ignore,
-	                               TraceResult* result){};
+	                               TraceResult* result){}; //-V591
 
 	/// <summary>
 	/// <para>Performs a trace between a starting and ending position, using the specified hull.</para>
 	/// </summary>
 	void (*trace_hull)(const Vector& start_pos, const Vector& end_pos, int trace_ignore_flags, int hull_number, Edict* entity_to_ignore,
-	                   TraceResult* result){};
+	                   TraceResult* result){}; //-V591
 
 	/// <summary>
 	/// <para>Performs a trace between a starting and ending position.<br/>
@@ -409,24 +414,24 @@ struct EngineFuncPointers {
 	/// For studio models this will use the model's hit boxes.
 	/// </para>
 	/// </summary>
-	void (*trace_model)(const Vector& start_pos, const Vector& end_pos, int hull_number, Edict* entity, TraceResult* result){};
+	void (*trace_model)(const Vector& start_pos, const Vector& end_pos, int hull_number, Edict* entity, TraceResult* result){}; //-V591
 
 	/// <summary>
 	/// <para>Used to get texture info.</para>
 	/// </summary>
-	const char* (*trace_texture)(Edict* texture_entity, const Vector& start_pos, const Vector& end_pos){};
+	const char* (*trace_texture)(Edict* texture_entity, const Vector& start_pos, const Vector& end_pos){}; //-V591
 
 	/// <summary>
 	/// <para>Not implemented. Triggers a sys error.</para>
 	/// </summary>
 	void (*trace_sphere)(const Vector& start_pos, const Vector& end_pos, int trace_ignore_flags, float radius, Edict* entity_to_ignore,
-	                     TraceResult* result){};
+	                     TraceResult* result){}; //-V591
 
 	/// <summary>
 	/// <para>Get the aim vector for the given entity.<br/>
 	/// Assumes <c>make_vectors</c> was called with <c>entity->vars.angles</c> beforehand.</para>
 	/// </summary>
-	void (*get_aim_vector)(Edict* entity, float speed, Vector& vec_return){};
+	void (*get_aim_vector)(Edict* entity, float speed, Vector& vec_return){}; //-V591
 
 	/// <summary>
 	/// <para>Issues a command to the server.</para>
@@ -441,17 +446,17 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Sends a client command to the given client.</para>
 	/// </summary>
-	void (*client_command)(Edict* client, const char* format, ...){};
+	void (*client_command)(Edict* client, const char* format, ...){}; //-V591
 
 	/// <summary>
 	/// <para>Creates a particle effect.</para>
 	/// </summary>
-	void (*particle_effect)(const Vector& origin, const Vector& direction, float color, float count){};
+	void (*particle_effect)(const Vector& origin, const Vector& direction, float color, float count){}; //-V591
 
 	/// <summary>
 	/// <para>Sets the given light style to the given value.</para>
 	/// </summary>
-	void (*light_style)(int style, const char* value){};
+	void (*light_style)(int style, const char* value){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the index of the given decal.</para>
@@ -466,7 +471,7 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Begins a new network message.</para>
 	/// </summary>
-	void (*message_begin)(MessageType msg_type, int msg_id, const vec_t* origin, Edict* client){};
+	void (*message_begin)(MessageType msg_type, int msg_id, const vec_t* origin, Edict* client){}; //-V591
 
 	/// <summary>
 	/// <para>Ends a network message.</para>
@@ -526,36 +531,36 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Gets the value of console variable as a string.</para>
 	/// </summary>
-	const char* (*cvar_get_string)(const char* cvar_name){};
+	const char* (*cvar_get_string)(const char* cvar_name){}; //-V591
 
 	/// <summary>
 	/// <para>Sets the value of console variable as a float.</para>
 	/// </summary>
-	void (*cvar_set_float)(const char* cvar_name, float value){};
+	void (*cvar_set_float)(const char* cvar_name, float value){}; //-V591
 
 	/// <summary>
 	/// <para>Sets the value of console variable as a string.</para>
 	/// </summary>
-	void (*cvar_set_string)(const char* cvar_name, const char* value){};
+	void (*cvar_set_string)(const char* cvar_name, const char* value){}; //-V591
 
 	/// <summary>
 	/// <para>Outputs a message to the server console.</para>
 	/// </summary>
-	void (*alert_message)(AlertType type, const char* format, ...){};
+	void (*alert_message)(AlertType type, const char* format, ...){}; //-V591
 
 	/// <summary>
 	/// <para>Obsolete. Will print a message to the server console using alert_message indicating if it's being used.</para>
 	/// </summary>
-	void (*engine_file_print)(void* file, const char* format, ...){};
+	void (*engine_file_print)(void* file, const char* format, ...){}; //-V591
 
 	/// <summary>
 	/// <para>Allocates memory for <c>EntityBase</c> instances.</para>
 	/// </summary>
-	void* (*alloc_ent_private_data)(Edict* entity, int32 size){};
+	void* (*alloc_ent_private_data)(Edict* entity, int32 size){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void* (*ent_private_data)(Edict* entity){};
+	void* (*ent_private_data)(Edict* entity){}; //-V591
 
 	/// <summary>
 	/// <para>Frees the <c>EntityBase</c> memory assigned to entity.</para>
@@ -565,7 +570,7 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Gets the string assigned to the index.</para>
 	/// </summary>
-	const char* (*sz_from_index)(unsigned int string){};
+	const char* (*sz_from_index)(unsigned int string){}; //-V591
 
 	/// <summary>
 	/// <para>Allocates a string in the string pool.</para>
@@ -575,19 +580,19 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Gets the <c>EntityVars</c> instance assigned to the given entity instance.</para>
 	/// </summary>
-	EntityVars* (*get_vars_of_ent)(Edict* entity){};
+	EntityVars* (*get_vars_of_ent)(Edict* entity){}; //-V591
 
 	/// <summary>
 	/// <para>Gets an entity by offset.<br/>
 	/// This uses the byte offset of the entity to retrieve it.<br/>
 	/// DO NOT USE THIS. Use the <c>entity_of_ent_index</c> instead.</para>
 	/// </summary>
-	Edict* (*entity_of_ent_offset)(eoffset entity_offset){};
+	Edict* (*entity_of_ent_offset)(eoffset entity_offset){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the entity offset of the entity.</para>
 	/// </summary>
-	eoffset (*ent_offset_of_entity)(const Edict* entity){};
+	eoffset (*ent_offset_of_entity)(const Edict* entity){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the entity index of the entity dictionary.</para>
@@ -597,47 +602,47 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Gets the entity at the given entity index.</para>
 	/// </summary>
-	Edict* (*entity_of_ent_index)(int entity_index){};
+	Edict* (*entity_of_ent_index)(int entity_index){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the entity of an <c>EntityVars</c>.</para>
 	/// </summary>
-	Edict* (*find_entity_by_vars)(EntityVars* vars){};
+	Edict* (*find_entity_by_vars)(EntityVars* vars){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the model pointer of the given entity.</para>
 	/// </summary>
-	void* (*get_model_pointer)(Edict* entity){};
+	void* (*get_model_pointer)(Edict* entity){}; //-V591
 
 	/// <summary>
 	/// <para>Registers a user message.</para>
 	/// </summary>
-	int (*reg_user_message)(const char* name, int size){};
+	int (*reg_user_message)(const char* name, int size){}; //-V591
 
 	/// <summary>
 	/// <para>Does nothing.</para>
 	/// </summary>
-	void (*animation_auto_move)(const Edict* entity, float time){};
+	void (*animation_auto_move)(const Edict* entity, float time){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the bone position and angles for the given entity and bone.</para>
 	/// </summary>
-	void (*get_bone_position)(const Edict* entity, int bone, Vector& origin, Vector& angles){};
+	void (*get_bone_position)(const Edict* entity, int bone, Vector& origin, Vector& angles){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the index of an exported function.</para>
 	/// </summary>
-	uint32 (*function_from_name)(const char* name){};
+	uint32 (*function_from_name)(const char* name){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the name of an exported function.</para>
 	/// </summary>
-	const char* (*name_for_function)(uint32 function){};
+	const char* (*name_for_function)(uint32 function){}; //-V591
 
 	/// <summary>
 	/// <para>Sends a message to the client console.</para>
 	/// </summary>
-	void (*client_print)(Edict* entity, PrintType type, const char* message){};
+	void (*client_print)(Edict* entity, PrintType type, const char* message){}; //-V591
 
 	/// <summary>
 	/// <para>Sends a message to the server console.<br/>
@@ -647,12 +652,12 @@ struct EngineFuncPointers {
 
 	/// <summary>
 	/// </summary>
-	const char* (*cmd_args)(){};
+	const char* (*cmd_args)(){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the command argument at the given index.</para>
 	/// </summary>
-	const char* (*cmd_argv)(int argc){};
+	const char* (*cmd_argv)(int argc){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -661,7 +666,7 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Gets the attachment origin and angles.</para>
 	/// </summary>
-	void (*get_attachment)(const Edict* entity, int attachment, Vector& origin, Vector& angles){};
+	void (*get_attachment)(const Edict* entity, int attachment, Vector& origin, Vector& angles){}; //-V591
 
 	/// <summary>
 	/// <para>Initializes the CRC instance.</para>
@@ -671,32 +676,32 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Processes a buffer and updates the CRC.</para>
 	/// </summary>
-	void (*crc32_process_buffer)(crc32* pul_crc, void* buffer, int len){};
+	void (*crc32_process_buffer)(crc32* pul_crc, void* buffer, int len){}; //-V591
 
 	/// <summary>
 	/// <para>Processes a single byte.</para>
 	/// </summary>
-	void (*crc32_process_byte)(crc32* pul_crc, unsigned char ch){};
+	void (*crc32_process_byte)(crc32* pul_crc, unsigned char ch){}; //-V591
 
 	/// <summary>
 	/// <para>Finalizes the CRC instance.</para>
 	/// </summary>
-	crc32 (*crc32_final)(crc32 pul_crc){};
+	crc32 (*crc32_final)(crc32 pul_crc){}; //-V591
 
 	/// <summary>
 	/// <para>Generates a random long number in the range [low, high].</para>
 	/// </summary>
-	int32 (*random_long)(int32 low, int32 high){};
+	int32 (*random_long)(int32 low, int32 high){}; //-V591
 
 	/// <summary>
 	/// <para>Generates a random float number in the range [low, high].</para>
 	/// </summary>
-	float (*random_float)(float low, float high){};
+	float (*random_float)(float low, float high){}; //-V591
 
 	/// <summary>
 	/// <para>Sets the view of a client to the given entity.</para>
 	/// </summary>
-	void (*set_view)(const Edict* client, const Edict* view_entity){};
+	void (*set_view)(const Edict* client, const Edict* view_entity){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -705,12 +710,12 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Sets the angles of the given client's crosshairs to the given settings.</para>
 	/// </summary>
-	void (*crosshair_angle)(const Edict* client, float pitch, float yaw){};
+	void (*crosshair_angle)(const Edict* client, float pitch, float yaw){}; //-V591
 
 	/// <summary>
 	/// <para>Loads a file from disk.</para>
 	/// </summary>
-	byte* (*load_file_for_me)(const char* file_name, int* length){};
+	byte* (*load_file_for_me)(const char* file_name, int* length){}; //-V591
 
 	/// <summary>
 	/// <para>Frees the buffer provided by the <c>load_file_for_me</c>.</para>
@@ -725,7 +730,7 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Compares file times.</para>
 	/// </summary>
-	qboolean (*compare_file_time)(char* file_name1, char* file_name2, int* compare){};
+	qboolean (*compare_file_time)(char* file_name1, char* file_name2, int* compare){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the game directory name.</para>
@@ -740,23 +745,23 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Fades the given client's volume.</para>
 	/// </summary>
-	void (*fade_client_volume)(const Edict* client, int fade_percent, int fade_out_seconds, int hold_time, int fade_in_seconds){};
+	void (*fade_client_volume)(const Edict* client, int fade_percent, int fade_out_seconds, int hold_time, int fade_in_seconds){}; //-V591
 
 	/// <summary>
 	/// <para>Sets the client's maximum speed value.</para>
 	/// </summary>
-	void (*set_client_max_speed)(Edict* client, float new_max_speed){};
+	void (*set_client_max_speed)(Edict* client, float new_max_speed){}; //-V591
 
 	/// <summary>
 	/// <para>Creates a fake client (bot).</para>
 	/// </summary>
-	Edict* (*create_fake_client)(const char* name){};
+	Edict* (*create_fake_client)(const char* name){}; //-V591
 
 	/// <summary>
 	/// <para>Runs client movement for a fake client.</para>
 	/// </summary>
 	void (*run_player_move)(Edict* fake_client, const Vector& view_angles, float forward_move, float side_move,
-	                        float up_move, unsigned short buttons, byte impulse, byte msec){};
+	                        float up_move, unsigned short buttons, byte impulse, byte msec){}; //-V591
 
 	/// <summary>
 	/// <para>Computes the total number of entities currently in existence.</para>
@@ -766,32 +771,32 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Gets the given client's info key buffer.</para>
 	/// </summary>
-	char* (*get_info_key_buffer)(Edict* client){};
+	char* (*get_info_key_buffer)(Edict* client){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the value of the given key from the given buffer.</para>
 	/// </summary>
-	char* (*info_key_value)(char* info_buffer, const char* key){};
+	char* (*info_key_value)(char* info_buffer, const char* key){}; //-V591
 
 	/// <summary>
 	/// <para>Sets the value of the given key in the given buffer.</para>
 	/// </summary>
-	void (*set_key_value)(char* info_buffer, const char* key, const char* value){};
+	void (*set_key_value)(char* info_buffer, const char* key, const char* value){}; //-V591
 
 	/// <summary>
 	/// <para>Sets the value of the given key in the given buffer.</para>
 	/// </summary>
-	void (*set_client_key_value)(int client_index, char* info_buffer, const char* key, const char* value){};
+	void (*set_client_key_value)(int client_index, char* info_buffer, const char* key, const char* value){}; //-V591
 
 	/// <summary>
 	/// <para>Checks if the given file_name is a valid map.</para>
 	/// </summary>
-	qboolean (*is_map_valid)(const char* file_name){};
+	qboolean (*is_map_valid)(const char* file_name){}; //-V591
 
 	/// <summary>
 	/// <para>Projects a static decal in the world.</para>
 	/// </summary>
-	void (*static_decal)(const Vector& origin, int decal_index, int entity_index, int model_index){};
+	void (*static_decal)(const Vector& origin, int decal_index, int entity_index, int model_index){}; //-V591
 
 	/// <summary>
 	/// <para>Precaches a file.</para>
@@ -807,15 +812,15 @@ struct EngineFuncPointers {
 	/// <para>Builds a sound message to send to a client.</para>
 	/// </summary>
 	void (*build_sound_msg)(Edict* entity, int channel, const char* sample, float volume, float attenuation, int flags, int pitch,
-	                        MessageType msg_type, int msg_id, const Vector& origin, Edict* client){};
+	                        MessageType msg_type, int msg_id, const Vector& origin, Edict* client){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	qboolean (*is_dedicated_server)(){};
+	qboolean (*is_dedicated_server)(){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	CVar* (*cvar_get_pointer)(const char* cvar_name){};
+	CVar* (*cvar_get_pointer)(const char* cvar_name){}; //-V591
 
 	/// <summary>
 	/// <para>Returns the server assigned WON id for this client.</para>
@@ -825,63 +830,63 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Removes a key from the info buffer.</para>
 	/// </summary>
-	void (*info_remove_key)(char* info_buffer, const char* key){};
+	void (*info_remove_key)(char* info_buffer, const char* key){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the given physics key-value from the given client's buffer.</para>
 	/// </summary>
-	const char* (*get_physics_key_value)(const Edict* client, const char* key){};
+	const char* (*get_physics_key_value)(const Edict* client, const char* key){}; //-V591
 
 	/// <summary>
 	/// <para>Sets the given physics key-value in the given client's buffer.</para>
 	/// </summary>
-	void (*set_physics_key_value)(const Edict* client, const char* key, const char* value){};
+	void (*set_physics_key_value)(const Edict* client, const char* key, const char* value){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the physics info string for the given client.</para>
 	/// </summary>
-	const char* (*get_physics_info_string)(const Edict* client){};
+	const char* (*get_physics_info_string)(const Edict* client){}; //-V591
 
 	/// <summary>
 	/// <para>Precaches an event.</para>
 	/// </summary>
-	unsigned short (*precache_event)(int type, const char* path){};
+	unsigned short (*precache_event)(int type, const char* path){}; //-V591
 
 	/// <summary>
 	/// </summary>
 	void (*playback_event)(int flags, const Edict* invoker, unsigned short event_index, float delay, Vector& origin, Vector& angles,
-	                       float f_param1, float f_param2, int i_param1, int i_param2, qboolean b_param1, qboolean b_param2){};
+	                       float f_param1, float f_param2, int i_param1, int i_param2, qboolean b_param1, qboolean b_param2){}; //-V591
 
 	/// <summary>
 	/// <para>Sets the fat potentially visible set buffer to contain data based on the given origin.</para>
 	/// </summary>
-	unsigned char* (*set_fat_pvs)(Vector& origin){};
+	unsigned char* (*set_fat_pvs)(Vector& origin){}; //-V591
 
 	/// <summary>
 	/// <para>Sets the fat potentially audible set buffer to contain data based on the given origin.</para>
 	/// </summary>
-	unsigned char* (*set_fat_pas)(Vector& origin){};
+	unsigned char* (*set_fat_pas)(Vector& origin){}; //-V591
 
 	/// <summary>
 	/// <para>Checks if the given entity is visible in the given visible set.</para>
 	/// </summary>
-	qboolean (*check_visibility)(Edict* entity, unsigned char* set){};
+	qboolean (*check_visibility)(Edict* entity, unsigned char* set){}; //-V591
 
 	/// <summary>
 	/// <para>Marks the given field in the given list as set.</para>
 	/// </summary>
-	void (*delta_set_field)(struct delta* fields, const char* field_name){};
+	void (*delta_set_field)(struct delta* fields, const char* field_name){}; //-V591
 
 	/// <summary>
 	/// <para>Marks the given field in the given list as not set.</para>
 	/// </summary>
-	void (*delta_unset_field)(struct delta* fields, const char* field_name){};
+	void (*delta_unset_field)(struct delta* fields, const char* field_name){}; //-V591
 
 	/// <summary>
 	/// <para>Adds a delta encoder.</para>
 	/// </summary>
 	void (*delta_add_encoder)(const char* name,
-	                          void (*conditional_encode)(struct delta* fields, const unsigned char* from, const unsigned char* to)){};
+	                          void (*conditional_encode)(struct delta* fields, const unsigned char* from, const unsigned char* to)){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -889,77 +894,77 @@ struct EngineFuncPointers {
 
 	/// <summary>
 	/// </summary>
-	qboolean (*can_skip_player)(const Edict* client){};
+	qboolean (*can_skip_player)(const Edict* client){}; //-V591
 
 	/// <summary>
 	/// <para>Finds the index of a delta field.</para>
 	/// </summary>
-	int (*delta_find_field)(struct delta* fields, const char* field_name){};
+	int (*delta_find_field)(struct delta* fields, const char* field_name){}; //-V591
 
 	/// <summary>
 	/// <para>Marks a delta field as set by index.</para>
 	/// </summary>
-	void (*delta_set_field_by_index)(struct delta* fields, int field_number){};
+	void (*delta_set_field_by_index)(struct delta* fields, int field_number){}; //-V591
 
 	/// <summary>
 	/// <para>Marks a delta field as not set by index.</para>
 	/// </summary>
-	void (*delta_unset_field_by_index)(struct delta* fields, int field_number){};
+	void (*delta_unset_field_by_index)(struct delta* fields, int field_number){}; //-V591
 
 	/// <summary>
 	/// <para>Used to filter contents checks.</para>
 	/// </summary>
-	void (*set_group_mask)(int mask, int operation){};
+	void (*set_group_mask)(int mask, int operation){}; //-V591
 
 	/// <summary>
 	/// <para>Creates an instanced baseline. Used to define a baseline for a particular entity type.</para>
 	/// </summary>
-	int (*create_instanced_baseline)(Strind class_name, EntityState* baseline){};
+	int (*create_instanced_baseline)(Strind class_name, EntityState* baseline){}; //-V591
 
 	/// <summary>
 	/// <para>Directly sets a console variable value.</para>
 	/// </summary>
-	void (*cvar_direct_set)(CVar* cvar, const char* value){};
+	void (*cvar_direct_set)(CVar* cvar, const char* value){}; //-V591
 
 	/// <summary>
 	/// <para>Forces the client and server to be running with the same version of the specified file (e.g., a client model).</para>
 	/// </summary>
-	void (*force_unmodified)(ForceType type, Vector& min_size, Vector& max_size, const char* file_name){};
+	void (*force_unmodified)(ForceType type, Vector& min_size, Vector& max_size, const char* file_name){}; //-V591
 
 	/// <summary>
 	/// <para>Get client statistics.</para>
 	/// </summary>
-	void (*get_player_stats)(const Edict* client, int* ping, int* packet_loss){};
+	void (*get_player_stats)(const Edict* client, int* ping, int* packet_loss){}; //-V591
 
 	/// <summary>
 	/// <para>Adds a server command.</para>
 	/// </summary>
-	void (*add_server_command)(const char* cmd_name, void (*callback)()){};
+	void (*add_server_command)(const char* cmd_name, void (*callback)()){}; //-V591
 
 	/// <summary>
 	/// <para>Gets whether the given receiver can hear the given sender.</para>
 	/// </summary>
-	qboolean (*voice_get_client_listening)(int receiver, int sender){};
+	qboolean (*voice_get_client_listening)(int receiver, int sender){}; //-V591
 
 	/// <summary>
 	/// <para>Sets whether the given receiver can hear the given sender.</para>
 	/// </summary>
-	qboolean (*voice_set_client_listening)(int receiver, int sender, qboolean listen){};
+	qboolean (*voice_set_client_listening)(int receiver, int sender, qboolean listen){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the client's auth ID.</para>
 	/// </summary>
-	const char* (*get_player_auth_id)(Edict* client){};
+	const char* (*get_player_auth_id)(Edict* client){}; //-V591
 
 	/// <summary>
 	/// <para>Gets the sequence that has the given entry name.</para>
 	/// </summary>
-	SequenceEntry* (*sequence_get)(const char* file_name, const char* entry_name){};
+	SequenceEntry* (*sequence_get)(const char* file_name, const char* entry_name){}; //-V591
 
 	/// <summary>
 	/// <para>Picks a sentence from the given group.</para>
 	/// </summary>
-	SentenceEntry* (*sequence_pick_sentence)(const char* group_name, int pick_method, int* picked){};
+	SentenceEntry* (*sequence_pick_sentence)(const char* group_name, int pick_method, int* picked){}; //-V591
 
 	/// <summary>
 	/// <para>LH: Give access to file size via filesystem.</para>
@@ -973,7 +978,7 @@ struct EngineFuncPointers {
 
 	/// <summary>
 	/// </summary>
-	qboolean (*is_career_match)(){};
+	qboolean (*is_career_match)(){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -992,12 +997,12 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Processes the tutor message decay buffer.</para>
 	/// </summary>
-	void (*process_tutor_message_decay_buffer)(int* buffer, int buffer_length){};
+	void (*process_tutor_message_decay_buffer)(int* buffer, int buffer_length){}; //-V591
 
 	/// <summary>
 	/// <para>Constructs the tutor message decay buffer.</para>
 	/// </summary>
-	void (*construct_tutor_message_decay_buffer)(int* buffer, int buffer_length){};
+	void (*construct_tutor_message_decay_buffer)(int* buffer, int buffer_length){}; //-V591
 
 	/// <summary>
 	/// <para>Resets tutor message decay data.</para>
@@ -1007,17 +1012,17 @@ struct EngineFuncPointers {
 	/// <summary>
 	/// <para>Queries the given client for a cvar value.</para>
 	/// </summary>
-	void (*query_client_cvar_value)(const Edict* client, const char* cvar_name){};
+	void (*query_client_cvar_value)(const Edict* client, const char* cvar_name){}; //-V591
 
 	/// <summary>
 	/// <para>Queries the given client for a cvar value.</para>
 	/// </summary>
-	void (*query_client_cvar_value2)(const Edict* client, const char* cvar_name, int request_id){};
+	void (*query_client_cvar_value2)(const Edict* client, const char* cvar_name, int request_id){}; //-V591
 
 	/// <summary>
 	/// <para>Checks if a command line parameter was provided.</para>
 	/// </summary>
-	int (*eng_check_param)(const char* cmd_line_token, char** next){};
+	int (*eng_check_param)(const char* cmd_line_token, char** next){}; //-V591
 };
 
 /// <summary>
@@ -1043,32 +1048,32 @@ struct DllFuncPointers {
 	/// <para>Called by the engine to trigger <c>entity_used</c>'s <c>use</c> function, using <c>entity_other</c> as the activator and caller.<br/>
 	/// Obsolete. This is never called by the engine.</para>
 	/// </summary>
-	void (*use)(Edict* entity_used, Edict* entity_other){};
+	void (*use)(Edict* entity_used, Edict* entity_other){}; //-V591
 
 	/// <summary>
 	/// <para>Called by the engine to run <c>entity_touched</c>'s <c>touch</c> function with <c>entity_other</c> as the other entity.</para>
 	/// </summary>
-	void (*touch)(Edict* entity_touched, Edict* entity_other){};
+	void (*touch)(Edict* entity_touched, Edict* entity_other){}; //-V591
 
 	/// <summary>
 	/// <para>Called by the engine to run <c>entity_blocked</c>'s <c>blocked</c> function with <c>entity_other</c> as the other entity.</para>
 	/// </summary>
-	void (*blocked)(Edict* entity_blocked, Edict* entity_other){};
+	void (*blocked)(Edict* entity_blocked, Edict* entity_other){}; //-V591
 
 	/// <summary>
 	/// <para>Called by the engine to run <c>entity_key_value</c>'s <c>key_value</c> function with <c>data</c> as the key-value data.</para>
 	/// </summary>
-	void (*key_value)(Edict* entity_key_value, KeyValueData* data){};
+	void (*key_value)(Edict* entity_key_value, KeyValueData* data){}; //-V591
 
 	/// <summary>
 	/// <para>Called by the engine to save the given entity's state to the given save data block.</para>
 	/// </summary>
-	void (*save)(Edict* entity, SaveRestoreData* save_data){};
+	void (*save)(Edict* entity, SaveRestoreData* save_data){}; //-V591
 
 	/// <summary>
 	/// <para>Called by the engine to restore the given entity's state from the given save data block.</para>
 	/// </summary>
-	int (*restore)(Edict* entity, SaveRestoreData* save_data, qboolean global_entity){};
+	int (*restore)(Edict* entity, SaveRestoreData* save_data, qboolean global_entity){}; //-V591
 
 	/// <summary>
 	/// <para>Called by the engine to set the given entity's absolute bounding box.</para>
@@ -1078,12 +1083,12 @@ struct DllFuncPointers {
 	/// <summary>
 	/// <para>Called by the engine to save a named block of data to the given save data block.</para>
 	/// </summary>
-	void (*save_write_fields)(SaveRestoreData* save_data, const char* name, void* base_data, TypeDescription* fields, int field_count){};
+	void (*save_write_fields)(SaveRestoreData* save_data, const char* name, void* base_data, TypeDescription* fields, int field_count){}; //-V591
 
 	/// <summary>
 	/// <para>Called by the engine to restore a named block of data from the given save data block.</para>
 	/// </summary>
-	void (*save_read_fields)(SaveRestoreData* save_data, const char* name, void* base_data, TypeDescription* fields, int field_count){};
+	void (*save_read_fields)(SaveRestoreData* save_data, const char* name, void* base_data, TypeDescription* fields, int field_count){}; //-V591
 
 	/// <summary>
 	/// <para>Called by the engine to save global state.</para>
@@ -1104,7 +1109,7 @@ struct DllFuncPointers {
 	/// <para>Called by the engine when a client connects.<br/>
 	/// Returning false rejects the client's connection. Setting <c>reject_reason</c> presents that to the client.</para>
 	/// </summary>
-	qboolean (*client_connect)(Edict* client, const char* name, const char* address, char reject_reason[128]){};
+	qboolean (*client_connect)(Edict* client, const char* name, const char* address, char reject_reason[128]){}; //-V591
 
 	/// <summary>
 	/// <para>Called when a client disconnects.<br/>
@@ -1133,12 +1138,12 @@ struct DllFuncPointers {
 	/// <para>Called by the engine whenever the client's user info string changes.<br/>
 	/// This includes the player's model.</para>
 	/// </summary>
-	void (*client_user_info_changed)(Edict* client, char* info_buffer){};
+	void (*client_user_info_changed)(Edict* client, char* info_buffer){}; //-V591
 
 	/// <summary>
 	/// <para>Called when the engine has finished spawning the map.</para>
 	/// </summary>
-	void (*server_activate)(Edict* edict_list, int edict_count, int client_max){};
+	void (*server_activate)(Edict* edict_list, int edict_count, int client_max){}; //-V591
 
 	/// <summary>
 	/// <para>Called when the map has ended.<br/>
@@ -1175,12 +1180,12 @@ struct DllFuncPointers {
 	/// <summary>
 	/// <para>Returns string describing current .dll. E.g., TeamFortress 2, Half-Life.</para>
 	/// </summary>
-	const char* (*get_game_description)(){};
+	const char* (*get_game_description)(){}; //-V591
 
 	/// <summary>
 	/// <para>Notify dll about a player customization.</para>
 	/// </summary>
-	void (*player_customization)(Edict* client, Customization* custom){};
+	void (*player_customization)(Edict* client, Customization* custom){}; //-V591
 
 	/// <summary>
 	/// <para>Called when a HLTV spectator has connected.</para>
@@ -1205,7 +1210,7 @@ struct DllFuncPointers {
 	/// <summary>
 	/// <para>Called by the engine to run player physics.</para>
 	/// </summary>
-	void (*pm_move)(PlayerMove* move, qboolean server){};
+	void (*pm_move)(PlayerMove* move, qboolean server){}; //-V591
 
 	/// <summary>
 	/// <para>Called by the engine to initialize the player physics data.</para>
@@ -1220,24 +1225,24 @@ struct DllFuncPointers {
 	/// <summary>
 	/// <para>Set up visibility for the given client.</para>
 	/// </summary>
-	void (*setup_visibility)(Edict* view_entity, Edict* client, unsigned char** pvs, unsigned char** pas){};
+	void (*setup_visibility)(Edict* view_entity, Edict* client, unsigned char** pvs, unsigned char** pas){}; //-V591
 
 	/// <summary>
 	/// <para>Updates the given client's data.<br/>
 	/// This function can be used to implement first person observer views.</para>
 	/// </summary>
-	void (*update_client_data)(const Edict* client, qboolean send_weapons, ClientData* data){};
+	void (*update_client_data)(const Edict* client, qboolean send_weapons, ClientData* data){}; //-V591
 
 	/// <summary>
 	/// <para>Called by the engine to determine whether the given entity should be added to the given client's list of visible entities.</para>
 	/// </summary>
-	int (*add_to_full_pack)(EntityState* state, int entity_index, Edict* entity, Edict* host, int host_flags, qboolean player, unsigned char* set){};
+	qboolean (*add_to_full_pack)(EntityState* state, int entity_index, Edict* entity, Edict* host, int host_flags, qboolean player, unsigned char* set){}; //-V591
 
 	/// <summary>
 	/// <para>Called by the engine to create a baseline for the given entity.</para>
 	/// </summary>
 	void (*create_baseline)(qboolean client, int entity_index, EntityState* baseline, Edict* entity, int player_model_index, Vector player_min_size,
-	                        Vector player_max_size){};
+	                        Vector player_max_size){}; //-V591
 
 	/// <summary>
 	/// <para>Called by the engine to allow the server to register delta encoders.</para>
@@ -1247,12 +1252,12 @@ struct DllFuncPointers {
 	/// <summary>
 	/// <para>Called by the engine to retrieve weapon data.</para>
 	/// </summary>
-	qboolean (*get_weapon_data)(Edict* client, WeaponData* info){};
+	qboolean (*get_weapon_data)(Edict* client, WeaponData* info){}; //-V591
 
 	/// <summary>
 	/// <para>Called by the engine when a user command has been received and is about to begin processing.</para>
 	/// </summary>
-	void (*cmd_start)(const Edict* client, const UserCmd* cmd, unsigned int random_seed){};
+	void (*cmd_start)(const Edict* client, const UserCmd* cmd, unsigned int random_seed){}; //-V591
 
 	/// <summary>
 	/// <para>Called by the engine when a user command has finished processing.</para>
@@ -1263,12 +1268,12 @@ struct DllFuncPointers {
 	/// <para>Return 1 if the packet is valid. Set response_buffer_size if you want to send a response packet.<br/>
 	/// Incoming, it holds the max size of the <c>response_buffer</c>, so you must zero it out if you choose not to respond.</para>
 	/// </summary>
-	qboolean (*connectionless_packet)(const NetAddress* net_from, const char* args, char* response_buffer, int* response_buffer_size){};
+	qboolean (*connectionless_packet)(const NetAddress* net_from, const char* args, char* response_buffer, int* response_buffer_size){}; //-V591
 
 	/// <summary>
 	/// <para>Enumerates player hulls. Returns 0 if the hull number doesn't exist, 1 otherwise.</para>
 	/// </summary>
-	qboolean (*get_hull_bounds)(int hull_number, Vector& min_size, Vector& max_size){};
+	qboolean (*get_hull_bounds)(int hull_number, Vector& min_size, Vector& max_size){}; //-V591
 
 	/// <summary>
 	/// <para>Create baselines for certain "unplaced" items.</para>
@@ -1279,13 +1284,13 @@ struct DllFuncPointers {
 	/// <para>One of the <c>force_unmodified</c> files failed the consistency check for the specified player.<br/>
 	/// Return 0 to allow the client to continue, 1 to force immediate disconnection (with an optional disconnect message of up to 256 characters).</para>
 	/// </summary>
-	qboolean (*inconsistent_file)(const Edict* client, const char* file_name, char* disconnect_message){};
+	qboolean (*inconsistent_file)(const Edict* client, const char* file_name, char* disconnect_message){}; //-V591
 
 	/// <summary>
 	/// <para>The game .dll should return 1 if lag compensation should be allowed (could also just set the sv_unlag cvar).<br/>
 	/// Most games right now should return 0, until client-side weapon prediction code is written and tested for them.</para>
 	/// </summary>
-	qboolean (*allow_lag_compensation)(){};
+	qboolean (*allow_lag_compensation)(){}; //-V591
 };
 
 /// <summary>
@@ -1307,17 +1312,17 @@ struct DllNewFuncPointers {
 	/// <para>Called when the engine believes two entities are about to collide.<br/>
 	/// Return 0 if you want the two entities to just pass through each other without colliding or calling the touch function.</para>
 	/// </summary>
-	qboolean (*should_collide)(Edict* entity_touched, Edict* entity_other){};
+	qboolean (*should_collide)(Edict* entity_touched, Edict* entity_other){}; //-V591
 
 	/// <summary>
 	/// <para>Called when the engine has received a cvar value from the client in response to an <c>EngineFuncPointers::query_client_cvar_value</c> call.</para>
 	/// </summary>
-	void (*cvar_value)(const Edict* client, const char* value){};
+	void (*cvar_value)(const Edict* client, const char* value){}; //-V591
 
 	/// <summary>
 	/// <para>Called when the engine has received a cvar value from the client in response to a <c>EngineFuncPointers::query_client_cvar_value2</c> call.</para>
 	/// </summary>
-	void (*cvar_value2)(const Edict* client, int request_id, const char* cvar_name, const char* value){};
+	void (*cvar_value2)(const Edict* client, int request_id, const char* cvar_name, const char* value){}; //-V591
 };
 
 #ifdef CSSDK_STANDALONE

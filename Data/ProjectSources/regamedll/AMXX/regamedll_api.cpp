@@ -70,9 +70,8 @@ bool RegamedllApi::init()
 	auto* const interface_base = interface_factory(VREGAMEDLL_API_VERSION, &ret_code);
 
 	if (ret_code != CreateInterfaceStatus::Ok || interface_base == nullptr) {
-		const auto ret_code_num = static_cast<int>(ret_code);
 		AmxxApi::print_srv_console("[%s] Failed to retrieve \"%s\" interface from game module; return code is %d.\n\n",
-		                           AMXX_MODULE_LOG_TAG, VREGAMEDLL_API_VERSION, ret_code_num);
+		                           AMXX_MODULE_LOG_TAG, VREGAMEDLL_API_VERSION, static_cast<int>(ret_code));
 		return false;
 	}
 

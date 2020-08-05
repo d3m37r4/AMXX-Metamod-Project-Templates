@@ -13,6 +13,8 @@
 #include <cssdk/common/cl_entity.h>
 #include <cssdk/public/base_types.h>
 
+//-V::122
+
 /// <summary>
 /// </summary>
 constexpr auto SURF_PLANE_BACK = 2;

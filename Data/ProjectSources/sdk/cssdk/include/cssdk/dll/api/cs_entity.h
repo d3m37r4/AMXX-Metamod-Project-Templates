@@ -10,6 +10,7 @@
 #pragma once
 
 #include <cssdk/dll/entity_base.h>
+#include <cssdk/dll/weapon_type.h>
 
 /// <summary>
 /// </summary>
@@ -22,7 +23,9 @@ class CsEntity {
 public:
 	/// <summary>
 	/// </summary>
-	CsEntity() : containing_entity(nullptr) {}
+	CsEntity() : containing_entity(nullptr)
+	{
+	}
 
 	/// <summary>
 	/// </summary>
@@ -39,11 +42,11 @@ public:
 	/// <summary>
 	/// </summary>
 	virtual void fire_bullets(int shots, Vector& src, Vector& dir_shooting, Vector& spread, float distance,
-	                          int bullet_type, int tracer_freq, int damage, EntityVars* attacker) = 0;
+	                          BulletType bullet_type, int tracer_freq, int damage, EntityVars* attacker) = 0;
 
 	/// <summary>
 	/// </summary>
-	virtual Vector fire_bullets3(Vector& src, Vector& dir_shooting, float spread, float distance, int penetration, int bullet_type,
+	virtual Vector fire_bullets3(Vector& src, Vector& dir_shooting, float spread, float distance, int penetration, BulletType bullet_type,
 	                             int damage, float range_modifier, EntityVars* attacker, bool pistol, int shared_rand) = 0;
 
 	/// <summary>
@@ -54,19 +57,23 @@ public:
 /// <summary>
 /// Class CsDelay.
 /// </summary>
-class CsDelay : public CsEntity {};
+class CsDelay : public CsEntity {
+};
 
 /// <summary>
 /// Class CsAnimating.
 /// </summary>
-class CsAnimating : public CsDelay {};
+class CsAnimating : public CsDelay {
+};
 
 /// <summary>
 /// Class CsToggle.
 /// </summary>
-class CsToggle : public CsAnimating {};
+class CsToggle : public CsAnimating {
+};
 
 /// <summary>
 /// Class CsMonster.
 /// </summary>
-class CsMonster : public CsToggle {};
+class CsMonster : public CsToggle {
+};

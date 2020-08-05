@@ -15,7 +15,7 @@
 /// <summary>
 /// Struct UserCmd
 /// </summary>
-struct UserCmd {
+struct UserCmd { //-V802
 	/// <summary>
 	/// </summary>
 	short lerp_msec{};

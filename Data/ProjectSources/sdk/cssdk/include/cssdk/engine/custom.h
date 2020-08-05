@@ -23,6 +23,8 @@ constexpr auto MAX_PATH = PATH_MAX;
 #endif
 #endif // HOOK_HLTV
 
+//-V::122
+
 /// <summary>
 /// <para>Must match value in quakedefs.h.</para>
 /// </summary>

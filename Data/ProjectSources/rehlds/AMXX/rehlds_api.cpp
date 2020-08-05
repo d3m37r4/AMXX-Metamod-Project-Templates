@@ -77,7 +77,7 @@ bool RehldsApi::init()
 
 	if (ret_code != CreateInterfaceStatus::Ok || interface_base == nullptr) {
 		AmxxApi::print_srv_console("[%s] Failed to retrieve \"%s\" interface from engine module; return code is %d.\n\n",
-		                           AMXX_MODULE_LOG_TAG, VREHLDS_HLDS_API_VERSION, int(ret_code));
+		                           AMXX_MODULE_LOG_TAG, VREHLDS_HLDS_API_VERSION, static_cast<int>(ret_code));
 		return false;
 	}
 

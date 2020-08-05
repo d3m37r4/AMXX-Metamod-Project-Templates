@@ -12,6 +12,8 @@
 #include <cssdk/dll/monsters.h>
 #include <cssdk/public/vector.h>
 
+//-V::122
+
 /// <summary>
 /// </summary>
 struct Edict;

@@ -11,6 +11,8 @@
 
 #include <cssdk/public/base_types.h>
 
+//-V::122
+
 /// <summary>
 /// </summary>
 constexpr auto SEQUENCE_MODIFIER_EFFECT_BIT = 1 << 1;

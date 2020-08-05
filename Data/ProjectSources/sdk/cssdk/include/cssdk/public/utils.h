@@ -11,7 +11,10 @@
 
 #include <cssdk/engine/eiface.h>
 #include <cssdk/engine/global_vars.h>
-#include <cssdk/public/os_config.h>
+#include <cssdk/public/os_defs.h>
+#include <cstdio>
+#include <cstdlib>
+#include <utility>
 
 class EntityBase;
 
@@ -39,9 +42,9 @@ FORCEINLINE bool cssdk_is_valid_entity(const Edict* const entity)
 /// <summary>
 /// </summary>
 template <typename T>
-FORCEINLINE T cssdk_entity_private_data(const Edict* const entity)
+FORCEINLINE T* cssdk_entity_private_data(const Edict* const entity)
 {
-	return entity == nullptr ? T() : static_cast<T>(entity->private_data);
+	return static_cast<T*>(entity->private_data);
 }
 
 /// <summary>
@@ -95,6 +98,10 @@ FORCEINLINE void cssdk_get_gun_position(const EntityVars& entity_vars, Vector& p
 
 /// <summary>
 /// </summary>
+bool cssdk_is_valid_entity(const EntityBase* entity);
+
+/// <summary>
+/// </summary>
 bool cssdk_is_bot(Edict* client);
 
 /// <summary>
@@ -127,16 +134,47 @@ EntityBase* cssdk_find_entity_by_string(Edict* start_entity, const char* field, 
 
 /// <summary>
 /// </summary>
-EntityBase* find_entity_by_class_name(Edict* start_entity, const char* class_name);
+EntityBase* cssdk_find_entity_by_classname(Edict* start_entity, const char* class_name);
 
 /// <summary>
 /// </summary>
-EntityBase* find_entity_by_target_name(Edict* start_entity, const char* target_name);
+EntityBase* cssdk_find_entity_by_target_name(Edict* start_entity, const char* target_name);
 
 /// <summary>
 /// </summary>
-EntityBase* find_client_in_pvs(Edict* entity);
+EntityBase* cssdk_find_client_in_pvs(Edict* entity);
 
 /// <summary>
 /// </summary>
-EntityBase* find_entity_by_vars(EntityVars* vars);
+EntityBase* cssdk_find_entity_by_vars(EntityVars* vars);
+
+/// <summary>
+/// </summary>
+char cssdk_find_texture_type(const char* texture);
+
+/// <summary>
+/// </summary>
+float cssdk_water_level(Vector origin, float min_z, float max_z);
+
+/// <summary>
+/// </summary>
+void cssdk_bubble_trail(int bubble_model, const Vector& start, const Vector& end, int count);
+
+/// <summary>
+/// </summary>
+void cssdk_precache_model_sounds(const char* model_path);
+
+/// <summary>
+/// </summary>
+template <typename... TArgs>
+void cssdk_sys_error(const char* format, TArgs&&... args)
+{
+	char error[4096];
+	std::snprintf(error, sizeof error, format, std::forward<TArgs>(args)...);
+
+	g_engine_funcs.server_print("FATAL ERROR (shutting down): ");
+	g_engine_funcs.server_print(error);
+	g_engine_funcs.server_print("\n");
+
+	std::exit(-1);
+}

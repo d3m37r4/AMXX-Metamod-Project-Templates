@@ -78,7 +78,7 @@ bool RehldsApi::init()
 
 	if (ret_code != CreateInterfaceStatus::Ok || interface_base == nullptr) {
 		MetaUtils::log_console("[%s] Failed to retrieve \"%s\" interface from engine module; return code is %d.\n",
-		                       META_PLUGIN_LOG_TAG, VREHLDS_HLDS_API_VERSION, int(ret_code));
+		                       META_PLUGIN_LOG_TAG, VREHLDS_HLDS_API_VERSION, static_cast<int>(ret_code));
 		return false;
 	}
 

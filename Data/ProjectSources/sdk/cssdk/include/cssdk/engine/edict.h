@@ -12,6 +12,8 @@
 #include <cssdk/engine/entity_vars.h>
 #include <cssdk/public/base_types.h>
 
+//-V::122
+
 /// <summary>
 /// <para>The maximum entity leafs.</para>
 /// </summary>

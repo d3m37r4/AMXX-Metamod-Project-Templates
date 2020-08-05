@@ -12,35 +12,6 @@
 #include <cssdk/public/base_types.h>
 #include <cssdk/public/strind.h>
 
-#undef DLLEXPORT
-#undef NOINLINE
-#undef LIKELY
-#undef UNLIKELY
-
-#ifdef _WIN32
-// Attributes to specify an "exported" function, visible from outside the DLL.
-#define DLLEXPORT __declspec(dllexport)  // NOLINT(cppcoreguidelines-macro-usage)
-#define NOINLINE __declspec(noinline)  // NOLINT(cppcoreguidelines-macro-usage)
-#else
-#ifdef __clang__
-#define DLLEXPORT __attribute__ ((visibility ("default")))
-#else
-#define DLLEXPORT __attribute__ ((visibility ("default"), externally_visible))
-#endif
-#undef WINAPI
-#define WINAPI
-#define NOINLINE __attribute__ ((noinline))
-#endif // _WIN32
-
-// Manual branch optimization for GCC 3.0.0 and newer
-#if !defined(__GNUC__) || __GNUC__ < 3
-#define LIKELY(x) (x)  // NOLINT(cppcoreguidelines-macro-usage)
-#define UNLIKELY(x) (x)  // NOLINT(cppcoreguidelines-macro-usage)
-#else
-#define LIKELY(x) __builtin_expect(!!(x), 1)
-#define UNLIKELY(x) __builtin_expect(!!(x), 0)
-#endif
-
 /// <summary>
 /// Enum HashType
 /// </summary>

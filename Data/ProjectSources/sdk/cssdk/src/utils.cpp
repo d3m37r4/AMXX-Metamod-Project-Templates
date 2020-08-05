@@ -9,13 +9,24 @@
 
 #include <cssdk/public/utils.h>
 #include <cssdk/dll/entity_base.h>
+#include <cssdk/engine/studio.h>
 #include <climits>
-#include <cstdio>
+#include <cstddef>
+#include <cstdint>
 #include <cstring>
+
+#undef STRNCPY
+
+#ifdef _MSC_VER
+#define STRNCPY strncpy_s  // NOLINT(cppcoreguidelines-macro-usage)
+#else
+#define STRNCPY std::strncpy  // NOLINT(cppcoreguidelines-macro-usage)
+#endif
 
 /// <summary>
 /// </summary>
-FORCEINLINE_STATIC void message_begin(const MessageType msg_type, const int msg_id, const vec_t* const origin = nullptr, Edict* const client = nullptr)
+FORCEINLINE_STATIC void message_begin(const MessageType msg_type, const int msg_id, const vec_t* const origin = nullptr,
+                                      Edict* const client = nullptr)
 {
 	g_engine_funcs.message_begin(msg_type, msg_id, origin, client);
 }
@@ -36,6 +47,13 @@ FORCEINLINE_STATIC void write_byte(const int value)
 
 /// <summary>
 /// </summary>
+FORCEINLINE_STATIC void write_coord(const float value)
+{
+	g_engine_funcs.write_coord(value);
+}
+
+/// <summary>
+/// </summary>
 FORCEINLINE_STATIC void write_string(const char* value)
 {
 	g_engine_funcs.write_string(value);
@@ -46,6 +64,13 @@ FORCEINLINE_STATIC void write_string(const char* value)
 FORCEINLINE_STATIC void message_end()
 {
 	g_engine_funcs.message_end();
+}
+
+/// <summary>
+/// </summary>
+bool cssdk_is_valid_entity(const EntityBase* const entity)
+{
+	return entity && entity->vars && cssdk_is_valid_entity(entity->vars->containing_entity);
 }
 
 /// <summary>
@@ -65,7 +90,7 @@ bool cssdk_is_bot(Edict* client)
 /// </summary>
 short cssdk_fixed_signed16(const float value, const float scale)
 {
-	auto output = static_cast<int>(value * scale);
+	auto output = static_cast<int>(value * scale); //-V2003
 
 	if (output < SHRT_MIN) {
 		output = SHRT_MIN;
@@ -81,7 +106,7 @@ short cssdk_fixed_signed16(const float value, const float scale)
 /// </summary>
 unsigned short cssdk_fixed_unsigned16(const float value, const float scale)
 {
-	auto output = static_cast<int>(value * scale);
+	auto output = static_cast<int>(value * scale); //-V2003
 
 	if (output < 0) {
 		output = 0;
@@ -137,7 +162,7 @@ void cssdk_hud_message(EntityBase* const entity, const HudTextParams& hud_params
 	else if (std::strlen(message) > 489) {
 		// The maximum net message size is 512. There are only 489 bytes left for the string.
 		char string[489];
-		std::snprintf(string, sizeof string, "%s", message);
+		std::snprintf(string, sizeof string, "%s", message); //-V111
 		write_string(string);
 	}
 	else {
@@ -152,7 +177,7 @@ void cssdk_hud_message(EntityBase* const entity, const HudTextParams& hud_params
 void cssdk_hud_message(Edict* const client, const HudTextParams& hud_params, const char* message)
 {
 	if (client) {
-		auto* entity = cssdk_entity_private_data<EntityBase*>(client);
+		auto* entity = cssdk_entity_private_data<EntityBase>(client);
 		cssdk_hud_message(entity, hud_params, message, client);
 	}
 	else {
@@ -191,21 +216,21 @@ EntityBase* cssdk_find_entity_by_string(Edict* start_entity, const char* field, 
 
 /// <summary>
 /// </summary>
-EntityBase* find_entity_by_class_name(Edict* start_entity, const char* class_name)
+EntityBase* cssdk_find_entity_by_classname(Edict* start_entity, const char* class_name)
 {
 	return cssdk_find_entity_by_string(start_entity, "classname", class_name);
 }
 
 /// <summary>
 /// </summary>
-EntityBase* find_entity_by_target_name(Edict* start_entity, const char* target_name)
+EntityBase* cssdk_find_entity_by_target_name(Edict* start_entity, const char* target_name)
 {
 	return cssdk_find_entity_by_string(start_entity, "targetname", target_name);
 }
 
 /// <summary>
 /// </summary>
-EntityBase* find_client_in_pvs(Edict* entity)
+EntityBase* cssdk_find_client_in_pvs(Edict* entity)
 {
 	entity = g_engine_funcs.find_client_in_pvs(entity);
 	return cssdk_is_valid_entity(entity) ? EntityBase::instance(entity) : nullptr;
@@ -213,8 +238,149 @@ EntityBase* find_client_in_pvs(Edict* entity)
 
 /// <summary>
 /// </summary>
-EntityBase* find_entity_by_vars(EntityVars* vars)
+EntityBase* cssdk_find_entity_by_vars(EntityVars* vars)
 {
 	const auto* entity = g_engine_funcs.find_entity_by_vars(vars);
 	return cssdk_is_valid_entity(entity) ? EntityBase::instance(entity) : nullptr;
+}
+
+/// <summary>
+/// </summary>
+char cssdk_find_texture_type(const char* texture)
+{
+	if (texture[0] == '-' || texture[0] == '+') {
+		texture += 2;
+	}
+
+	if (texture[0] == '{' || texture[0] == '!' || texture[0] == '~' || texture[0] == ' ') {
+		++texture;
+	}
+
+	if (texture[0] == '\0') {
+		return '\0';
+	}
+
+	static char texture_name[13] = {};
+	STRNCPY(texture_name, texture, sizeof texture_name - 1);
+
+	return g_dll_funcs->pm_find_texture_type(texture_name);
+}
+
+/// <summary>
+/// </summary>
+float cssdk_water_level(Vector origin, float min_z, float max_z)
+{
+	origin.z = min_z;
+
+	if (g_engine_funcs.point_contents(origin) != CONTENTS_WATER) {
+		return min_z;
+	}
+
+	origin.z = max_z;
+
+	if (g_engine_funcs.point_contents(origin) == CONTENTS_WATER) {
+		return max_z;
+	}
+
+	auto diff = max_z - min_z;
+
+	while (diff > 1.0F) {
+		origin.z = min_z + diff / 2.0F;
+
+		if (g_engine_funcs.point_contents(origin) == CONTENTS_WATER) {
+			min_z = origin.z;
+		}
+		else {
+			max_z = origin.z;
+		}
+
+		diff = max_z - min_z;
+	}
+
+	return origin.z;
+}
+
+/// <summary>
+/// </summary>
+void cssdk_bubble_trail(const int bubble_model, const Vector& start, const Vector& end, int count)
+{
+	auto height = cssdk_water_level(start, start.z, start.z + 256.0F) - start.z;
+
+	if (height < 8.0F) {
+		height = cssdk_water_level(end, end.z, end.z + 256.0F) - end.z;
+
+		if (height < 8.0F) {
+			return;
+		}
+
+		height = height + end.z - start.z;
+	}
+
+	if (count > 255) {
+		count = 255;
+	}
+
+	message_begin(MessageType::Broadcast, static_cast<int>(SvcMessage::TempEntity));
+	write_byte(TE_BUBBLE_TRAIL);
+	write_coord(start.x);
+	write_coord(start.y);
+	write_coord(start.z);
+	write_coord(end.x);
+	write_coord(end.y);
+	write_coord(end.z);
+	write_coord(height);
+	write_short(bubble_model);
+	write_byte(count);
+	write_coord(8.0F);
+	message_end();
+}
+
+/// <summary>
+/// </summary>
+void cssdk_precache_model_sounds(const char* model_path)
+{
+#ifdef _MSC_VER
+	FILE* stream{};
+	if (fopen_s(&stream, model_path, "r") || !stream) {
+		return;
+	}
+#else
+	auto* stream = std::fopen(model_path, "r");
+	if (!stream) {
+		return;
+	}
+#endif
+
+	std::fseek(stream, 0, SEEK_END);
+	const auto file_size = static_cast<std::size_t>(std::ftell(stream));
+
+	std::fseek(stream, 0, SEEK_SET);
+	auto* buffer = new std::byte[file_size];
+	const auto readed = std::fread(buffer, sizeof buffer[0], file_size, stream);
+
+#ifdef _MSC_VER
+	fclose(stream);
+#else
+	std::fclose(stream);
+#endif
+
+	if (readed) {
+		auto* studio_hdr = reinterpret_cast<StudioHdr*>(buffer);
+		const auto studio_hdr_uint = reinterpret_cast<std::uintptr_t>(studio_hdr);
+		auto* studio_seq_desc = reinterpret_cast<StudioSeqDesc*>(studio_hdr_uint + studio_hdr->seq_index); //-V104
+		const auto num_seq = static_cast<std::size_t>(studio_hdr->num_seq); //-V201
+
+		for (std::size_t seq = 0; seq < num_seq; ++seq) {
+			const auto num_events = static_cast<std::size_t>(studio_seq_desc[seq].num_events); //-V201
+			auto* studio_event = reinterpret_cast<StudioEvent*>(studio_hdr_uint + studio_seq_desc[seq].event_index); //-V104
+
+			for (std::size_t event = 0; event < num_events; ++event) {
+				if (studio_event[event].event == 5004 && studio_event[event].options[0]) {
+					g_engine_funcs.precache_sound(studio_event[event].options);
+				}
+			}
+		}
+	}
+
+	delete[] buffer;
 }

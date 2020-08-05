@@ -13,6 +13,9 @@
 #include <cssdk/dll/game_rules.h>
 #include <cssdk/dll/gib.h>
 
+//-V::122
+//-V:RegamedllFuncs:730
+
 /// <summary>
 /// </summary>
 constexpr auto REGAMEDLL_API_VERSION_MAJOR = 5;
@@ -936,15 +939,15 @@ public:
 struct RegamedllFuncs {
 	/// <summary>
 	/// </summary>
-	Edict* (*create_named_entity2)(Strind class_name){};
+	Edict* (*create_named_entity2)(Strind class_name){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*change_string)(char*& dest, const char* source){};
+	void (*change_string)(char*& dest, const char* source){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*radius_damage)(Vector src, EntityVars* inflictor, EntityVars* attacker, float damage, float radius, int class_ignore, int damage_type){};
+	void (*radius_damage)(Vector src, EntityVars* inflictor, EntityVars* attacker, float damage, float radius, int class_ignore, int damage_type){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -952,23 +955,23 @@ struct RegamedllFuncs {
 
 	/// <summary>
 	/// </summary>
-	void (*apply_multi_damage)(EntityVars* inflictor, EntityVars* attacker){};
+	void (*apply_multi_damage)(EntityVars* inflictor, EntityVars* attacker){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*add_multi_damage)(EntityVars* inflictor, EntityBase* entity, float damage, int damage_type){};
+	void (*add_multi_damage)(EntityVars* inflictor, EntityBase* entity, float damage, int damage_type){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	EntityBase* (*find_entity_by_string)(EntityBase* start_entity, const char* keyword, const char* value){};
+	EntityBase* (*find_entity_by_string)(EntityBase* start_entity, const char* keyword, const char* value){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*add_entity_hash_value)(EntityVars* ent_vars, const char* value, HashType field_type){};
+	void (*add_entity_hash_value)(EntityVars* ent_vars, const char* value, HashType field_type){}; //-V591
 
 	/// <summary>
 	/// </summary>
-	void (*remove_entity_hash_value)(EntityVars* ent_vars, const char* value, HashType field_type){};
+	void (*remove_entity_hash_value)(EntityVars* ent_vars, const char* value, HashType field_type){}; //-V591
 
 	/// <summary>
 	/// </summary>
@@ -976,7 +979,7 @@ struct RegamedllFuncs {
 
 	/// <summary>
 	/// </summary>
-	const char* (*cmd_argv)(int i){};
+	const char* (*cmd_argv)(int i){}; //-V591
 };
 
 /// <summary>

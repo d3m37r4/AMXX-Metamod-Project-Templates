@@ -35,7 +35,7 @@ enum class AuthIdType {
 /// <summary>
 /// Struct UserId
 /// </summary>
-struct UserId {
+struct UserId { //-V802
 	/// <summary>
 	/// </summary>
 	AuthIdType id_type{};
