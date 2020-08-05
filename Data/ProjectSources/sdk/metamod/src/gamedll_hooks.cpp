@@ -9,25 +9,7 @@
 #include <metamod/gamedll_hooks.h>
 #include <metamod/engine.h>
 
-/// <summary>
-/// <para>GameDLL hooks table.</para>
-/// </summary>
-DllFuncPointers* GameDllHooks::dll_hooks_{};
-
-/// <summary>
-/// <para>GameDLL post hooks table.</para>
-/// </summary>
-DllFuncPointers* GameDllHooks::dll_post_hooks_{};
-
-/// <summary>
-/// <para>New GameDLL hooks table.</para>
-/// </summary>
-DllNewFuncPointers* GameDllNewHooks::dll_new_hooks_{};
-
-/// <summary>
-/// <para>New GameDLL post hooks table.</para>
-/// </summary>
-DllNewFuncPointers* GameDllNewHooks::dll_new_post_hooks_{};
+//-V::601
 
 /// <summary>
 /// <para>Exports the GameDLL hooks.</para>

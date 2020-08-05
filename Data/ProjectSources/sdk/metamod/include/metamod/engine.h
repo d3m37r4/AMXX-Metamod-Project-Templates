@@ -9,7 +9,7 @@
 #pragma once
 
 #include <cssdk/engine/eiface.h>
-#include <metamod/os_dep.h>
+#include <cssdk/public/os_defs.h>
 #include <utility>
 
 /// <summary>
@@ -20,13 +20,13 @@ extern "C" void DLLEXPORT WINAPI GiveFnptrsToDll(const EngineFuncPointers*, Glob
 /// <summary>
 /// Class Engine.
 /// </summary>
-class Engine {
+class Engine { //-V553
 	friend void WINAPI GiveFnptrsToDll(const EngineFuncPointers*, GlobalVars*);
 
 	/// <summary>
 	/// <para>Engine functions table.</para>
 	/// </summary>
-	static const EngineFuncPointers* engine_funcs_;
+	static inline const EngineFuncPointers* engine_funcs_{};
 
 public:
 	/// <summary>
@@ -1086,6 +1086,34 @@ public:
 	static void write_coord(const float value)
 	{
 		engine_funcs_->write_coord(value);
+	}
+
+	/// <summary>
+	/// <para>Writes a coordinates (x, y, z).<br/></para>
+	/// </summary>
+	///
+	/// <remarks>
+	///		If no message had been started, triggers a sys error.<br/>
+	/// </remarks>
+	static void write_coord(const Vector& value)
+	{
+		engine_funcs_->write_coord(value.x);
+		engine_funcs_->write_coord(value.y);
+		engine_funcs_->write_coord(value.z);
+	}
+
+	/// <summary>
+	/// <para>Writes a coordinates (x, y, z).<br/></para>
+	/// </summary>
+	///
+	/// <remarks>
+	///		If no message had been started, triggers a sys error.<br/>
+	/// </remarks>
+	static void write_coord(const vec_t* const value)
+	{
+		engine_funcs_->write_coord(value[0]);
+		engine_funcs_->write_coord(value[1]);
+		engine_funcs_->write_coord(value[2]);
 	}
 
 	/// <summary>

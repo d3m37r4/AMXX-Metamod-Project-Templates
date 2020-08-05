@@ -9,7 +9,7 @@
 #pragma once
 
 #include <cssdk/engine/eiface.h>
-#include <metamod/os_dep.h>
+#include <cssdk/public/os_defs.h>
 #include <cstring>
 #include <type_traits>
 
@@ -38,12 +38,12 @@ class EngineHooks {
 	/// <summary>
 	/// <para>Engine hooks table.</para>
 	/// </summary>
-	static EngineFuncPointers* engine_hooks_;
+	static inline EngineFuncPointers* engine_hooks_{};
 
 	/// <summary>
 	/// <para>Engine post hooks table.</para>
 	/// </summary>
-	static EngineFuncPointers* engine_post_hooks_;
+	static inline EngineFuncPointers* engine_post_hooks_{};
 
 public:
 	/// <summary>

@@ -7,17 +7,17 @@
 // ***********************************************************************
 
 #include <cssdk/engine/eiface.h>
+#include <cssdk/public/os_defs.h>
 #include <metamod/engine.h>
-#include <metamod/os_dep.h>
 #include <cstring>
 
 /// <summary>
 /// </summary>
-EngineFuncPointers g_engine_funcs;
+GlobalVars* g_global_vars{};
 
 /// <summary>
 /// </summary>
-GlobalVars* g_global_vars = nullptr;
+EngineFuncPointers g_engine_funcs{};
 
 /// <summary>
 /// <para>Receive engine function table from engine.<br/>

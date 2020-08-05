@@ -9,10 +9,12 @@
 #pragma once
 
 #include <cssdk/engine/eiface.h>
-#include <metamod/os_dep.h>
+#include <cssdk/public/os_defs.h>
 #include <metamod/plugin_info.h>
 #include <cstdarg>
 #include <utility>
+
+//-V:MetaUtilFuncPointers:730
 
 /// <summary>
 /// Enum MetamodStatus
@@ -58,25 +60,25 @@ enum class MetaGameInfo {
 /// <para>Meta utility function table type.</para>
 /// </summary>
 struct MetaUtilFuncPointers {
-	void (*log_console)(MetaPluginInfo* plugin, const char* format, ...){};
-	void (*log_message)(MetaPluginInfo* plugin, const char* format, ...){};
-	void (*log_error)(MetaPluginInfo* plugin, const char* format, ...){};
-	void (*log_developer)(MetaPluginInfo* plugin, const char* format, ...){};
-	void (*center_say)(MetaPluginInfo* plugin, const char* format, ...){};
-	void (*center_say_params)(MetaPluginInfo* plugin, HudTextParams hud_params, const char* format, ...){};
-	void (*center_say_varargs)(MetaPluginInfo* plugin, HudTextParams hud_params, const char* format, std::va_list args){};
-	qboolean (*call_game_entity)(MetaPluginInfo* plugin, const char* game_entity, EntityVars* entity_vars){};
-	int (*get_user_msg_id)(MetaPluginInfo* plugin, const char* msg_name, int* size){};
-	const char* (*get_user_msg_name)(MetaPluginInfo* plugin, int msg_id, int* size){};
-	const char* (*get_plugin_path)(MetaPluginInfo* plugin){};
-	const char* (*get_game_info)(MetaPluginInfo* plugin, MetaGameInfo tag){};
-	int (*load_plugin)(MetaPluginInfo* plugin, const char* cmdline, MetaPluginLoadTime now, void** plugin_handle){};
-	int (*unload_plugin)(MetaPluginInfo* plugin, const char* cmdline, MetaPluginLoadTime now, MetaPluginUnloadReason reason){};
-	int (*unload_plugin_by_handle)(MetaPluginInfo* plugin, void* plugin_handle, MetaPluginLoadTime now, MetaPluginUnloadReason reason){};
-	const char* (*is_querying_client_cvar)(MetaPluginInfo* plugin, const Edict* edict){};
+	void (*log_console)(MetaPluginInfo* plugin, const char* format, ...){}; //-V591
+	void (*log_message)(MetaPluginInfo* plugin, const char* format, ...){}; //-V591
+	void (*log_error)(MetaPluginInfo* plugin, const char* format, ...){}; //-V591
+	void (*log_developer)(MetaPluginInfo* plugin, const char* format, ...){}; //-V591
+	void (*center_say)(MetaPluginInfo* plugin, const char* format, ...){}; //-V591
+	void (*center_say_params)(MetaPluginInfo* plugin, HudTextParams hud_params, const char* format, ...){}; //-V591
+	void (*center_say_varargs)(MetaPluginInfo* plugin, HudTextParams hud_params, const char* format, std::va_list args){}; //-V591
+	qboolean (*call_game_entity)(MetaPluginInfo* plugin, const char* game_entity, EntityVars* entity_vars){}; //-V591
+	int (*get_user_msg_id)(MetaPluginInfo* plugin, const char* msg_name, int* size){}; //-V591
+	const char* (*get_user_msg_name)(MetaPluginInfo* plugin, int msg_id, int* size){}; //-V591
+	const char* (*get_plugin_path)(MetaPluginInfo* plugin){}; //-V591
+	const char* (*get_game_info)(MetaPluginInfo* plugin, MetaGameInfo tag){}; //-V591
+	int (*load_plugin)(MetaPluginInfo* plugin, const char* cmdline, MetaPluginLoadTime now, void** plugin_handle){}; //-V591
+	int (*unload_plugin)(MetaPluginInfo* plugin, const char* cmdline, MetaPluginLoadTime now, MetaPluginUnloadReason reason){}; //-V591
+	int (*unload_plugin_by_handle)(MetaPluginInfo* plugin, void* plugin_handle, MetaPluginLoadTime now, MetaPluginUnloadReason reason){}; //-V591
+	const char* (*is_querying_client_cvar)(MetaPluginInfo* plugin, const Edict* edict){}; //-V591
 	int (*make_request_id)(MetaPluginInfo* plugin){};
 	void (*get_hook_tables)(MetaPluginInfo* plugin, EngineFuncPointers** engine_funcs, DllFuncPointers** dll_funcs,
-	                        DllNewFuncPointers** new_dll_funcs){};
+	                        DllNewFuncPointers** new_dll_funcs){}; //-V591
 };
 
 /// <summary>
@@ -93,12 +95,12 @@ class MetaUtils {
 	/// <summary>
 	/// <para>Plugin ID.</para>
 	/// </summary>
-	static MetaPluginInfo* plugin_info_;
+	static inline MetaPluginInfo* plugin_info_{};
 
 	/// <summary>
 	/// <para>Metamod utility functions.</para>
 	/// </summary>
-	static const MetaUtilFuncPointers* util_funcs_;
+	static inline const MetaUtilFuncPointers* util_funcs_{};
 
 public:
 	/// <summary>

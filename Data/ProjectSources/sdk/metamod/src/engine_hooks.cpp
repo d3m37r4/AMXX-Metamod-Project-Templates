@@ -9,15 +9,7 @@
 #include <metamod/engine_hooks.h>
 #include <metamod/engine.h>
 
-/// <summary>
-/// <para>Engine hooks table.</para>
-/// </summary>
-EngineFuncPointers* EngineHooks::engine_hooks_{};
-
-/// <summary>
-/// <para>Engine post hooks table.</para>
-/// </summary>
-EngineFuncPointers* EngineHooks::engine_post_hooks_{};
+//-V::601
 
 /// <summary>
 /// <para>Exports the engine hooks.</para>

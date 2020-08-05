@@ -9,7 +9,7 @@
 #pragma once
 
 #include <cssdk/engine/eiface.h>
-#include <metamod/os_dep.h>
+#include <cssdk/public/os_defs.h>
 #include <cstring>
 #include <type_traits>
 
@@ -48,12 +48,12 @@ class GameDllHooks {
 	/// <summary>
 	/// <para>DLL hooks table.</para>
 	/// </summary>
-	static DllFuncPointers* dll_hooks_;
+	static inline DllFuncPointers* dll_hooks_{};
 
 	/// <summary>
 	/// <para>DLL post hooks table.</para>
 	/// </summary>
-	static DllFuncPointers* dll_post_hooks_;
+	static inline DllFuncPointers* dll_post_hooks_{};
 
 public:
 	/// <summary>
@@ -404,7 +404,7 @@ public:
 	/// <para>Called by the engine to determine whether the given entity should be added to the given client's list of visible entities.</para>
 	/// </summary>
 	static void add_to_full_pack(
-		const std::add_pointer_t<int(EntityState* state, int entity_index, Edict* entity, Edict* host, int host_flags, qboolean player, unsigned char* set)> callback,
+		const std::add_pointer_t<qboolean(EntityState* state, int entity_index, Edict* entity, Edict* host, int host_flags, qboolean player, unsigned char* set)> callback,
 		const bool post = false)
 	{
 		set_hook(&DllFuncPointers::add_to_full_pack, callback, post);
@@ -526,12 +526,12 @@ class GameDllNewHooks {
 	/// <summary>
 	/// <para>New DLL hooks table.</para>
 	/// </summary>
-	static DllNewFuncPointers* dll_new_hooks_;
+	static inline DllNewFuncPointers* dll_new_hooks_{};
 
 	/// <summary>
 	/// <para>New DLL post hooks table.</para>
 	/// </summary>
-	static DllNewFuncPointers* dll_new_post_hooks_;
+	static inline DllNewFuncPointers* dll_new_post_hooks_{};
 
 public:
 	/// <summary>

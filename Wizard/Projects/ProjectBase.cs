@@ -223,6 +223,7 @@ namespace Wizard.Projects
         protected virtual void AddMetamodSdk()
         {
             const string config = @"include\metamod\metamod_config.h";
+            const string metamod = @"include\metamod\metamod.h";
             var sdkDir = Path.Combine(UserPrefs.DestinationDirectory, ProjectSources.MetamodSdk);
             ProjectSources.CopyDirectory(ProjectSources.MetamodSdk, sdkDir);
 
@@ -236,12 +237,16 @@ namespace Wizard.Projects
                     if (file.EndsWith(config, StringComparison.OrdinalIgnoreCase))
                         continue;
 
+                    if (file.EndsWith(metamod, StringComparison.OrdinalIgnoreCase))
+                        continue;
+
                     filter.AddFile(file);
                 }
             }
 
             ReplaceParameters(Path.Combine(sdkDir, config));
             AddFilter(UserPrefs.PluginProjectDirName).AddFile(Path.Combine(sdkDir, config));
+            AddFilter(@"sdk\metamod").AddFile(Path.Combine(sdkDir, metamod));
         }
 
         /// <summary>
