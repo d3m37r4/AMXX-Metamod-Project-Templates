@@ -9,14 +9,16 @@
 #include <amxx/string.h>
 #include <cstring>
 
+//-V::112
+
 namespace amx
 {
 	/// <summary>
 	/// </summary>
-	static char* init(const cell* const address, const ucell max_length)
+	static char* init(const cell* const address, const std::size_t max_length)
 	{
 		auto* const string = new char[max_length + 1];
-		ucell i = 0;
+		std::size_t i = 0;
 
 		for (; i < max_length && address[i]; ++i) {
 			string[i] = static_cast<char>(address[i]);
@@ -29,10 +31,10 @@ namespace amx
 
 	/// <summary>
 	/// </summary>
-	static int check_valid_char(const char* c) // Stolen from AMXX Mod X
+	static std::size_t check_valid_char(const char* c) // Stolen from AMXX Mod X
 	{
-		auto count = 1;
-		auto byte_count = 0;
+		std::size_t count = 1;
+		std::size_t byte_count = 0;
 
 		for (; (*c & 0xC0) == 0x80; count++) {
 			c--;
@@ -66,7 +68,7 @@ namespace amx
 
 	/// <summary>
 	/// </summary>
-	String::String(cell* address, const ucell max_length)
+	String::String(cell* address, const std::size_t max_length)
 		: address_(address), max_length_(max_length), c_str_(nullptr)
 	{
 		c_str_ = init(address_, max_length_);
@@ -74,7 +76,7 @@ namespace amx
 
 	/// <summary>
 	/// </summary>
-	String::String(const Amx* amx, const ucell address, const ucell max_length)
+	String::String(const Amx* amx, const ucell address, const std::size_t max_length)
 		: address_(amx_address(amx, address)), max_length_(max_length), c_str_(nullptr)
 	{
 		c_str_ = init(address_, max_length_);
@@ -117,14 +119,14 @@ namespace amx
 
 	/// <summary>
 	/// </summary>
-	ucell String::length() const
+	std::size_t String::length() const
 	{
 		return c_str_ ? std::strlen(c_str_) : 0;
 	}
 
 	/// <summary>
 	/// </summary>
-	char String::operator[](const ucell index) const
+	char String::operator[](const std::size_t index) const
 	{
 		return c_str_ ? c_str_[index] : '\0';
 	}
@@ -170,8 +172,8 @@ namespace amx
 	String& String::operator=(const char* rhs)
 	{
 		if (c_str_ && rhs) {
-			ucell i = 0;
 			auto c = *rhs;
+			std::size_t i = 0;
 
 			while (i < max_length_ && c) {
 				address_[i] = static_cast<unsigned char>(c_str_[i] = c);

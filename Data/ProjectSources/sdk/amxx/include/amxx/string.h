@@ -9,6 +9,7 @@
 #pragma once
 
 #include <amxx/amx.h>
+#include <cstddef>
 
 namespace amx
 {
@@ -23,11 +24,11 @@ namespace amx
 
 		/// <summary>
 		/// </summary>
-		String(cell* address, ucell max_length);
+		String(cell* address, std::size_t max_length);
 
 		/// <summary>
 		/// </summary>
-		String(const Amx* amx, ucell address, ucell max_length);
+		String(const Amx* amx, ucell address, std::size_t max_length);
 
 		/// <summary>
 		/// </summary>
@@ -47,11 +48,11 @@ namespace amx
 
 		/// <summary>
 		/// </summary>
-		[[nodiscard]] ucell length() const;
+		[[nodiscard]] std::size_t length() const;
 
 		/// <summary>
 		/// </summary>
-		[[nodiscard]] ucell max_length() const;
+		[[nodiscard]] std::size_t max_length() const;
 
 		/// <summary>
 		/// </summary>
@@ -59,7 +60,7 @@ namespace amx
 
 		/// <summary>
 		/// </summary>
-		char operator[](ucell index) const;
+		char operator[](std::size_t index) const;
 
 		/// <summary>
 		/// </summary>
@@ -96,7 +97,7 @@ namespace amx
 
 		/// <summary>
 		/// </summary>
-		ucell max_length_;
+		std::size_t max_length_;
 
 		/// <summary>
 		/// </summary>
@@ -112,7 +113,7 @@ namespace amx
 
 	/// <summary>
 	/// </summary>
-	inline ucell String::max_length() const
+	inline std::size_t String::max_length() const
 	{
 		return max_length_;
 	}

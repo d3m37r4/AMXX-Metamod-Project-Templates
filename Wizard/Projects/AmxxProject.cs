@@ -48,6 +48,7 @@ namespace Wizard.Projects
         /// </summary>
         private void AddAmxxSdk()
         {
+            const string amxx = @"include\amxx\amxx.h";
             const string config = @"include\amxx\amxx_config.h";
             var sdkDir = Path.Combine(UserPrefs.DestinationDirectory, ProjectSources.AmxxSdk);
             ProjectSources.CopyDirectory(ProjectSources.AmxxSdk, sdkDir);
@@ -59,6 +60,9 @@ namespace Wizard.Projects
 
                 foreach (var file in Directory.GetFiles(directory, @"*", SearchOption.TopDirectoryOnly))
                 {
+                    if (file.EndsWith(amxx, StringComparison.OrdinalIgnoreCase))
+                        continue;
+
                     if (file.EndsWith(config, StringComparison.OrdinalIgnoreCase))
                         continue;
 
@@ -68,6 +72,7 @@ namespace Wizard.Projects
 
             ReplaceParameters(Path.Combine(sdkDir, config));
             AddFilter(UserPrefs.PluginProjectDirName).AddFile(Path.Combine(sdkDir, config));
+            AddFilter(@"sdk\amxx").AddFile(Path.Combine(sdkDir, amxx));
 
             SetupConfig();
         }

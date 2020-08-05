@@ -10,7 +10,6 @@
 
 #include <amxx/amx.h>
 #include <amxx/amxx_config.h>
-#include <cstddef>
 #include <type_traits>
 #include <utility>
 
@@ -20,7 +19,7 @@
 
 #ifdef USE_METAMOD
 #include <cssdk/engine/edict.h>
-#include <metamod/os_dep.h>
+#include <cssdk/public/os_defs.h>
 #else
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN
@@ -57,6 +56,9 @@
 #define FORCEINLINE_STATIC __attribute__((always_inline)) static inline  // NOLINT(cppcoreguidelines-macro-usage)
 #endif
 #endif
+
+//-V::122
+//-V:AmxxApiFuncPointers:730
 
 /// <summary>
 /// <para>AMXX interface version.<br/><br/>
@@ -353,32 +355,32 @@ struct AmxxModuleInfo {
 struct AmxxApiFuncPointers {
 	int (*add_natives)(const AmxNativeInfo* list){};
 	int (*add_new_natives)(const AmxNativeInfo* list){};
-	char* (*build_path_name)(const char* format, ...){};
-	char* (*build_path_name_r)(char* buffer, std::size_t max_len, const char* format, ...){};
+	char* (*build_path_name)(const char* format, ...){}; //-V591
+	char* (*build_path_name_r)(char* buffer, std::size_t max_len, const char* format, ...){}; //-V591
 	//cell* (*get_amx_address)(Amx* amx, cell offset){};
-	void (*print_srv_console)(const char* format, ...){};
-	const char* (*get_mod_name)(){};
-	const char* (*get_amx_script_name)(int id){};
-	Amx* (*get_amx_script)(int id){};
+	void (*print_srv_console)(const char* format, ...){}; //-V591
+	const char* (*get_mod_name)(){}; //-V591
+	const char* (*get_amx_script_name)(int id){}; //-V591
+	Amx* (*get_amx_script)(int id){}; //-V591
 	int (*find_amx_script_by_amx)(const Amx* amx){};
 	int (*find_amx_script_by_name)(const char* name){};
-	int (*set_amx_string)(Amx* amx, cell amx_address, const char* source, int max){};
-	char* (*get_amx_string)(Amx* amx, cell amx_address, int buffer_id, int* len){};
+	int (*set_amx_string)(Amx* amx, cell amx_address, const char* source, int max){}; //-V591
+	char* (*get_amx_string)(Amx* amx, cell amx_address, int buffer_id, int* len){}; //-V591
 	int (*get_amx_string_len)(const cell* ptr){};
-	char* (*format_amx_string)(Amx* amx, cell* params, int start_param, int* len){};
-	void (*copy_amx_memory)(cell* dest, const cell* src, int len){};
-	void (*log)(const char* format, ...){};
-	void (*log_error)(Amx* amx, AmxError error, const char* format, ...){};
-	int (*raise_amx_error)(Amx* amx, AmxError error){};
-	int (*register_forward)(const char* func_name, ForwardExecType exec_type, ...){};
-	int (*execute_forward)(int id, ...){};
-	cell (*prepare_cell_array)(cell* ptr, unsigned int size){};
-	cell (*prepare_char_array)(char* ptr, unsigned int size){};
-	cell (*prepare_cell_array_a)(cell* ptr, unsigned int size, bool copy_back){};
-	cell (*prepare_char_array_a)(char* ptr, unsigned int size, bool copy_back){};
+	char* (*format_amx_string)(Amx* amx, cell* params, int start_param, int* len){}; //-V591
+	void (*copy_amx_memory)(cell* dest, const cell* src, int len){}; //-V591
+	void (*log)(const char* format, ...){}; //-V591
+	void (*log_error)(Amx* amx, AmxError error, const char* format, ...){}; //-V591
+	int (*raise_amx_error)(Amx* amx, AmxError error){}; //-V591
+	int (*register_forward)(const char* func_name, ForwardExecType exec_type, ...){}; //-V591
+	int (*execute_forward)(int id, ...){}; //-V591
+	cell (*prepare_cell_array)(cell* ptr, unsigned int size){}; //-V591
+	cell (*prepare_char_array)(char* ptr, unsigned int size){}; //-V591
+	cell (*prepare_cell_array_a)(cell* ptr, unsigned int size, bool copy_back){}; //-V591
+	cell (*prepare_char_array_a)(char* ptr, unsigned int size, bool copy_back){}; //-V591
 	int (*is_player_valid)(int id){};
-	const char* (*get_player_name)(int id){};
-	const char* (*get_player_ip)(int id){};
+	const char* (*get_player_name)(int id){}; //-V591
+	const char* (*get_player_ip)(int id){}; //-V591
 	int (*is_player_in_game)(int id){};
 	int (*is_player_bot)(int id){};
 	int (*is_player_authorized)(int id){};
@@ -386,7 +388,7 @@ struct AmxxApiFuncPointers {
 	float (*get_player_play_time)(int id){};
 	int (*get_player_flags)(int id){};
 	int (*get_player_cur_weapon)(int id){};
-	const char* (*get_player_team)(int id){};
+	const char* (*get_player_team)(int id){}; //-V591
 	int (*get_player_team_id)(int id){};
 	int (*get_player_deaths)(int id){};
 	int (*get_player_menu)(int id){};
@@ -398,46 +400,46 @@ struct AmxxApiFuncPointers {
 	int (*get_player_armor)(int id){};
 	int (*get_player_health)(int id){};
 #ifdef USE_METAMOD
-	Edict* (*get_player_edict)(int id){};
+	Edict* (*get_player_edict)(int id){}; //-V591
 #else
-	void* (*get_player_edict)(int id){};
+	void* (*get_player_edict)(int id){}; //-V591
 #endif
-	void* (*player_prop_address)(int id, PlayerProp prop){};
-	int (*amx_exec)(Amx* amx, cell* return_val, int index){};
-	int (*amx_exec_v)(Amx* amx, cell* return_val, int index, int num_params, cell params[]){};
-	int (*amx_allot)(Amx* amx, int length, cell* amx_address, cell** phys_address){};
-	int (*amx_find_public)(Amx* amx, const char* func_name, int* index){};
-	int (*amx_find_native)(Amx* amx, const char* func_name, int* index){};
-	int (*load_amx_script)(Amx* amx, void** code, const char* path, char error_info[64], int debug){};
-	int (*unload_amx_script)(Amx* amx, void** code){};
+	void* (*player_prop_address)(int id, PlayerProp prop){}; //-V591
+	int (*amx_exec)(Amx* amx, cell* return_val, int index){}; //-V591
+	int (*amx_exec_v)(Amx* amx, cell* return_val, int index, int num_params, cell params[]){}; //-V591
+	int (*amx_allot)(Amx* amx, int length, cell* amx_address, cell** phys_address){}; //-V591
+	int (*amx_find_public)(Amx* amx, const char* func_name, int* index){}; //-V591
+	int (*amx_find_native)(Amx* amx, const char* func_name, int* index){}; //-V591
+	int (*load_amx_script)(Amx* amx, void** code, const char* path, char error_info[64], int debug){}; //-V591
+	int (*unload_amx_script)(Amx* amx, void** code){}; //-V591
 	//cell (*real_to_cell)(real value){};
 	//real (*cell_to_real)(cell value){};
-	int (*register_sp_forward)(Amx* amx, int func, ...){};
-	int (*register_sp_forward_by_name)(Amx* amx, const char* func_name, ...){};
+	int (*register_sp_forward)(Amx* amx, int func, ...){}; //-V591
+	int (*register_sp_forward_by_name)(Amx* amx, const char* func_name, ...){}; //-V591
 	void (*unregister_sp_forward)(int id){};
 	void (*merge_definition_file)(const char* file_name){};
-	const char* (*format)(const char* format, ...){};
-	void (*register_function)(void* pfn, const char* desc){};
-	int (*amx_push)(Amx* amx, cell value){};
-	int (*set_player_team_info)(int player, int team_id, const char* name){};
-	void (*reg_auth_func)(std::add_pointer_t<void(int player, const char* auth_string)> authorize_func){};
-	void (*unregister_auth_func)(std::add_pointer_t<void(int player, const char* auth_string)> authorize_func){};
-	int (*find_library)(const char* name, LibType type){};
-	std::size_t (*add_libraries)(const char* name, LibType type, void* parent){};
+	const char* (*format)(const char* format, ...){}; //-V591
+	void (*register_function)(void* pfn, const char* desc){}; //-V591
+	int (*amx_push)(Amx* amx, cell value){}; //-V591
+	int (*set_player_team_info)(int player, int team_id, const char* name){}; //-V591
+	void (*register_auth_func)(std::add_pointer_t<void(int player, const char* auth_string)> authorize_func){}; //-V591
+	void (*unregister_auth_func)(std::add_pointer_t<void(int player, const char* auth_string)> authorize_func){}; //-V591
+	int (*find_library)(const char* name, LibType type){}; //-V591
+	std::size_t (*add_libraries)(const char* name, LibType type, void* parent){}; //-V591
 	std::size_t (*remove_libraries)(void* parent){};
-	void (*override_natives)(AmxNativeInfo* natives, const char* my_name){};
-	const char* (*get_local_info)(const char* name, const char* def){};
-	int (*amx_re_register)(Amx* amx, AmxNativeInfo* list, int number){};
-	void* (*register_function_ex)(void* pfn, const char* desc){};
-	void (*message_block)(int mode, int message, int* opt){};
+	void (*override_natives)(AmxNativeInfo* natives, const char* my_name){}; //-V591
+	const char* (*get_local_info)(const char* name, const char* def){}; //-V591
+	int (*amx_re_register)(Amx* amx, AmxNativeInfo* list, int number){}; //-V591
+	void* (*register_function_ex)(void* pfn, const char* desc){}; //-V591
+	void (*message_block)(int mode, int message, int* opt){}; //-V591
 
 #ifndef AMXX_182_COMPATIBILITY
-	char* (*get_amx_string_null)(Amx* amx, cell amx_address, int buffer_id, int* len){};
-	cell* (*get_amx_vector_null)(Amx* amx, cell offset){};
-	GameConfigManager* (*get_config_manager)(){};
-	int (*load_amx_script_ex)(Amx* amx, void** code, const char* path, char* error_info, std::size_t max_length, int debug){};
-	int (*set_amx_string_utf8_cell)(Amx* amx, cell amx_address, const cell* source, std::size_t source_len, std::size_t max_len){};
-	int (*set_amx_string_utf8_char)(Amx* amx, cell amx_address, const char* source, std::size_t source_len, std::size_t max_len){};
+	char* (*get_amx_string_null)(Amx* amx, cell amx_address, int buffer_id, int* len){}; //-V591
+	cell* (*get_amx_vector_null)(Amx* amx, cell offset){}; //-V591
+	GameConfigManager* (*get_config_manager)(){}; //-V591
+	int (*load_amx_script_ex)(Amx* amx, void** code, const char* path, char* error_info, std::size_t max_length, int debug){}; //-V591
+	int (*set_amx_string_utf8_cell)(Amx* amx, cell amx_address, const cell* source, std::size_t source_len, std::size_t max_len){}; //-V591
+	int (*set_amx_string_utf8_char)(Amx* amx, cell amx_address, const char* source, std::size_t source_len, std::size_t max_len){}; //-V591
 #endif
 };
 
@@ -947,9 +949,9 @@ public:
 
 	/// <summary>
 	/// </summary>
-	static void reg_auth_func(const std::add_pointer_t<void(int player, const char* auth_string)> authorize_func)
+	static void register_auth_func(const std::add_pointer_t<void(int player, const char* auth_string)> authorize_func)
 	{
-		amxx_api_funcs_.reg_auth_func(authorize_func);
+		amxx_api_funcs_.register_auth_func(authorize_func);
 	}
 
 	/// <summary>
