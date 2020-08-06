@@ -48,15 +48,17 @@ target_compile_options(${PROJECT_NAME} PRIVATE
 )
 
 # Enable GCC analyzer
-get_property(languages GLOBAL PROPERTY ENABLED_LANGUAGES)
+if(NOT OPT_RUN_CLANG_TIDY)
+    get_property(languages GLOBAL PROPERTY ENABLED_LANGUAGES)
 
-if("C" IN_LIST languages)
-    if(NOT ${CMAKE_C_COMPILER_VERSION} VERSION_LESS "10.0.0")
-        target_compile_options(${PROJECT_NAME} PRIVATE -fanalyzer)
-    endif()
-elseif("CXX" IN_LIST languages)
-    if(NOT ${CMAKE_CXX_COMPILER_ID} VERSION_LESS "10.0.0")
-        target_compile_options(${PROJECT_NAME} PRIVATE -fanalyzer)
+    if("C" IN_LIST languages)
+        if(NOT ${CMAKE_C_COMPILER_VERSION} VERSION_LESS "10.0.0")
+            target_compile_options(${PROJECT_NAME} PRIVATE -fanalyzer)
+        endif()
+    elseif("CXX" IN_LIST languages)
+        if(NOT ${CMAKE_CXX_COMPILER_ID} VERSION_LESS "10.0.0")
+            target_compile_options(${PROJECT_NAME} PRIVATE -fanalyzer)
+        endif()
     endif()
 endif()
 
